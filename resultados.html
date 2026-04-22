@@ -99,23 +99,30 @@
       background: var(--orange); flex-shrink: 0;
     }
 
-    /* TESTIMONIALS */
+    /* TESTIMONIALS — masonry columns for variable heights */
     .dep-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      columns: 3 280px;
+      column-gap: 20px;
     }
     .dep-card {
+      break-inside: avoid;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 20px;
       background: var(--navy-card); border: 1px solid var(--navy-border);
       border-radius: 14px; overflow: hidden;
       transition: border-color .2s, transform .2s;
     }
     .dep-card:hover { border-color: rgba(30,79,160,0.5); transform: translateY(-3px); }
-    .dep-card img { width: 100%; }
-    .dep-card .dep-author {
-      padding: 14px 16px; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase; color: var(--orange-lt);
+    .dep-card img { width: 100%; height: auto; display: block; }
+    .dep-card .dep-dot {
+      padding: 10px 14px;
       border-top: 1px solid var(--navy-border);
+      display: flex; align-items: center;
+    }
+    .dep-card .dep-dot .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--orange); flex-shrink: 0;
     }
 
     /* DIVIDER */
@@ -184,15 +191,15 @@
     <h2>Transformação <span>real</span></h2>
   </div>
   <div class="evo-grid">
-    <div class="evo-card"><img src="resultados-imagens/mulher-01.jpg" alt="Aluna 01" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 01</div></div>
-    <div class="evo-card"><img src="resultados-imagens/mulher-02.jpg" alt="Aluna 02" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 02</div></div>
-    <div class="evo-card"><img src="resultados-imagens/mulher-03.jpg" alt="Aluna 03" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 03</div></div>
-    <div class="evo-card"><img src="resultados-imagens/mulher-04.jpg" alt="Aluna 04" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 04</div></div>
-    <div class="evo-card"><img src="resultados-imagens/mulher-05.jpg" alt="Aluna 05" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 05</div></div>
-    <div class="evo-card"><img src="resultados-imagens/mulher-06.jpg" alt="Aluna 06" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 06</div></div>
-    <div class="evo-card"><img src="resultados-imagens/mulher-07.jpg" alt="Aluna 07" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 07</div></div>
-    <div class="evo-card"><img src="resultados-imagens/mulher-08.jpg" alt="Aluna 08" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 08</div></div>
-    <div class="evo-card"><img src="resultados-imagens/mulher-09.jpg" alt="Aluna 09" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluna 09</div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-01.jpg" alt="Aluna 01" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-02.jpg" alt="Aluna 02" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-03.jpg" alt="Aluna 03" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-04.jpg" alt="Aluna 04" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-05.jpg" alt="Aluna 05" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-06.jpg" alt="Aluna 06" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-07.jpg" alt="Aluna 07" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-08.jpg" alt="Aluna 08" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/mulher-09.jpg" alt="Aluna 09" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
   </div>
 </div>
 
@@ -205,14 +212,14 @@
     <h2>Protocolo <span>individual</span></h2>
   </div>
   <div class="evo-grid">
-    <div class="evo-card"><img src="resultados-imagens/homem-01.jpg" alt="Aluno 01" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluno 01</div></div>
-    <div class="evo-card"><img src="resultados-imagens/homem-02.jpg" alt="Aluno 02" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluno 02</div></div>
-    <div class="evo-card"><img src="resultados-imagens/homem-03.jpg" alt="Aluno 03" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluno 03</div></div>
-    <div class="evo-card"><img src="resultados-imagens/homem-04.jpg" alt="Aluno 04" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluno 04</div></div>
-    <div class="evo-card"><img src="resultados-imagens/homem-05.jpg" alt="Aluno 05" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluno 05</div></div>
-    <div class="evo-card"><img src="resultados-imagens/homem-06.jpg" alt="Aluno 06" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluno 06</div></div>
-    <div class="evo-card"><img src="resultados-imagens/homem-07.jpg" alt="Aluno 07" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluno 07</div></div>
-    <div class="evo-card"><img src="resultados-imagens/homem-08.jpg" alt="Aluno 08" loading="lazy"/><div class="card-label"><span class="dot"></span>Aluno 08</div></div>
+    <div class="evo-card"><img src="resultados-imagens/homem-01.jpg" alt="Aluno 01" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/homem-02.jpg" alt="Aluno 02" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/homem-03.jpg" alt="Aluno 03" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/homem-04.jpg" alt="Aluno 04" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/homem-05.jpg" alt="Aluno 05" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/homem-06.jpg" alt="Aluno 06" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/homem-07.jpg" alt="Aluno 07" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
+    <div class="evo-card"><img src="resultados-imagens/homem-08.jpg" alt="Aluno 08" loading="lazy"/><div class="card-label"><span class="dot"></span></div></div>
   </div>
 </div>
 
@@ -225,14 +232,14 @@
     <h2>Depoimentos <span>reais</span></h2>
   </div>
   <div class="dep-grid">
-    <div class="dep-card"><img src="resultados-imagens/dep-darlany.jpg" alt="Depoimento Darlany" loading="lazy"/><div class="dep-author">Darlany</div></div>
-    <div class="dep-card"><img src="resultados-imagens/dep-darlany-2.jpg" alt="Depoimento Darlany 2" loading="lazy"/><div class="dep-author">Darlany</div></div>
-    <div class="dep-card"><img src="resultados-imagens/dep-dayane.jpg" alt="Depoimento Dayane" loading="lazy"/><div class="dep-author">Dayane</div></div>
-    <div class="dep-card"><img src="resultados-imagens/dep-lorena.jpg" alt="Depoimento Lorena" loading="lazy"/><div class="dep-author">Lorena</div></div>
-    <div class="dep-card"><img src="resultados-imagens/dep-maria-gabriela.jpg" alt="Depoimento Maria Gabriela" loading="lazy"/><div class="dep-author">Maria Gabriela Torres</div></div>
-    <div class="dep-card"><img src="resultados-imagens/dep-pamela.jpg" alt="Depoimento Pamela" loading="lazy"/><div class="dep-author">Pamela</div></div>
-    <div class="dep-card"><img src="resultados-imagens/dep-siu.jpg" alt="Depoimento Siu" loading="lazy"/><div class="dep-author">Siu</div></div>
-    <div class="dep-card"><img src="resultados-imagens/dep-viviane.jpg" alt="Depoimento Viviane" loading="lazy"/><div class="dep-author">Viviane</div></div>
+    <div class="dep-card"><img src="resultados-imagens/dep-darlany.jpg" alt="Depoimento" loading="lazy"/><div class="dep-dot"><span class="dot"></span></div></div>
+    <div class="dep-card"><img src="resultados-imagens/dep-darlany-2.jpg" alt="Depoimento" loading="lazy"/><div class="dep-dot"><span class="dot"></span></div></div>
+    <div class="dep-card"><img src="resultados-imagens/dep-dayane.jpg" alt="Depoimento" loading="lazy"/><div class="dep-dot"><span class="dot"></span></div></div>
+    <div class="dep-card"><img src="resultados-imagens/dep-lorena.jpg" alt="Depoimento" loading="lazy"/><div class="dep-dot"><span class="dot"></span></div></div>
+    <div class="dep-card"><img src="resultados-imagens/dep-maria-gabriela.jpg" alt="Depoimento" loading="lazy"/><div class="dep-dot"><span class="dot"></span></div></div>
+    <div class="dep-card"><img src="resultados-imagens/dep-pamela.jpg" alt="Depoimento" loading="lazy"/><div class="dep-dot"><span class="dot"></span></div></div>
+    <div class="dep-card"><img src="resultados-imagens/dep-siu.jpg" alt="Depoimento" loading="lazy"/><div class="dep-dot"><span class="dot"></span></div></div>
+    <div class="dep-card"><img src="resultados-imagens/dep-viviane.jpg" alt="Depoimento" loading="lazy"/><div class="dep-dot"><span class="dot"></span></div></div>
   </div>
 </div>
 
