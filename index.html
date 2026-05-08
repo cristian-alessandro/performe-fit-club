@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Performe Fit Club — Você não precisa de mais força de vontade. Precisa de método.</title>
+  <title>Performe Fit Club — Você não falhou. Foi o método.</title>
   <!-- META PIXEL — Performe Fit Club -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -25,34 +25,49 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      --navy:     #080F1E;
+      --navy-2:   #0D1A30;
+      --navy-3:   #1A2E4A;
       --orange:   #E85D00;
       --orange-h: #C54E00;
-      --black:    #1A1A1A;
-      --gray:     #555555;
-      --light:    #F4F4F4;
+      --orange-lt:#FF8A40;
       --white:    #FFFFFF;
-      --border:   #E0E0E0;
+      --offwhite: #F4F4F2;
+      --gray:     #555555;
+      --gray-lt:  #888888;
+      --border:   #E2E2E0;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--white);
-      color: var(--black);
+      color: var(--navy);
       font-family: 'Inter', sans-serif;
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── TIPOGRAFIA ── */
-    h1, h2, h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      line-height: 1.05;
-      text-transform: uppercase;
-    }
+    /* TIPOGRAFIA */
+    h1, h2, h3, h4 { font-family: 'Barlow Condensed', sans-serif; line-height: 1.05; }
 
-    /* ── CTA BOTÃO ── */
+    /* CONTAINER */
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .wrap-sm { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    /* LABEL */
+    .label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 14px;
+    }
+    .label-light { color: rgba(255,255,255,.5); }
+
+    /* BOTÃO CTA */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -61,863 +76,968 @@
       background: var(--orange);
       color: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.5px;
       text-decoration: none;
       padding: 18px 36px;
-      border-radius: 4px;
-      transition: background .2s, transform .15s;
-      white-space: nowrap;
+      border-radius: 3px;
+      transition: background .18s, transform .15s;
     }
     .btn:hover { background: var(--orange-h); transform: translateY(-2px); }
     .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-
-    .btn-lg {
-      font-size: 17px;
-      padding: 22px 48px;
-    }
-
-    .anchor {
+    .btn-xl { font-size: 16px; padding: 22px 48px; }
+    .anchor-text {
       display: block;
       font-size: 12px;
-      color: var(--gray);
+      color: rgba(255,255,255,.4);
       margin-top: 10px;
       text-align: center;
     }
-
-    /* ── SEÇÃO BASE ── */
-    section { width: 100%; }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
+    .anchor-dark {
+      color: var(--gray-lt);
     }
 
-    .section-label {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 12px;
+    /* DIVISOR */
+    .divider-orange {
+      width: 40px; height: 3px;
+      background: var(--orange);
+      border-radius: 2px;
+      margin: 20px 0;
     }
+    .divider-center { margin-left: auto; margin-right: auto; }
 
-    /* ═══════════════════════════════════════
-       SEÇÃO 1 — HERO
-    ═══════════════════════════════════════ */
+    /* ══════════════════════════════════
+       S1 — HERO
+    ══════════════════════════════════ */
     #hero {
-      background: var(--black);
-      color: var(--white);
-      padding: 64px 0 72px;
+      background: var(--navy);
+      padding: 56px 0 72px;
     }
-
-    #hero .container {
+    #hero .wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 32px;
+      gap: 0;
     }
 
     /* VSL */
-    .vsl-wrapper {
+    .vsl-frame {
       width: 100%;
-      max-width: 720px;
-      background: #111;
-      border-radius: 8px;
+      max-width: 740px;
+      background: #000;
+      border-radius: 6px;
       overflow: hidden;
-      position: relative;
       aspect-ratio: 16/9;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid #2a2a2a;
+      border: 1px solid #1e2f45;
+      margin-bottom: 40px;
     }
-
-    .vsl-placeholder {
+    .vsl-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 16px;
-      color: #888;
-      font-size: 13px;
-      text-align: center;
-      padding: 24px;
+      gap: 14px;
+      color: #555;
+      font-size: 12px;
     }
-
-    .vsl-play {
-      width: 72px;
-      height: 72px;
+    .play-btn {
+      width: 76px; height: 76px;
       border-radius: 50%;
       background: var(--orange);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       cursor: pointer;
-      transition: transform .2s, background .2s;
+      transition: transform .2s;
     }
-    .vsl-play:hover { transform: scale(1.08); background: var(--orange-h); }
-    .vsl-play svg { width: 28px; height: 28px; fill: white; margin-left: 4px; }
+    .play-btn:hover { transform: scale(1.07); }
+    .play-btn svg { width: 30px; height: 30px; fill: white; margin-left: 5px; }
 
-    .hero-tag {
+    .hero-eyebrow {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--orange);
-    }
-
-    #hero h1 {
-      font-size: clamp(38px, 7vw, 64px);
-      font-weight: 900;
-      color: var(--white);
-      max-width: 760px;
-    }
-
-    #hero h1 span { color: var(--orange); }
-
-    #hero .sub {
-      font-size: clamp(15px, 2vw, 18px);
-      color: #BBBBBB;
-      max-width: 560px;
-      line-height: 1.6;
-    }
-
-    #hero .cta-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* ═══════════════════════════════════════
-       SEÇÃO 2 — PROVA SOCIAL 1
-    ═══════════════════════════════════════ */
-    #prova1 {
-      background: var(--white);
-      padding: 80px 0;
-    }
-
-    #prova1 .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    #prova1 h2 {
-      font-size: clamp(30px, 5vw, 46px);
-      font-weight: 900;
-      color: var(--black);
       margin-bottom: 16px;
     }
 
-    #prova1 .intro-copy {
-      font-size: 15px;
-      color: var(--gray);
-      max-width: 560px;
-      margin: 0 auto 8px;
-    }
-
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-
-    .result-card {
-      background: var(--light);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-
-    .result-img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #999;
-      font-size: 12px;
-      text-align: center;
-      padding: 16px;
-    }
-
-    .result-caption {
-      padding: 16px;
-    }
-
-    .result-caption .name {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--black);
-      margin-bottom: 4px;
-    }
-
-    .result-caption .detail {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-
-    .transition-copy {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto 40px;
-      font-size: 15px;
-      color: var(--gray);
-    }
-
-    .transition-copy strong {
-      color: var(--black);
-      font-weight: 600;
-    }
-
-    #prova1 .cta-center { text-align: center; }
-
-    /* ═══════════════════════════════════════
-       SEÇÃO 3 — AUTORIDADE
-    ═══════════════════════════════════════ */
-    #autoridade {
-      background: var(--black);
-      color: var(--white);
-      padding: 80px 0;
-    }
-
-    #autoridade .section-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    #autoridade h2 {
-      font-size: clamp(30px, 5vw, 48px);
+    #hero h1 {
+      font-size: clamp(44px, 8vw, 76px);
       font-weight: 900;
-      color: var(--white);
-    }
-
-    .pilares-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .pilar {
-      background: #222;
-      border-radius: 8px;
-      padding: 32px 24px;
-      border-top: 3px solid var(--orange);
-      text-align: center;
-    }
-
-    .pilar-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: rgba(232, 93, 0, 0.15);
-      border: 2px solid var(--orange);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-    }
-
-    .pilar-icon svg {
-      width: 26px;
-      height: 26px;
-      stroke: var(--orange);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .pilar h3 {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--orange);
-      margin-bottom: 12px;
-    }
-
-    .pilar .pilar-msg {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #888;
-      margin-bottom: 12px;
+      color: var(--white);
+      margin-bottom: 8px;
     }
+    #hero h1 .accent { color: var(--orange); }
 
-    .pilar p {
-      font-size: 13px;
-      color: #BBBBBB;
-      line-height: 1.6;
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      color: rgba(255,255,255,.6);
+      max-width: 600px;
+      line-height: 1.65;
+      margin: 12px auto 36px;
     }
+    .hero-sub strong { color: rgba(255,255,255,.9); }
 
-    .soma-copy {
-      background: #111;
-      border-radius: 8px;
-      padding: 28px 32px;
-      text-align: center;
-      border-left: 4px solid var(--orange);
-      margin-bottom: 40px;
-    }
-
-    .soma-copy p {
-      font-size: 15px;
-      color: #CCCCCC;
-      line-height: 1.7;
-    }
-
-    .soma-copy strong { color: var(--white); }
-
-    .bio {
-      text-align: center;
-    }
-
-    .bio p {
-      font-size: 14px;
-      color: #888;
-      letter-spacing: 0.5px;
-    }
-
-    /* ═══════════════════════════════════════
-       SEÇÃO 4 — PROMESSA E DIFERENCIAÇÃO
-    ═══════════════════════════════════════ */
-    #diferenciacao {
-      background: var(--light);
+    /* ══════════════════════════════════
+       S2 — FORTALEZA: DOR RECONHECÍVEL
+    ══════════════════════════════════ */
+    #dor {
+      background: var(--offwhite);
       padding: 80px 0;
     }
-
-    #diferenciacao .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    #diferenciacao h2 {
-      font-size: clamp(26px, 4.5vw, 44px);
+    #dor h2 {
+      font-size: clamp(30px, 5vw, 50px);
       font-weight: 900;
-      color: var(--black);
-      max-width: 680px;
-      margin: 0 auto 24px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 12px;
     }
-
-    .dif-copy {
-      max-width: 680px;
-      margin: 0 auto 40px;
-    }
-
-    .dif-copy p {
-      font-size: 15px;
+    .dor-copy {
+      font-size: 16px;
       color: var(--gray);
       line-height: 1.75;
       margin-bottom: 16px;
     }
+    .dor-copy strong { color: var(--navy); font-weight: 600; }
 
-    .dif-copy p strong { color: var(--black); font-weight: 600; }
-
-    .dif-bullets {
-      display: grid;
-      gap: 16px;
-      max-width: 600px;
-      margin: 0 auto 48px;
+    .dor-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 32px 0;
     }
-
-    .dif-bullet {
+    .dor-list li {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
-      background: var(--white);
-      border-radius: 8px;
-      padding: 20px 24px;
-      border-left: 4px solid var(--orange);
+      gap: 14px;
+      font-size: 15px;
+      color: var(--navy);
+      line-height: 1.55;
     }
-
-    .dif-bullet .check {
-      width: 22px;
-      height: 22px;
+    .dor-list li .dot {
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--orange);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 7px;
     }
 
-    .dif-bullet .check svg {
-      width: 12px;
-      height: 12px;
-      stroke: white;
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .insight-box {
+      background: var(--navy);
+      border-radius: 6px;
+      padding: 28px 32px;
+      border-left: 4px solid var(--orange);
+      margin-top: 32px;
     }
-
-    .dif-bullet p {
-      font-size: 14px;
-      color: var(--black);
-      line-height: 1.55;
-      font-weight: 500;
+    .insight-box p {
+      font-size: 16px;
+      color: rgba(255,255,255,.85);
+      line-height: 1.7;
     }
+    .insight-box strong { color: var(--white); }
 
-    #diferenciacao .cta-center { text-align: center; }
-
-    /* ═══════════════════════════════════════
-       SEÇÃO 5 — PROVA SOCIAL 2
-    ═══════════════════════════════════════ */
-    #prova2 {
-      background: var(--white);
+    /* ══════════════════════════════════
+       S3 — O INIMIGO
+    ══════════════════════════════════ */
+    #inimigo {
+      background: var(--navy);
       padding: 80px 0;
     }
-
-    #prova2 .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    #prova2 h2 {
-      font-size: clamp(28px, 5vw, 46px);
+    #inimigo h2 {
+      font-size: clamp(28px, 5vw, 50px);
       font-weight: 900;
-      color: var(--black);
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
     }
-
-    .depo-grid {
+    #inimigo .intro {
+      font-size: 16px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .inimigos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 16px;
+      margin-bottom: 48px;
     }
-
-    .depo-card {
-      background: var(--light);
-      border-radius: 8px;
-      padding: 28px 24px;
-      border: 1px solid var(--border);
-      position: relative;
+    .inimigo-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 6px;
+      padding: 22px 20px;
     }
-
-    .depo-quote {
-      font-size: 42px;
-      line-height: 1;
+    .inimigo-card .tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       color: var(--orange);
-      font-family: Georgia, serif;
-      position: absolute;
-      top: 16px;
-      left: 20px;
-      opacity: .4;
+      margin-bottom: 10px;
     }
-
-    .depo-card p {
+    .inimigo-card p {
       font-size: 14px;
-      color: var(--gray);
-      line-height: 1.7;
-      margin-top: 24px;
-      margin-bottom: 20px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.6;
       font-style: italic;
     }
 
-    .depo-card .depo-author {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--black);
+    .manifesto-box {
+      background: rgba(232, 93, 0, 0.1);
+      border: 1px solid rgba(232,93,0,.3);
+      border-radius: 6px;
+      padding: 32px;
+      text-align: center;
     }
-
-    .depo-card .depo-context {
-      font-size: 12px;
-      color: #999;
-      margin-top: 2px;
-    }
-
-    /* ═══════════════════════════════════════
-       SEÇÃO 6 — O QUE VOCÊ RECEBE
-    ═══════════════════════════════════════ */
-    #oferta {
-      background: var(--black);
+    .manifesto-box blockquote {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(20px, 3.5vw, 30px);
+      font-weight: 800;
+      text-transform: uppercase;
       color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .manifesto-box cite {
+      font-size: 12px;
+      color: rgba(255,255,255,.4);
+      letter-spacing: 1.5px;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════
+       S4 — AUTORIDADE (3 PILARES)
+    ══════════════════════════════════ */
+    #autoridade {
+      background: var(--white);
       padding: 80px 0;
     }
+    #autoridade h2 {
+      font-size: clamp(28px, 5vw, 50px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .aut-intro {
+      text-align: center;
+      font-size: 15px;
+      color: var(--gray);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.65;
+    }
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .pilar {
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--orange);
+      border-radius: 6px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .pilar-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      opacity: .25;
+      margin-bottom: 8px;
+    }
+    .pilar h3 {
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .pilar .micro {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .pilar p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.65;
+    }
 
-    #oferta .section-header {
+    .soma-strip {
+      background: var(--navy);
+      border-radius: 6px;
+      padding: 24px 32px;
+      text-align: center;
+    }
+    .soma-strip p {
+      font-size: 15px;
+      color: rgba(255,255,255,.7);
+      line-height: 1.65;
+    }
+    .soma-strip strong { color: var(--white); }
+
+    /* ══════════════════════════════════
+       S5 — MECANISMO ÚNICO
+    ══════════════════════════════════ */
+    #mecanismo {
+      background: var(--offwhite);
+      padding: 80px 0;
+    }
+    #mecanismo h2 {
+      font-size: clamp(28px, 5vw, 50px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .mec-copy {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .mec-copy strong { color: var(--navy); font-weight: 600; }
+
+    .camadas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 36px 0;
+    }
+    .camada {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 24px 20px;
+      border-bottom: 3px solid var(--orange);
+      text-align: center;
+    }
+    .camada .num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .camada h4 {
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .camada p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .epifania {
+      background: var(--navy);
+      border-radius: 6px;
+      padding: 32px;
+      margin-top: 8px;
+    }
+    .epifania p {
+      font-size: 16px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .epifania p:last-child { margin-bottom: 0; }
+    .epifania strong { color: var(--white); }
+    .epifania .oss {
+      display: block;
+      margin-top: 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    /* ══════════════════════════════════
+       S6 — PROVA SOCIAL 1 (antes/depois)
+    ══════════════════════════════════ */
+    #prova1 {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    #prova1 h2 {
+      font-size: clamp(28px, 5vw, 50px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .p1-intro {
+      text-align: center;
+      font-size: 15px;
+      color: var(--gray);
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    .resultados {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .resultado-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .resultado-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #e8e8e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+      padding: 16px;
+    }
+    .resultado-info {
+      padding: 16px;
+      border-top: 2px solid var(--orange);
+    }
+    .resultado-info .nome {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .resultado-info .contexto {
+      font-size: 12px;
+      color: var(--gray-lt);
+      line-height: 1.5;
+    }
+
+    .transicao {
+      text-align: center;
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .transicao strong { color: var(--navy); font-weight: 600; }
+
+    /* ══════════════════════════════════
+       S7 — PROVA SOCIAL 2 (depoimentos)
+    ══════════════════════════════════ */
+    #depoimentos {
+      background: var(--navy);
+      padding: 80px 0;
+    }
+    #depoimentos h2 {
+      font-size: clamp(28px, 5vw, 50px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--white);
       text-align: center;
       margin-bottom: 48px;
     }
-
-    #oferta h2 {
-      font-size: clamp(28px, 5vw, 46px);
-      font-weight: 900;
-      color: var(--white);
-    }
-
-    .oferta-grid {
+    .depos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
+    .depo {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 6px;
+      padding: 28px 24px;
+      position: relative;
+    }
+    .depo-q {
+      font-size: 56px;
+      line-height: 1;
+      color: var(--orange);
+      opacity: .25;
+      position: absolute;
+      top: 12px;
+      left: 18px;
+      font-family: Georgia, serif;
+    }
+    .depo p {
+      font-size: 14px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.7;
+      margin-top: 28px;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .depo-autor { font-size: 13px; font-weight: 700; color: var(--white); }
+    .depo-ctx { font-size: 12px; color: rgba(255,255,255,.35); margin-top: 2px; }
 
-    .oferta-item {
+    /* ══════════════════════════════════
+       S8 — OFERTA
+    ══════════════════════════════════ */
+    #oferta {
+      background: var(--offwhite);
+      padding: 80px 0;
+    }
+    #oferta h2 {
+      font-size: clamp(28px, 5vw, 50px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .of-copy {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+    .of-copy strong { color: var(--navy); font-weight: 600; }
+
+    .itens {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .item {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 20px;
       display: flex;
       align-items: flex-start;
-      gap: 16px;
-      background: #1E1E1E;
-      border-radius: 8px;
-      padding: 22px 20px;
+      gap: 14px;
+      border-left: 3px solid var(--orange);
     }
-
-    .oferta-item .icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 6px;
-      background: rgba(232, 93, 0, 0.15);
-      border: 1px solid rgba(232, 93, 0, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .item-check {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-
-    .oferta-item .icon svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--orange);
-      fill: none;
-      stroke-width: 2;
+    .item-check svg {
+      width: 12px; height: 12px;
+      stroke: white; fill: none;
+      stroke-width: 3;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
-    .oferta-item h4 {
+    .item h4 {
       font-family: 'Inter', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--white);
-      margin-bottom: 4px;
+      color: var(--navy);
+      margin-bottom: 3px;
     }
-
-    .oferta-item p {
+    .item p {
       font-size: 12px;
-      color: #888;
+      color: var(--gray);
       line-height: 1.5;
     }
 
-    /* ═══════════════════════════════════════
-       SEÇÃO 7 — CTA FINAL
-    ═══════════════════════════════════════ */
-    #cta-final {
-      background: var(--white);
+    /* ══════════════════════════════════
+       S9 — CTA FINAL
+    ══════════════════════════════════ */
+    #cta {
+      background: var(--navy);
       padding: 96px 0;
       text-align: center;
     }
-
-    #cta-final .container {
+    #cta .wrap-sm {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
-      max-width: 600px;
+      gap: 0;
     }
-
-    #cta-final h2 {
-      font-size: clamp(32px, 6vw, 54px);
+    #cta h2 {
+      font-size: clamp(36px, 7vw, 64px);
       font-weight: 900;
-      color: var(--black);
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 12px;
     }
-
-    #cta-final p {
+    #cta h2 span { color: var(--orange); }
+    #cta .cta-copy {
       font-size: 16px;
-      color: var(--gray);
+      color: rgba(255,255,255,.55);
+      max-width: 480px;
       line-height: 1.7;
+      margin: 0 auto 36px;
     }
-
-    #cta-final .divider {
-      width: 48px;
-      height: 3px;
-      background: var(--orange);
-      border-radius: 2px;
-    }
-
-    #cta-final .secondary-link {
+    .secondary-opt {
       font-size: 12px;
-      color: #999;
-      margin-top: 4px;
+      color: rgba(255,255,255,.25);
+      margin-top: 16px;
+    }
+    .secondary-opt a { color: rgba(255,255,255,.4); }
+
+    .encerramento {
+      margin-top: 48px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.2);
     }
 
-    #cta-final .secondary-link a {
-      color: #999;
-      text-decoration: underline;
-    }
-
-    /* ═══════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════ */
+    /* FOOTER */
     footer {
-      background: var(--black);
-      padding: 28px 24px;
+      background: #04080F;
+      padding: 24px;
       text-align: center;
     }
+    footer p { font-size: 11px; color: #333; }
 
-    footer p {
-      font-size: 12px;
-      color: #555;
-    }
-
-    /* ═══════════════════════════════════════
-       RESPONSIVE — MOBILE
-    ═══════════════════════════════════════ */
+    /* RESPONSIVE */
     @media (max-width: 640px) {
-      #hero { padding: 48px 0 56px; }
-
-      .results-grid { grid-template-columns: 1fr; }
-
-      .pilares-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .depo-grid { grid-template-columns: 1fr; }
-
-      .oferta-grid { grid-template-columns: 1fr; }
-
-      .soma-copy { padding: 22px 20px; }
-
-      .btn-lg {
-        font-size: 15px;
-        padding: 18px 32px;
-        width: 100%;
-        text-align: center;
-      }
-
-      #cta-final { padding: 72px 0; }
+      #hero { padding: 40px 0 56px; }
+      .pilares { grid-template-columns: 1fr; }
+      .inimigos-grid { grid-template-columns: 1fr; }
+      .camadas { grid-template-columns: 1fr; }
+      .resultados { grid-template-columns: 1fr; }
+      .depos-grid { grid-template-columns: 1fr; }
+      .itens { grid-template-columns: 1fr; }
+      .btn-xl { width: 100%; font-size: 14px; padding: 18px 24px; }
     }
-
-    @media (min-width: 641px) and (max-width: 900px) {
-      .pilares-grid { grid-template-columns: 1fr; gap: 16px; }
-      .oferta-grid { grid-template-columns: 1fr; }
+    @media (min-width: 641px) and (max-width: 860px) {
+      .pilares { grid-template-columns: 1fr; }
+      .camadas { grid-template-columns: 1fr; }
+      .itens { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
-     SEÇÃO 1 — HERO
-═══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     S1 — HERO
+     Princípio: Hook que entra no galho já existente.
+     "Você não falhou. Foi o método." é o que a pessoa
+     já acredita mas nunca ouviu de ninguém na indústria.
+══════════════════════════════════════ -->
 <section id="hero">
-  <div class="container">
+  <div class="wrap">
 
-    <!-- VSL -->
-    <div class="vsl-wrapper">
-      <div class="vsl-placeholder">
-        <div class="vsl-play">
+    <!-- VSL — colocar o vídeo aqui -->
+    <div class="vsl-frame">
+      <div class="vsl-inner">
+        <div class="play-btn">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </div>
-        <span style="color:#666; font-size:12px; letter-spacing:.5px;">INSERIR VÍDEO AQUI — 90 a 120 seg.</span>
+        <span style="font-size:11px; letter-spacing:.5px;">INSERIR VSL · 90–120 seg.</span>
       </div>
     </div>
 
-    <!-- Copy -->
-    <span class="hero-tag">Performance Mental · Método · Resultado Real</span>
+    <p class="hero-eyebrow">Performe Fit Club · Cristian Alessandro</p>
 
-    <h1>
-      Você não precisa de mais<br/>
-      <span>força de vontade.</span><br/>
-      Precisa de método.
-    </h1>
+    <h1>Você não falhou.<br/><span class="accent">Foi o método.</span></h1>
 
-    <p class="sub">
-      Transformações reais com protocolo construído para a sua vida —
-      não para uma rotina perfeita que nunca existe.
+    <p class="hero-sub">
+      A indústria fitness te vendeu <strong>força de vontade como solução</strong>.
+      O que você nunca recebeu foi um diagnóstico real do que trava você —
+      e um sistema construído para a sua vida, não para uma rotina perfeita que não existe.
     </p>
 
-    <div class="cta-group">
-      <a href="https://wa.me/5511951596801" class="btn btn-lg" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
-        Quero Começar
-      </a>
-      <span class="anchor" style="color:#666;">Abre diretamente no WhatsApp</span>
-    </div>
+    <a href="https://wa.me/5511951596801" class="btn btn-xl" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
+      Quero o Diagnóstico Real
+    </a>
+    <span class="anchor-text">Abre direto no WhatsApp · Sem formulário · Sem enrolação</span>
 
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     SEÇÃO 2 — PROVA SOCIAL 1
-═══════════════════════════════════════ -->
-<section id="prova1">
-  <div class="container">
+<!-- ══════════════════════════════════════
+     S2 — ENTRAR NA FORTALEZA
+     Princípio: Começar com o que a pessoa já acredita.
+     Espelhar a experiência dela para se teletransportar
+     dentro da mente. Só depois apresentar a tese.
+══════════════════════════════════════ -->
+<section id="dor">
+  <div class="wrap-sm">
 
-    <div class="section-header">
-      <span class="section-label">Resultados Reais</span>
-      <h2>O resultado acontece.<br/>Mesmo quando a vida não colabora.</h2>
-      <p class="intro-copy">
-        Esses são alunos reais. Rotinas reais. Resultados que continuam depois que a vida voltou ao normal.
+    <span class="label">Isso te soa familiar?</span>
+
+    <h2>Você já tentou.<br/>Mais de uma vez.</h2>
+
+    <div class="divider-orange"></div>
+
+    <p class="dor-copy">
+      Academia. Nutricionista. Personal. App de treino. Dieta da internet.
+      Pelo menos uma dessas tentativas funcionou por um tempo.
+      Você tinha disciplina. Você estava motivado. Até a vida apertar.
+    </p>
+    <p class="dor-copy">
+      Semana pesada no trabalho. Viagem. Filho doente. Uma semana atípica.
+      E o resultado que você havia construído — <strong>foi junto.</strong>
+    </p>
+
+    <ul class="dor-list">
+      <li><span class="dot"></span>Você sabe o que precisa fazer. O problema não é informação.</li>
+      <li><span class="dot"></span>Você já investiu em acompanhamento. A planilha era boa. Parou mesmo assim.</li>
+      <li><span class="dot"></span>Você começa bem. Com energia. E abandona quando a vida complica.</li>
+      <li><span class="dot"></span>Você se culpa. Recomeça. O ciclo se repete. Há quanto tempo?</li>
+    </ul>
+
+    <div class="insight-box">
+      <p>
+        O problema não foi você. Não foi falta de foco, não foi falta de disciplina.
+        Foi um <strong>protocolo genérico aplicado em uma vida específica</strong> — sem diagnóstico real do que trava você.
+        Esse protocolo pode funcionar para qualquer pessoa no papel. Não funciona para a sua vida real.
       </p>
     </div>
 
-    <div class="results-grid">
-      <div class="result-card">
-        <div class="result-img">[ Foto de transformação — Aluno 1 ]</div>
-        <div class="result-caption">
-          <div class="name">Aluno 1 — Nome, Idade</div>
-          <div class="detail">Contexto: trabalho puxado, família, sem tempo. Resultado em X semanas.</div>
-        </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S3 — O INIMIGO
+     Princípio: Criar inimigo externo. Tirar a culpa
+     da pessoa e colocar no sistema. Criar aliança.
+══════════════════════════════════════ -->
+<section id="inimigo">
+  <div class="wrap">
+
+    <div class="wrap-sm" style="padding: 0;">
+      <span class="label label-light">O que foi feito errado</span>
+      <h2>A indústria fitness<br/>te vendeu a mentira.</h2>
+      <p class="intro" style="color:rgba(255,255,255,.55); font-size:16px; line-height:1.7; margin-bottom:40px;">
+        Não é acidente. É modelo de negócio. Quando você falha e volta para tentar de novo,
+        eles faturam duas vezes. Esses são os personagens do ciclo que te manteve no lugar.
+      </p>
+    </div>
+
+    <div class="inimigos-grid">
+      <div class="inimigo-card">
+        <div class="tag">O clássico</div>
+        <p>"É só fechar a boca e ter disciplina."<br/>Como se o problema fosse caráter, não arquitetura mental.</p>
       </div>
-      <div class="result-card">
-        <div class="result-img">[ Foto de transformação — Aluno 2 ]</div>
-        <div class="result-caption">
-          <div class="name">Aluno 2 — Nome, Idade</div>
-          <div class="detail">Contexto: tentou várias vezes antes. Resultado que ficou quando o protocolo foi certo.</div>
-        </div>
+      <div class="inimigo-card">
+        <div class="tag">A planilha</div>
+        <p>Treino e dieta feitos para um aluno ideal em uma rotina ideal que não existe na sua vida.</p>
       </div>
-      <div class="result-card">
-        <div class="result-img">[ Foto de transformação — Aluno 3 ]</div>
-        <div class="result-caption">
-          <div class="name">Aluno 3 — Nome, Idade</div>
-          <div class="detail">Contexto: viagens constantes, rotina imprevisível. Resultado consistente.</div>
-        </div>
+      <div class="inimigo-card">
+        <div class="tag">O motivacional</div>
+        <p>Coach que vende energia como se energia fosse método. Funciona enquanto dura a emoção.</p>
       </div>
-      <div class="result-card">
-        <div class="result-img">[ Foto de transformação — Aluno 4 ]</div>
-        <div class="result-caption">
-          <div class="name">Aluno 4 — Nome, Idade</div>
-          <div class="detail">Contexto: alta demanda emocional e profissional. Mudança que sustentou.</div>
-        </div>
+      <div class="inimigo-card">
+        <div class="tag">O programa pronto</div>
+        <p>Resultado prometido para qualquer pessoa. Que culpa o aluno quando não funciona.</p>
       </div>
     </div>
 
-    <p class="transition-copy">
-      <strong>O que é diferente aqui?</strong><br/>
-      Um protocolo que funciona no caos — não só quando tudo está perfeito.
-    </p>
-
-    <div class="cta-center">
-      <a href="https://wa.me/5511951596801" class="btn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
-        Quero Começar
-      </a>
+    <div class="manifesto-box">
+      <blockquote>
+        "Ninguém te perguntou como é o seu sono.<br/>
+        Ninguém mapeou o que acontece quando você está sob pressão.<br/>
+        Ninguém diagnosticou o seu padrão antes de te dar uma solução."
+      </blockquote>
+      <cite>Esse é o problema. Não era você.</cite>
     </div>
 
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     SEÇÃO 3 — AUTORIDADE
-═══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     S4 — CREDIBILIDADE / AUTORIDADE
+     Princípio: Depois de nomear o problema,
+     mostrar que você o resolveu — nos três pilares.
+     Faixa preta = viveu. Atleta = faz. Treinador = replica.
+══════════════════════════════════════ -->
 <section id="autoridade">
-  <div class="container">
+  <div class="wrap">
 
-    <div class="section-header">
-      <span class="section-label" style="color:#888;">Quem está do outro lado</span>
-      <h2>Faixa Preta. Atleta. Treinador.</h2>
-    </div>
+    <span class="label" style="display:block; text-align:center;">Quem está do outro lado</span>
+    <h2>Ele não está teorizando.</h2>
+    <p class="aut-intro">
+      Três linhas que juntas dizem tudo sobre por que o método funciona —
+      e por que é diferente de qualquer coisa que você já tentou.
+    </p>
 
-    <div class="pilares-grid">
+    <div class="pilares">
       <div class="pilar">
-        <div class="pilar-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        </div>
+        <div class="pilar-num">01</div>
         <h3>Faixa Preta</h3>
-        <div class="pilar-msg">Ele viveu o processo</div>
+        <div class="micro">Ele viveu o processo</div>
         <p>
-          Dez anos de processo ininterrupto. A faixa preta é prova de que método e consistência vencem motivação. Quem chega ao preto sabe, na prática, que resultado de longo prazo não vem de força de vontade — vem de sistema.
+          Mais de dez anos sem desistir. A faixa preta prova que método e consistência
+          vencem motivação. Quem chega ao preto sabe: resultado de longo prazo não vem
+          de força de vontade — vem de sistema.
         </p>
       </div>
       <div class="pilar">
-        <div class="pilar-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
-        </div>
+        <div class="pilar-num">02</div>
         <h3>Atleta</h3>
-        <div class="pilar-msg">Ele faz o processo</div>
+        <div class="micro">Ele faz o processo</div>
         <p>
-          Corpo vivo. Não fala de resultado em terceiro — é resultado em primeira pessoa. O atleta é a prova física de que o método funciona antes de qualquer aluno. O que você vê no feed é o que o método produz.
+          Resultado em primeira pessoa. Não fala de resultado em terceiro — é resultado
+          no próprio corpo. O que você vê no perfil é o que o método produz. Sem filtro.
         </p>
       </div>
       <div class="pilar">
-        <div class="pilar-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
+        <div class="pilar-num">03</div>
         <h3>Treinador</h3>
-        <div class="pilar-msg">Ele replica o processo</div>
+        <div class="micro">Ele replica o processo</div>
         <p>
-          Experiência aplicada em pessoas reais: médicos, advogados, mães, estudantes. Rotina puxada, filhos, trabalho de alta demanda. A consultoria não é protocolada para um mundo ideal — é construída para o mundo que o aluno tem.
+          Experiência aplicada em médicos, advogados, mães, empresários. Rotinas reais.
+          Filhos. Alta demanda. O protocolo não foi construído para um mundo ideal.
+          Foi construído para a sua vida.
         </p>
       </div>
     </div>
 
-    <div class="soma-copy">
+    <div class="soma-strip">
       <p>
-        <strong>Faixa preta</strong> → prova que ele viveu o processo. &nbsp;
-        <strong>Atleta</strong> → prova que ele faz o processo. &nbsp;
-        <strong>Treinador</strong> → prova que ele replica o processo em outros.<br/><br/>
-        Esse cara não está teorizando. Ele foi, ele é, e ele aplica.
+        <strong>Faixa preta → viveu.</strong> &nbsp;
+        <strong>Atleta → faz.</strong> &nbsp;
+        <strong>Treinador → replica em outros.</strong><br/>
+        A soma diz: esse cara não está vendendo teoria. Ele foi. Ele é. E ele aplica.
       </p>
-    </div>
-
-    <div class="bio">
-      <p>Cristian Alessandro · Head Trainer · Faixa Preta de Jiu Jitsu · Especialista em Comportamento e Performance · São Paulo</p>
     </div>
 
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     SEÇÃO 4 — PROMESSA E DIFERENCIAÇÃO
-═══════════════════════════════════════ -->
-<section id="diferenciacao">
-  <div class="container">
+<!-- ══════════════════════════════════════
+     S5 — MECANISMO ÚNICO
+     Princípio: A epifania. O que nunca foi
+     apresentado antes. Específico, diferente,
+     algo que a pessoa não testou ainda.
+══════════════════════════════════════ -->
+<section id="mecanismo">
+  <div class="wrap-sm">
 
-    <div class="section-header">
-      <span class="section-label">Por que é diferente</span>
-      <h2>A diferença entre mais um protocolo<br/>e o que realmente funciona para você</h2>
-    </div>
+    <span class="label">O que é diferente aqui</span>
+    <h2>Sistema mental antes<br/>de protocolo físico.</h2>
 
-    <div class="dif-copy">
-      <p>
-        Você já tentou antes. Academia sozinha, app, dieta da internet, personal que te deu uma planilha. Funcionou por um tempo. Depois a vida atrapalhou e o resultado sumiu.
-      </p>
-      <p>
-        <strong>O problema não foi você. Foi um protocolo genérico aplicado em uma vida específica.</strong>
-      </p>
-      <p>
-        O que é diferente aqui: cada protocolo é construído a partir do diagnóstico da sua rotina real. Com os obstáculos que você tem. Com o tempo que você dispõe. Com as variáveis que a sua vida apresenta.
-      </p>
-      <p>
-        Resultado que funciona quando tudo está bom é fácil de alcançar. <strong>O que importa é o resultado que continua quando a vida complica.</strong>
-      </p>
-    </div>
+    <div class="divider-orange"></div>
 
-    <div class="dif-bullets">
-      <div class="dif-bullet">
-        <div class="check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <p><strong>Diagnóstico real da sua rotina</strong> — não planilha padrão entregue para todo mundo igual</p>
+    <p class="mec-copy">
+      Treino e dieta não são o problema. Você já teve isso.
+      O que você nunca recebeu foi um <strong>diagnóstico real do padrão mental que sabota a execução</strong> —
+      antes de alguém te dar qualquer protocolo.
+    </p>
+    <p class="mec-copy">
+      O Mapeamento de Obstáculos não é um questionário. É um diagnóstico em três camadas
+      que identifica <strong>o que especificamente trava você</strong> — não uma pessoa genérica com o mesmo objetivo.
+    </p>
+
+    <div class="camadas">
+      <div class="camada">
+        <div class="num">Camada 01</div>
+        <h4>Hormônio</h4>
+        <p>Como cortisol, sono e estresse crônico afetam diretamente sua capacidade de executar.</p>
       </div>
-      <div class="dif-bullet">
-        <div class="check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <p><strong>Protocolo construído para os dias difíceis</strong> — não só para quando tudo está perfeito</p>
+      <div class="camada">
+        <div class="num">Camada 02</div>
+        <h4>Funcionamento do Cérebro</h4>
+        <p>Como seu sistema dopaminérgico e cortex pré-frontal operam sob sua rotina real.</p>
       </div>
-      <div class="dif-bullet">
-        <div class="check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <p><strong>Acompanhamento próximo</strong> — você não some no meio do processo sem suporte</p>
+      <div class="camada">
+        <div class="num">Camada 03</div>
+        <h4>Comportamento</h4>
+        <p>Qual é o padrão específico que faz você começar, progredir — e parar quando a vida pressiona.</p>
       </div>
     </div>
 
-    <div class="cta-center">
+    <div class="epifania">
+      <p>
+        A partir do diagnóstico, treino e dieta entram como ferramentas dentro de
+        um sistema que faz sentido para a <strong>sua rotina real</strong> —
+        com os obstáculos que você tem, com o tempo que você dispõe,
+        com as variáveis que a sua vida apresenta.
+      </p>
+      <p>
+        <strong>Resultado que funciona quando tudo está bom é fácil de alcançar.</strong>
+        O que importa é o resultado que continua quando a vida complica.
+        Aqui, é exatamente isso que é construído.
+      </p>
+      <span class="oss">Não existe mudança de físico sem mudança de mentalidade. Oss!</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S6 — PROVA SOCIAL 1 (transformações)
+     Princípio: Quanto pior a situação de partida
+     dos cases, mais forte a prova social.
+══════════════════════════════════════ -->
+<section id="prova1">
+  <div class="wrap">
+
+    <span class="label" style="display:block; text-align:center;">Resultados reais</span>
+    <h2>Rotinas reais.<br/>Resultados que ficaram.</h2>
+    <p class="p1-intro">
+      Não são pessoas com tempo livre. São alunos com filhos, com trabalho puxado, com viagens,
+      com pressão. O protocolo foi construído para a vida deles — e continuou funcionando.
+    </p>
+
+    <div class="resultados">
+      <div class="resultado-card">
+        <div class="resultado-img">[Foto transformação — Aluno 1]</div>
+        <div class="resultado-info">
+          <div class="nome">Nome · Idade · Profissão</div>
+          <div class="contexto">Ex: Trabalha 12h/dia, dois filhos, tentou 3 vezes antes. Resultado em X semanas.</div>
+        </div>
+      </div>
+      <div class="resultado-card">
+        <div class="resultado-img">[Foto transformação — Aluno 2]</div>
+        <div class="resultado-info">
+          <div class="nome">Nome · Idade · Profissão</div>
+          <div class="contexto">Ex: Viagens constantes, rotina imprevisível. Resultado que manteve por X meses.</div>
+        </div>
+      </div>
+      <div class="resultado-card">
+        <div class="resultado-img">[Foto transformação — Aluno 3]</div>
+        <div class="resultado-info">
+          <div class="nome">Nome · Idade · Profissão</div>
+          <div class="contexto">Ex: Alta demanda emocional + profissional. Não acreditava que conseguiria.</div>
+        </div>
+      </div>
+      <div class="resultado-card">
+        <div class="resultado-img">[Foto transformação — Aluno 4]</div>
+        <div class="resultado-info">
+          <div class="nome">Nome · Idade · Profissão</div>
+          <div class="contexto">Ex: Já tinha investido em dois programas antes sem resultado sustentável.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="transicao">
+      <strong>O que é diferente aqui?</strong>
+      Protocolo construído para a sua vida — não para uma rotina perfeita que nunca existe.
+    </p>
+
+    <div style="text-align:center;">
       <a href="https://wa.me/5511951596801" class="btn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
-        Quero Começar
+        <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
+        Quero o Diagnóstico Real
       </a>
     </div>
 
@@ -925,41 +1045,40 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     SEÇÃO 5 — PROVA SOCIAL 2
-═══════════════════════════════════════ -->
-<section id="prova2">
-  <div class="container">
+<!-- ══════════════════════════════════════
+     S7 — DEPOIMENTOS
+     Princípio: Contexto do depoente com obstáculos
+     reais aumenta identificação e prova social.
+══════════════════════════════════════ -->
+<section id="depoimentos">
+  <div class="wrap">
 
-    <div class="section-header">
-      <span class="section-label">Depoimentos</span>
-      <h2>O que os alunos dizem</h2>
-    </div>
+    <h2>O que os alunos dizem.</h2>
 
-    <div class="depo-grid">
-      <div class="depo-card">
-        <div class="depo-quote">"</div>
-        <p>Substitua com depoimento real de aluno — preferencialmente mencionando contexto de vida (filhos, trabalho pesado, viagens) e tentativas anteriores que falharam.</p>
-        <div class="depo-author">Nome do Aluno</div>
-        <div class="depo-context">Profissão · Objetivo alcançado</div>
+    <div class="depos-grid">
+      <div class="depo">
+        <div class="depo-q">"</div>
+        <p>Substitua com depoimento real — com contexto de vida (filhos, trabalho, tentativas anteriores) e o que especificamente mudou.</p>
+        <div class="depo-autor">Nome do Aluno</div>
+        <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
-      <div class="depo-card">
-        <div class="depo-quote">"</div>
-        <p>Substitua com depoimento real de aluno — preferencialmente mencionando o que mudou depois que começou o acompanhamento.</p>
-        <div class="depo-author">Nome do Aluno</div>
-        <div class="depo-context">Profissão · Objetivo alcançado</div>
+      <div class="depo">
+        <div class="depo-q">"</div>
+        <p>Substitua com depoimento real — preferencialmente mencionando o que falhou antes e por que desta vez foi diferente.</p>
+        <div class="depo-autor">Nome do Aluno</div>
+        <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
-      <div class="depo-card">
-        <div class="depo-quote">"</div>
-        <p>Substitua com depoimento real de aluno — focando em como a rotina quebrava antes e como passou a funcionar com o protocolo.</p>
-        <div class="depo-author">Nome do Aluno</div>
-        <div class="depo-context">Profissão · Objetivo alcançado</div>
+      <div class="depo">
+        <div class="depo-q">"</div>
+        <p>Substitua com depoimento que mostre como o protocolo continuou funcionando mesmo em semanas difíceis.</p>
+        <div class="depo-autor">Nome do Aluno</div>
+        <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
-      <div class="depo-card">
-        <div class="depo-quote">"</div>
-        <p>Substitua com depoimento real de aluno — de preferência com perfil diferente dos outros para mostrar amplitude de casos.</p>
-        <div class="depo-author">Nome do Aluno</div>
-        <div class="depo-context">Profissão · Objetivo alcançado</div>
+      <div class="depo">
+        <div class="depo-q">"</div>
+        <p>Substitua com depoimento de perfil diferente — mostrando que o método funciona em diferentes contextos de vida.</p>
+        <div class="depo-autor">Nome do Aluno</div>
+        <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
     </div>
 
@@ -967,70 +1086,66 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     SEÇÃO 6 — O QUE VOCÊ RECEBE
-═══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     S8 — OFERTA
+     Princípio: Apresentar como "estender a mão",
+     não como vender. A venda tira, a ajuda acrescenta.
+══════════════════════════════════════ -->
 <section id="oferta">
-  <div class="container">
+  <div class="wrap">
 
-    <div class="section-header">
-      <span class="section-label" style="color:#888;">O processo</span>
-      <h2>O que está incluído<br/>no seu protocolo</h2>
+    <div class="wrap-sm" style="padding:0; margin-bottom:32px;">
+      <span class="label">O que está incluído</span>
+      <h2>Um protocolo feito<br/>para a sua vida real.</h2>
+      <p class="of-copy">
+        Você já tem informação suficiente. O que falta é um sistema construído
+        sobre o diagnóstico correto do que trava você — não sobre o que trava
+        uma pessoa genérica com o mesmo objetivo.
+        Isso é o que está incluso no seu protocolo:
+      </p>
     </div>
 
-    <div class="oferta-grid">
-      <div class="oferta-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
+    <div class="itens">
+      <div class="item">
+        <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
-          <h4>Diagnóstico Comportamental Completo</h4>
-          <p>Mapeamento do seu perfil real — rotina, obstáculos, padrões e variáveis específicas da sua vida.</p>
+          <h4>Mapeamento de Obstáculos</h4>
+          <p>Diagnóstico em 3 camadas do padrão que sabota sua execução. Feito antes de qualquer protocolo.</p>
         </div>
       </div>
-      <div class="oferta-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
+      <div class="item">
+        <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
-          <h4>Protocolo de Treino e Alimentação Personalizado</h4>
-          <p>Construído em cima do diagnóstico — não planilha padrão para qualquer pessoa.</p>
+          <h4>Protocolo de Treino e Alimentação</h4>
+          <p>Construído sobre o diagnóstico — para a sua rotina, seus obstáculos, seu tempo disponível.</p>
         </div>
       </div>
-      <div class="oferta-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
+      <div class="item">
+        <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
-          <h4>Acompanhamento Próximo com Ajustes</h4>
-          <p>Presença durante o processo — quando a rotina mudar, o protocolo ajusta junto.</p>
+          <h4>Acompanhamento com Ajustes</h4>
+          <p>Presença durante o processo. Quando a rotina mudar — e ela muda — o protocolo ajusta junto.</p>
         </div>
       </div>
-      <div class="oferta-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
+      <div class="item">
+        <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
-          <h4>Plano de Ação para Semanas Difíceis</h4>
-          <p>O que fazer quando a rotina quebrar — porque ela vai quebrar. Preparado com antecedência.</p>
+          <h4>Plano para Semanas Difíceis</h4>
+          <p>Preparado com antecedência para quando a rotina quebrar. Porque ela vai quebrar.</p>
         </div>
       </div>
-      <div class="oferta-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.92 13 19.79 19.79 0 0 1 1.84 4.36 2 2 0 0 1 3.81 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div class="item">
+        <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div>
+          <h4>Sistema Mental Instalado</h4>
+          <p>Mentalidade de atleta operando dentro da sua vida real. Sem precisar virar um.</p>
         </div>
+      </div>
+      <div class="item">
+        <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Acesso Direto via WhatsApp</h4>
-          <p>Durante o período de consultoria, você fala diretamente. Sem intermediários, sem burocracia.</p>
-        </div>
-      </div>
-      <div class="oferta-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <h4>Protocolo Que Funciona no Caos</h4>
-          <p>Resultado que funciona só quando tudo está bom não é resultado. Esse foi construído para os dias reais.</p>
+          <p>Sem intermediário. Você fala direto. Durante todo o período de consultoria.</p>
         </div>
       </div>
     </div>
@@ -1039,39 +1154,43 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     SEÇÃO 7 — CTA FINAL
-═══════════════════════════════════════ -->
-<section id="cta-final">
-  <div class="container">
+<!-- ══════════════════════════════════════
+     S9 — CTA FINAL
+     Princípio: Unique call to action. Uma ação.
+     Nenhuma distração. Sem compromisso percebido.
+══════════════════════════════════════ -->
+<section id="cta">
+  <div class="wrap-sm">
 
-    <div class="divider"></div>
+    <span class="label label-light">O próximo passo</span>
 
-    <h2>O próximo passo<br/>é uma conversa.</h2>
+    <h2>O próximo passo<br/>é uma <span>conversa.</span></h2>
 
-    <p>
-      Não tem formulário, não tem processo longo. Você clica, abre o WhatsApp,
-      e a gente conversa sobre o que você quer alcançar e como posso te ajudar a chegar lá.
-      Simples assim.
+    <p class="cta-copy">
+      Você clica, abre o WhatsApp, e a gente conversa sobre o que você quer alcançar
+      e como o protocolo é construído para a sua realidade específica.
+      Sem formulário longo. Sem pressão. Só clareza.
     </p>
 
-    <a href="https://wa.me/5511951596801" class="btn btn-lg" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
+    <a href="https://wa.me/5511951596801" class="btn btn-xl" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
       Conversar Agora
     </a>
+    <span class="anchor-text">Sem compromisso · Sem pressão · Só clareza</span>
 
-    <span class="anchor">Sem compromisso. Sem pressão. Só uma conversa.</span>
+    <p class="secondary-opt">
+      Prefere preencher o Mapeamento antes?
+      <a href="https://form.jotform.com/260963662812058" target="_blank" rel="noopener">Acesse aqui.</a>
+    </p>
 
-    <p class="secondary-link">
-      Prefere preencher um formulário antes?
-      <a href="https://form.jotform.com/260963662812058" target="_blank" rel="noopener">Clique aqui</a>
+    <p class="encerramento">
+      Mentalidade e resultado de atleta sem precisar ser um.
     </p>
 
   </div>
 </section>
 
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 Performe Fit Club · Cristian Alessandro · Todos os direitos reservados</p>
 </footer>
