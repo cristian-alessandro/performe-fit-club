@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Performe Fit Club — Você não falhou. Foi o método.</title>
+  <title>Performe Fit Club — Mentalidade e resultado de atleta sem precisar ser um.</title>
   <!-- META PIXEL — Performe Fit Club -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -48,14 +48,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* TIPOGRAFIA */
     h1, h2, h3, h4 { font-family: 'Barlow Condensed', sans-serif; line-height: 1.05; }
 
-    /* CONTAINER */
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .wrap    { max-width: 960px; margin: 0 auto; padding: 0 24px; }
     .wrap-sm { max-width: 680px; margin: 0 auto; padding: 0 24px; }
 
-    /* LABEL */
     .label {
       display: inline-block;
       font-size: 10px;
@@ -65,7 +62,7 @@
       color: var(--orange);
       margin-bottom: 14px;
     }
-    .label-light { color: rgba(255,255,255,.5); }
+    .label-light { color: rgba(255,255,255,.4); }
 
     /* BOTÃO CTA */
     .btn {
@@ -88,18 +85,36 @@
     .btn:hover { background: var(--orange-h); transform: translateY(-2px); }
     .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
     .btn-xl { font-size: 16px; padding: 22px 48px; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: transparent;
+      color: rgba(255,255,255,.55);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,.18);
+      transition: border-color .18s, color .18s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.35); color: rgba(255,255,255,.8); }
+
     .anchor-text {
       display: block;
       font-size: 12px;
-      color: rgba(255,255,255,.4);
+      color: rgba(255,255,255,.3);
       margin-top: 10px;
       text-align: center;
     }
-    .anchor-dark {
-      color: var(--gray-lt);
-    }
+    .anchor-dark { color: var(--gray-lt); }
 
-    /* DIVISOR */
     .divider-orange {
       width: 40px; height: 3px;
       background: var(--orange);
@@ -113,17 +128,15 @@
     ══════════════════════════════════ */
     #hero {
       background: var(--navy);
-      padding: 56px 0 72px;
+      padding: 64px 0 80px;
     }
     #hero .wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 0;
     }
 
-    /* VSL */
     .vsl-frame {
       width: 100%;
       max-width: 740px;
@@ -135,7 +148,7 @@
       align-items: center;
       justify-content: center;
       border: 1px solid #1e2f45;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
     }
     .vsl-inner {
       display: flex;
@@ -162,7 +175,7 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     #hero h1 {
@@ -171,26 +184,64 @@
       text-transform: uppercase;
       color: var(--white);
       margin-bottom: 8px;
+      line-height: 1.0;
     }
     #hero h1 .accent { color: var(--orange); }
 
-    .hero-sub {
-      font-size: clamp(15px, 2vw, 18px);
-      color: rgba(255,255,255,.6);
+    .hero-manifesto {
       max-width: 600px;
-      line-height: 1.65;
-      margin: 12px auto 36px;
+      margin: 20px auto 36px;
     }
-    .hero-sub strong { color: rgba(255,255,255,.9); }
+    .hero-manifesto p {
+      font-size: clamp(15px, 2vw, 17px);
+      color: rgba(255,255,255,.6);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .hero-manifesto p strong { color: rgba(255,255,255,.92); }
+    .hero-manifesto .mantra {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(16px, 2.5vw, 20px);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--orange);
+      letter-spacing: .5px;
+      margin-top: 8px;
+    }
 
     /* ══════════════════════════════════
-       S2 — FORTALEZA: DOR RECONHECÍVEL
+       S2 — NARRATIVA (SONHO + DOR)
     ══════════════════════════════════ */
-    #dor {
+    #narrativa {
       background: var(--offwhite);
-      padding: 80px 0;
+      padding: 88px 0;
     }
-    #dor h2 {
+    .sonho-bloco {
+      background: var(--navy);
+      border-radius: 8px;
+      padding: 44px 40px;
+      margin-bottom: 56px;
+      border-left: 4px solid var(--orange);
+    }
+    .sonho-bloco .sonho-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .sonho-bloco p {
+      font-size: clamp(16px, 2.2vw, 18px);
+      color: rgba(255,255,255,.75);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .sonho-bloco p:last-child { margin-bottom: 0; }
+    .sonho-bloco strong { color: var(--white); }
+
+    #narrativa h2 {
       font-size: clamp(30px, 5vw, 50px);
       font-weight: 900;
       text-transform: uppercase;
@@ -210,7 +261,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      margin: 32px 0;
+      margin: 28px 0;
     }
     .dor-list li {
       display: flex;
@@ -237,8 +288,8 @@
     }
     .insight-box p {
       font-size: 16px;
-      color: rgba(255,255,255,.85);
-      line-height: 1.7;
+      color: rgba(255,255,255,.8);
+      line-height: 1.75;
     }
     .insight-box strong { color: var(--white); }
 
@@ -247,7 +298,7 @@
     ══════════════════════════════════ */
     #inimigo {
       background: var(--navy);
-      padding: 80px 0;
+      padding: 88px 0;
     }
     #inimigo h2 {
       font-size: clamp(28px, 5vw, 50px);
@@ -258,10 +309,11 @@
     }
     #inimigo .intro {
       font-size: 16px;
-      color: rgba(255,255,255,.6);
-      line-height: 1.7;
-      margin-bottom: 40px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.75;
+      margin-bottom: 44px;
     }
+
     .inimigos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -284,41 +336,44 @@
     }
     .inimigo-card p {
       font-size: 14px;
-      color: rgba(255,255,255,.65);
-      line-height: 1.6;
-      font-style: italic;
+      color: rgba(255,255,255,.6);
+      line-height: 1.65;
     }
+    .inimigo-card strong { color: rgba(255,255,255,.85); }
 
-    .manifesto-box {
-      background: rgba(232, 93, 0, 0.1);
-      border: 1px solid rgba(232,93,0,.3);
+    .manifesto-tese {
+      background: rgba(232, 93, 0, 0.08);
+      border: 1px solid rgba(232,93,0,.25);
       border-radius: 6px;
-      padding: 32px;
+      padding: 36px;
       text-align: center;
     }
-    .manifesto-box blockquote {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(20px, 3.5vw, 30px);
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 12px;
+    .manifesto-tese p {
+      font-size: clamp(15px, 2.2vw, 17px);
+      color: rgba(255,255,255,.7);
+      line-height: 1.8;
+      margin-bottom: 16px;
     }
-    .manifesto-box cite {
-      font-size: 12px;
-      color: rgba(255,255,255,.4);
-      letter-spacing: 1.5px;
-      font-style: normal;
+    .manifesto-tese p:last-child { margin-bottom: 0; }
+    .manifesto-tese strong { color: var(--white); }
+    .manifesto-tese .tese-final {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 900;
       text-transform: uppercase;
+      color: var(--orange);
+      letter-spacing: .5px;
+      margin-top: 8px;
+      display: block;
     }
 
     /* ══════════════════════════════════
-       S4 — AUTORIDADE (3 PILARES)
+       S4 — AUTORIDADE
+       Ordem correta: Treinador → Atleta → Faixa Preta
     ══════════════════════════════════ */
     #autoridade {
       background: var(--white);
-      padding: 80px 0;
+      padding: 88px 0;
     }
     #autoridade h2 {
       font-size: clamp(28px, 5vw, 50px);
@@ -355,7 +410,7 @@
       font-weight: 900;
       color: var(--orange);
       line-height: 1;
-      opacity: .25;
+      opacity: .2;
       margin-bottom: 8px;
     }
     .pilar h3 {
@@ -387,8 +442,8 @@
     }
     .soma-strip p {
       font-size: 15px;
-      color: rgba(255,255,255,.7);
-      line-height: 1.65;
+      color: rgba(255,255,255,.65);
+      line-height: 1.75;
     }
     .soma-strip strong { color: var(--white); }
 
@@ -397,7 +452,7 @@
     ══════════════════════════════════ */
     #mecanismo {
       background: var(--offwhite);
-      padding: 80px 0;
+      padding: 88px 0;
     }
     #mecanismo h2 {
       font-size: clamp(28px, 5vw, 50px);
@@ -452,33 +507,34 @@
     .epifania {
       background: var(--navy);
       border-radius: 6px;
-      padding: 32px;
+      padding: 36px;
       margin-top: 8px;
     }
     .epifania p {
       font-size: 16px;
-      color: rgba(255,255,255,.75);
-      line-height: 1.75;
-      margin-bottom: 12px;
+      color: rgba(255,255,255,.7);
+      line-height: 1.8;
+      margin-bottom: 14px;
     }
     .epifania p:last-child { margin-bottom: 0; }
     .epifania strong { color: var(--white); }
     .epifania .oss {
       display: block;
-      margin-top: 20px;
+      margin-top: 24px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 900;
       text-transform: uppercase;
       color: var(--orange);
+      letter-spacing: .5px;
     }
 
     /* ══════════════════════════════════
-       S6 — PROVA SOCIAL 1 (antes/depois)
+       S6 — PROVA SOCIAL 1
     ══════════════════════════════════ */
     #prova1 {
       background: var(--white);
-      padding: 80px 0;
+      padding: 88px 0;
     }
     #prova1 h2 {
       font-size: clamp(28px, 5vw, 50px);
@@ -494,6 +550,7 @@
       color: var(--gray);
       max-width: 560px;
       margin: 0 auto 48px;
+      line-height: 1.65;
     }
     .resultados {
       display: grid;
@@ -531,24 +588,15 @@
     .resultado-info .contexto {
       font-size: 12px;
       color: var(--gray-lt);
-      line-height: 1.5;
+      line-height: 1.55;
     }
-
-    .transicao {
-      text-align: center;
-      font-size: 16px;
-      color: var(--gray);
-      max-width: 560px;
-      margin: 0 auto 40px;
-    }
-    .transicao strong { color: var(--navy); font-weight: 600; }
 
     /* ══════════════════════════════════
-       S7 — PROVA SOCIAL 2 (depoimentos)
+       S7 — DEPOIMENTOS
     ══════════════════════════════════ */
     #depoimentos {
       background: var(--navy);
-      padding: 80px 0;
+      padding: 88px 0;
     }
     #depoimentos h2 {
       font-size: clamp(28px, 5vw, 50px);
@@ -574,7 +622,7 @@
       font-size: 56px;
       line-height: 1;
       color: var(--orange);
-      opacity: .25;
+      opacity: .2;
       position: absolute;
       top: 12px;
       left: 18px;
@@ -582,21 +630,21 @@
     }
     .depo p {
       font-size: 14px;
-      color: rgba(255,255,255,.65);
-      line-height: 1.7;
+      color: rgba(255,255,255,.6);
+      line-height: 1.75;
       margin-top: 28px;
       margin-bottom: 20px;
       font-style: italic;
     }
     .depo-autor { font-size: 13px; font-weight: 700; color: var(--white); }
-    .depo-ctx { font-size: 12px; color: rgba(255,255,255,.35); margin-top: 2px; }
+    .depo-ctx { font-size: 12px; color: rgba(255,255,255,.3); margin-top: 2px; }
 
     /* ══════════════════════════════════
-       S8 — OFERTA
+       S8 — OFERTA (Consultoria Premium)
     ══════════════════════════════════ */
     #oferta {
       background: var(--offwhite);
-      padding: 80px 0;
+      padding: 88px 0;
     }
     #oferta h2 {
       font-size: clamp(28px, 5vw, 50px);
@@ -634,6 +682,7 @@
       background: var(--orange);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
+      margin-top: 2px;
     }
     .item-check svg {
       width: 12px; height: 12px;
@@ -652,7 +701,7 @@
     .item p {
       font-size: 12px;
       color: var(--gray);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* ══════════════════════════════════
@@ -660,14 +709,13 @@
     ══════════════════════════════════ */
     #cta {
       background: var(--navy);
-      padding: 96px 0;
+      padding: 104px 0;
       text-align: center;
     }
     #cta .wrap-sm {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
     }
     #cta h2 {
       font-size: clamp(36px, 7vw, 64px);
@@ -679,39 +727,49 @@
     #cta h2 span { color: var(--orange); }
     #cta .cta-copy {
       font-size: 16px;
-      color: rgba(255,255,255,.55);
-      max-width: 480px;
-      line-height: 1.7;
-      margin: 0 auto 36px;
+      color: rgba(255,255,255,.5);
+      max-width: 520px;
+      line-height: 1.75;
+      margin: 0 auto 40px;
     }
-    .secondary-opt {
-      font-size: 12px;
-      color: rgba(255,255,255,.25);
-      margin-top: 16px;
+    #cta .cta-copy strong { color: rgba(255,255,255,.85); }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
     }
-    .secondary-opt a { color: rgba(255,255,255,.4); }
+    .cta-divisor {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.18);
+    }
 
     .encerramento {
-      margin-top: 48px;
+      margin-top: 56px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(255,255,255,.2);
+      color: rgba(255,255,255,.15);
     }
+    .encerramento span { color: rgba(255,255,255,.25); }
 
-    /* FOOTER */
     footer {
       background: #04080F;
       padding: 24px;
       text-align: center;
     }
-    footer p { font-size: 11px; color: #333; }
+    footer p { font-size: 11px; color: #2e2e2e; }
 
     /* RESPONSIVE */
     @media (max-width: 640px) {
-      #hero { padding: 40px 0 56px; }
+      #hero { padding: 40px 0 60px; }
+      .sonho-bloco { padding: 32px 24px; }
       .pilares { grid-template-columns: 1fr; }
       .inimigos-grid { grid-template-columns: 1fr; }
       .camadas { grid-template-columns: 1fr; }
@@ -719,6 +777,7 @@
       .depos-grid { grid-template-columns: 1fr; }
       .itens { grid-template-columns: 1fr; }
       .btn-xl { width: 100%; font-size: 14px; padding: 18px 24px; }
+      .manifesto-tese { padding: 28px 20px; }
     }
     @media (min-width: 641px) and (max-width: 860px) {
       .pilares { grid-template-columns: 1fr; }
@@ -729,22 +788,23 @@
 </head>
 <body>
 
+
 <!-- ══════════════════════════════════════
      S1 — HERO
-     Princípio: Hook que entra no galho já existente.
-     "Você não falhou. Foi o método." é o que a pessoa
-     já acredita mas nunca ouviu de ninguém na indústria.
+     Hook declarativo: a frase que a pessoa
+     já acredita mas nunca ouviu da indústria.
+     Manifesto em primeira pessoa logo abaixo.
 ══════════════════════════════════════ -->
 <section id="hero">
   <div class="wrap">
 
-    <!-- VSL — colocar o vídeo aqui -->
+    <!-- VSL — inserir link do vídeo aqui -->
     <div class="vsl-frame">
       <div class="vsl-inner">
         <div class="play-btn">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </div>
-        <span style="font-size:11px; letter-spacing:.5px;">INSERIR VSL · 90–120 seg.</span>
+        <span style="font-size:11px; letter-spacing:.5px; color:#444;">INSERIR VSL · 90–120 seg.</span>
       </div>
     </div>
 
@@ -752,59 +812,94 @@
 
     <h1>Você não falhou.<br/><span class="accent">Foi o método.</span></h1>
 
-    <p class="hero-sub">
-      A indústria fitness te vendeu <strong>força de vontade como solução</strong>.
-      O que você nunca recebeu foi um diagnóstico real do que trava você —
-      e um sistema construído para a sua vida, não para uma rotina perfeita que não existe.
-    </p>
+    <div class="hero-manifesto">
+      <p>
+        A indústria fitness vende três coisas: treino, dieta e a ilusão de que falta força de vontade.
+        Esse pacote funciona para quem já tem mentalidade de atleta.
+        Para todo o resto, é uma esteira de tentativa, fracasso e culpa.
+      </p>
+      <p>
+        A diferença entre quem entrega resultado fora da curva e quem repete o mesmo ciclo
+        não está no melhor plano de dieta nem na intensidade do treino.
+        <strong>Está na mentalidade que sustenta os dois quando o dia é ruim.</strong>
+        Ninguém te ensinou a operar isso.
+      </p>
+      <p>
+        Eu sou treinador. Atleta de fisiculturismo. Faixa preta de jiu-jitsu.
+        Construí sistema mental dentro do esporte de alto rendimento.
+        E criei o Mapeamento de Obstáculos para instalar esse mesmo sistema
+        em quem não é atleta — mas quer o resultado de um.
+      </p>
+      <p class="mantra">Mentalidade e resultado de atleta. Sem precisar ser um.</p>
+    </div>
 
-    <a href="https://wa.me/5511951596801" class="btn btn-xl" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
-      Quero o Diagnóstico Real
+    <a href="https://form.jotform.com/260963662812058" class="btn btn-xl" target="_blank" rel="noopener">
+      Fazer meu Mapeamento de Obstáculos
     </a>
-    <span class="anchor-text">Abre direto no WhatsApp · Sem formulário · Sem enrolação</span>
+    <span class="anchor-text">Diagnóstico gratuito · Devolutiva personalizada em até 72h</span>
 
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════
-     S2 — ENTRAR NA FORTALEZA
-     Princípio: Começar com o que a pessoa já acredita.
-     Espelhar a experiência dela para se teletransportar
-     dentro da mente. Só depois apresentar a tese.
+     S2 — NARRATIVA: SONHO + DOR
+     Abre com o sonho (Performe opera em sonho),
+     depois espelha a dor com especificidade.
+     Quem leu o Plano de Posicionamento sabe:
+     "Imagine um futuro" vem antes de "Dores do presente".
 ══════════════════════════════════════ -->
-<section id="dor">
+<section id="narrativa">
   <div class="wrap-sm">
 
-    <span class="label">Isso te soa familiar?</span>
+    <!-- BLOCO DO SONHO -->
+    <div class="sonho-bloco">
+      <span class="sonho-label">Imagine um futuro</span>
+      <p>
+        Acordar e olhar no espelho enxergando <strong>um corpo que é seu</strong>.
+        Não emprestado para a moda, para a ansiedade, para a rotina, para a família. Seu.
+      </p>
+      <p>
+        Ter mentalidade de atleta dentro do trabalho, da casa, da semana cheia,
+        da viagem, da semana ruim — e ainda assim entregar.
+        <strong>Não porque acordou motivado. Porque construiu um sistema mental que opera mesmo nos piores dias.</strong>
+      </p>
+      <p>
+        Físico e resultado de atleta vivendo na vida real.
+        Sem precisar competir. Sem viver de esporte. Apenas <strong>dono do próprio corpo</strong>
+        com autoria sobre as próprias escolhas.
+      </p>
+    </div>
 
+    <!-- BLOCO DA DOR -->
+    <span class="label">Isso te soa familiar?</span>
     <h2>Você já tentou.<br/>Mais de uma vez.</h2>
 
     <div class="divider-orange"></div>
 
     <p class="dor-copy">
-      Academia. Nutricionista. Personal. App de treino. Dieta da internet.
-      Pelo menos uma dessas tentativas funcionou por um tempo.
-      Você tinha disciplina. Você estava motivado. Até a vida apertar.
+      A energia some no fim do dia. O sono é ruim. A ansiedade come a noite.
+      O fim de semana zera a semana. E quando alguém pergunta o motivo,
+      a resposta sempre vem como culpa pessoal: <strong>falta disciplina, falta foco, falta força de vontade.</strong>
     </p>
     <p class="dor-copy">
-      Semana pesada no trabalho. Viagem. Filho doente. Uma semana atípica.
-      E o resultado que você havia construído — <strong>foi junto.</strong>
+      Academia. Nutricionista. Personal. App de treino. Método pronto.
+      Pelo menos uma dessas tentativas funcionou por um tempo — até a vida apertar.
     </p>
 
     <ul class="dor-list">
       <li><span class="dot"></span>Você sabe o que precisa fazer. O problema não é informação.</li>
       <li><span class="dot"></span>Você já investiu em acompanhamento. A planilha era boa. Parou mesmo assim.</li>
-      <li><span class="dot"></span>Você começa bem. Com energia. E abandona quando a vida complica.</li>
+      <li><span class="dot"></span>Você começa bem, com energia. E abandona quando a vida complica.</li>
       <li><span class="dot"></span>Você se culpa. Recomeça. O ciclo se repete. Há quanto tempo?</li>
     </ul>
 
     <div class="insight-box">
       <p>
-        O problema não foi você. Não foi falta de foco, não foi falta de disciplina.
-        Foi um <strong>protocolo genérico aplicado em uma vida específica</strong> — sem diagnóstico real do que trava você.
-        Esse protocolo pode funcionar para qualquer pessoa no papel. Não funciona para a sua vida real.
+        O sistema mental nunca foi tratado. Ambas as situações — quem nunca começou de verdade
+        e quem já tentou várias vezes — têm a mesma origem.
+        <strong>Ninguém diagnosticou o padrão antes de te dar uma solução.</strong>
+        Isso não é falta de disciplina. É como seu cérebro funciona.
       </p>
     </div>
 
@@ -814,47 +909,54 @@
 
 <!-- ══════════════════════════════════════
      S3 — O INIMIGO
-     Princípio: Criar inimigo externo. Tirar a culpa
-     da pessoa e colocar no sistema. Criar aliança.
+     Inimigo externo declarado: a indústria fitness
+     que vende força de vontade como solução.
+     Atacar o sistema, nunca a pessoa.
 ══════════════════════════════════════ -->
 <section id="inimigo">
   <div class="wrap">
 
-    <div class="wrap-sm" style="padding: 0;">
+    <div class="wrap-sm" style="padding:0;">
       <span class="label label-light">O que foi feito errado</span>
-      <h2>A indústria fitness<br/>te vendeu a mentira.</h2>
-      <p class="intro" style="color:rgba(255,255,255,.55); font-size:16px; line-height:1.7; margin-bottom:40px;">
-        Não é acidente. É modelo de negócio. Quando você falha e volta para tentar de novo,
-        eles faturam duas vezes. Esses são os personagens do ciclo que te manteve no lugar.
+      <h2>A indústria fitness<br/>te vendeu uma ilusão.</h2>
+      <p class="intro" style="color:rgba(255,255,255,.5); font-size:16px; line-height:1.75; margin-bottom:44px;">
+        Não é acidente. É modelo de negócio.
+        Quem te vende método sem te perguntar como é sua semana,
+        como está seu sono, o que acontece com você sob pressão —
+        está lucrando com a sua frustração. Você paga duas vezes: com dinheiro e com fracasso.
       </p>
     </div>
 
     <div class="inimigos-grid">
       <div class="inimigo-card">
         <div class="tag">O clássico</div>
-        <p>"É só fechar a boca e ter disciplina."<br/>Como se o problema fosse caráter, não arquitetura mental.</p>
+        <p><strong>"É só fechar a boca e ter disciplina."</strong><br/>Como se o padrão fosse caráter, não arquitetura comportamental.</p>
       </div>
       <div class="inimigo-card">
-        <div class="tag">A planilha</div>
-        <p>Treino e dieta feitos para um aluno ideal em uma rotina ideal que não existe na sua vida.</p>
+        <div class="tag">A planilha genérica</div>
+        <p>Treino e dieta feitos para um aluno ideal em uma rotina ideal que não existe na sua vida real.</p>
       </div>
       <div class="inimigo-card">
         <div class="tag">O motivacional</div>
-        <p>Coach que vende energia como se energia fosse método. Funciona enquanto dura a emoção.</p>
+        <p>Coach que vende energia como se energia fosse método. Funciona enquanto dura a emoção. Que é pouco.</p>
       </div>
       <div class="inimigo-card">
         <div class="tag">O programa pronto</div>
-        <p>Resultado prometido para qualquer pessoa. Que culpa o aluno quando não funciona.</p>
+        <p>Resultado prometido para qualquer pessoa. Que culpa o aluno quando o método falha. Sempre o aluno.</p>
       </div>
     </div>
 
-    <div class="manifesto-box">
-      <blockquote>
-        "Ninguém te perguntou como é o seu sono.<br/>
-        Ninguém mapeou o que acontece quando você está sob pressão.<br/>
-        Ninguém diagnosticou o seu padrão antes de te dar uma solução."
-      </blockquote>
-      <cite>Esse é o problema. Não era você.</cite>
+    <div class="manifesto-tese">
+      <p>
+        Ninguém te perguntou como é o seu sono.
+        Ninguém mapeou o que acontece quando você está sob pressão.
+        <strong>Ninguém fez o diagnóstico do seu padrão antes de te dar uma solução.</strong>
+      </p>
+      <p>
+        Disciplina sem diagnóstico é desperdício.
+        A planilha pode estar certa. O que falta é o sistema mental que executa a planilha.
+      </p>
+      <span class="tese-final">Esse é o problema. Não era você.</span>
     </div>
 
   </div>
@@ -862,59 +964,66 @@
 
 
 <!-- ══════════════════════════════════════
-     S4 — CREDIBILIDADE / AUTORIDADE
-     Princípio: Depois de nomear o problema,
-     mostrar que você o resolveu — nos três pilares.
-     Faixa preta = viveu. Atleta = faz. Treinador = replica.
+     S4 — AUTORIDADE / LÍDER CORAJOSO
+     ORDEM CORRETA (conforme o Plano):
+     01 — Treinador (o serviço que entrega)
+     02 — Atleta de fisiculturismo (faz em primeira pessoa)
+     03 — Faixa Preta de Jiu-Jitsu (prova de longo prazo)
+     O treinador vem antes porque é o serviço entregue.
+     Atleta e faixa preta entram como prova de método.
 ══════════════════════════════════════ -->
 <section id="autoridade">
   <div class="wrap">
 
     <span class="label" style="display:block; text-align:center;">Quem está do outro lado</span>
-    <h2>Ele não está teorizando.</h2>
+    <h2 style="text-align:center;">Cristian Alessandro.<br/>Ele não está teorizando.</h2>
     <p class="aut-intro">
-      Três linhas que juntas dizem tudo sobre por que o método funciona —
-      e por que é diferente de qualquer coisa que você já tentou.
+      Treinador primeiro — porque é o serviço que entrega.
+      Atleta e faixa preta entram como prova do método, não como vaidade.
+      A ordem diz tudo.
     </p>
 
     <div class="pilares">
       <div class="pilar">
         <div class="pilar-num">01</div>
-        <h3>Faixa Preta</h3>
-        <div class="micro">Ele viveu o processo</div>
+        <h3>Treinador</h3>
+        <div class="micro">O serviço que entrega</div>
         <p>
-          Mais de dez anos sem desistir. A faixa preta prova que método e consistência
-          vencem motivação. Quem chega ao preto sabe: resultado de longo prazo não vem
-          de força de vontade — vem de sistema.
+          Experiência aplicada em médicos, advogados, mães, empresários.
+          Rotinas reais com filhos, viagens e alta demanda.
+          O diagnóstico não foi construído para um mundo ideal —
+          foi construído para a sua vida.
         </p>
       </div>
       <div class="pilar">
         <div class="pilar-num">02</div>
         <h3>Atleta</h3>
-        <div class="micro">Ele faz o processo</div>
+        <div class="micro">Resultado em primeira pessoa</div>
         <p>
-          Resultado em primeira pessoa. Não fala de resultado em terceiro — é resultado
-          no próprio corpo. O que você vê no perfil é o que o método produz. Sem filtro.
+          Atleta de fisiculturismo. Não fala de resultado em terceiro —
+          é resultado no próprio corpo. O que você vê no perfil é o que o método produz.
+          Sem filtro. Sem atalho.
         </p>
       </div>
       <div class="pilar">
         <div class="pilar-num">03</div>
-        <h3>Treinador</h3>
-        <div class="micro">Ele replica o processo</div>
+        <h3>Faixa Preta</h3>
+        <div class="micro">Prova de sistema de longo prazo</div>
         <p>
-          Experiência aplicada em médicos, advogados, mães, empresários. Rotinas reais.
-          Filhos. Alta demanda. O protocolo não foi construído para um mundo ideal.
-          Foi construído para a sua vida.
+          Mais de dez anos de jiu-jitsu sem desistir.
+          A faixa preta prova que método e repetição com inteligência vencem motivação.
+          Quem chega ao preto entende: resultado duradouro não vem de força de vontade —
+          vem de sistema mental.
         </p>
       </div>
     </div>
 
     <div class="soma-strip">
       <p>
-        <strong>Faixa preta → viveu.</strong> &nbsp;
-        <strong>Atleta → faz.</strong> &nbsp;
-        <strong>Treinador → replica em outros.</strong><br/>
-        A soma diz: esse cara não está vendendo teoria. Ele foi. Ele é. E ele aplica.
+        <strong>Treinador → o serviço.</strong> &nbsp;
+        <strong>Atleta → a prova no corpo.</strong> &nbsp;
+        <strong>Faixa Preta → a prova no tempo.</strong><br/>
+        Esse cara não está vendendo teoria. Ele foi. Ele é. E ele replica em outros.
       </p>
     </div>
 
@@ -924,26 +1033,28 @@
 
 <!-- ══════════════════════════════════════
      S5 — MECANISMO ÚNICO
-     Princípio: A epifania. O que nunca foi
-     apresentado antes. Específico, diferente,
-     algo que a pessoa não testou ainda.
+     O Mapeamento de Obstáculos como
+     porta de entrada da metodologia.
+     Diagnóstico em 3 camadas antes de qualquer protocolo.
 ══════════════════════════════════════ -->
 <section id="mecanismo">
   <div class="wrap-sm">
 
-    <span class="label">O que é diferente aqui</span>
+    <span class="label">O que nunca foi feito por você</span>
     <h2>Sistema mental antes<br/>de protocolo físico.</h2>
 
     <div class="divider-orange"></div>
 
     <p class="mec-copy">
-      Treino e dieta não são o problema. Você já teve isso.
-      O que você nunca recebeu foi um <strong>diagnóstico real do padrão mental que sabota a execução</strong> —
-      antes de alguém te dar qualquer protocolo.
+      Treino e dieta não são o problema. Você provavelmente já teve isso.
+      O que você nunca recebeu foi um <strong>diagnóstico real do padrão mental que sabota a execução</strong>
+      — feito antes de alguém te dar qualquer protocolo.
     </p>
     <p class="mec-copy">
       O Mapeamento de Obstáculos não é um questionário. É um diagnóstico em três camadas
-      que identifica <strong>o que especificamente trava você</strong> — não uma pessoa genérica com o mesmo objetivo.
+      que identifica <strong>o que especificamente trava você</strong> —
+      não uma pessoa genérica com o mesmo objetivo.
+      Quem passa pelo Mapeamento sai marcado pelo método.
     </p>
 
     <div class="camadas">
@@ -954,8 +1065,8 @@
       </div>
       <div class="camada">
         <div class="num">Camada 02</div>
-        <h4>Funcionamento do Cérebro</h4>
-        <p>Como seu sistema dopaminérgico e cortex pré-frontal operam sob sua rotina real.</p>
+        <h4>Cérebro</h4>
+        <p>Como seu sistema dopaminérgico e córtex pré-frontal operam — ou travam — dentro da sua rotina real.</p>
       </div>
       <div class="camada">
         <div class="num">Camada 03</div>
@@ -969,14 +1080,25 @@
         A partir do diagnóstico, treino e dieta entram como ferramentas dentro de
         um sistema que faz sentido para a <strong>sua rotina real</strong> —
         com os obstáculos que você tem, com o tempo que você dispõe,
-        com as variáveis que a sua vida apresenta.
+        com as variáveis que a sua vida apresenta. Não é fórmula.
+        É <strong>arquitetura comportamental construída para durar.</strong>
       </p>
       <p>
-        <strong>Resultado que funciona quando tudo está bom é fácil de alcançar.</strong>
-        O que importa é o resultado que continua quando a vida complica.
-        Aqui, é exatamente isso que é construído.
+        Quando o sistema mental é instalado, a constância deixa de depender de motivação.
+        O treino vira ritual, não obrigação. A alimentação vira escolha, não restrição.
+        E o resultado físico aparece como consequência —
+        porque a base que sustenta apareceu primeiro.
       </p>
       <span class="oss">Não existe mudança de físico sem mudança de mentalidade. Oss!</span>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://form.jotform.com/260963662812058" class="btn btn-xl" target="_blank" rel="noopener">
+        Fazer meu Mapeamento de Obstáculos
+      </a>
+      <span class="anchor-dark" style="display:block; font-size:12px; color:var(--gray-lt); margin-top:10px; text-align:center;">
+        Diagnóstico gratuito · Devolutiva personalizada em até 72h
+      </span>
     </div>
 
   </div>
@@ -985,17 +1107,18 @@
 
 <!-- ══════════════════════════════════════
      S6 — PROVA SOCIAL 1 (transformações)
-     Princípio: Quanto pior a situação de partida
-     dos cases, mais forte a prova social.
+     O pior ponto de partida = prova mais forte.
+     Contexto real: filhos, trabalho, rotina quebrada.
 ══════════════════════════════════════ -->
 <section id="prova1">
   <div class="wrap">
 
     <span class="label" style="display:block; text-align:center;">Resultados reais</span>
-    <h2>Rotinas reais.<br/>Resultados que ficaram.</h2>
+    <h2 style="text-align:center;">Rotinas reais.<br/>Resultados que ficaram.</h2>
     <p class="p1-intro">
-      Não são pessoas com tempo livre. São alunos com filhos, com trabalho puxado, com viagens,
-      com pressão. O protocolo foi construído para a vida deles — e continuou funcionando.
+      Não são pessoas com tempo livre. São alunos com filhos, com trabalho puxado,
+      com viagens, com pressão. Com o diagnóstico certo, o protocolo funcionou
+      quando a vida complicou — não só quando estava tudo sob controle.
     </p>
 
     <div class="resultados">
@@ -1017,28 +1140,16 @@
         <div class="resultado-img">[Foto transformação — Aluno 3]</div>
         <div class="resultado-info">
           <div class="nome">Nome · Idade · Profissão</div>
-          <div class="contexto">Ex: Alta demanda emocional + profissional. Não acreditava que conseguiria.</div>
+          <div class="contexto">Ex: Alta demanda emocional e profissional. Padrão identificado mudou o que falhou antes.</div>
         </div>
       </div>
       <div class="resultado-card">
         <div class="resultado-img">[Foto transformação — Aluno 4]</div>
         <div class="resultado-info">
           <div class="nome">Nome · Idade · Profissão</div>
-          <div class="contexto">Ex: Já tinha investido em dois programas antes sem resultado sustentável.</div>
+          <div class="contexto">Ex: Já tinha investido em dois programas. Hábito sem identidade não sobrevive — desta vez sobreviveu.</div>
         </div>
       </div>
-    </div>
-
-    <p class="transicao">
-      <strong>O que é diferente aqui?</strong>
-      Protocolo construído para a sua vida — não para uma rotina perfeita que nunca existe.
-    </p>
-
-    <div style="text-align:center;">
-      <a href="https://wa.me/5511951596801" class="btn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
-        Quero o Diagnóstico Real
-      </a>
     </div>
 
   </div>
@@ -1047,8 +1158,8 @@
 
 <!-- ══════════════════════════════════════
      S7 — DEPOIMENTOS
-     Princípio: Contexto do depoente com obstáculos
-     reais aumenta identificação e prova social.
+     Contexto de vida do depoente aumenta
+     identificação. Obstáculos reais → prova real.
 ══════════════════════════════════════ -->
 <section id="depoimentos">
   <div class="wrap">
@@ -1058,25 +1169,25 @@
     <div class="depos-grid">
       <div class="depo">
         <div class="depo-q">"</div>
-        <p>Substitua com depoimento real — com contexto de vida (filhos, trabalho, tentativas anteriores) e o que especificamente mudou.</p>
+        <p>Substitua com depoimento real — com contexto de vida (filhos, trabalho, tentativas anteriores) e o que especificamente mudou no padrão.</p>
         <div class="depo-autor">Nome do Aluno</div>
         <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
       <div class="depo">
         <div class="depo-q">"</div>
-        <p>Substitua com depoimento real — preferencialmente mencionando o que falhou antes e por que desta vez foi diferente.</p>
+        <p>Substitua com depoimento que menciona o que falhou antes e por que desta vez o diagnóstico foi diferente.</p>
         <div class="depo-autor">Nome do Aluno</div>
         <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
       <div class="depo">
         <div class="depo-q">"</div>
-        <p>Substitua com depoimento que mostre como o protocolo continuou funcionando mesmo em semanas difíceis.</p>
+        <p>Substitua com depoimento que mostra como o protocolo continuou funcionando mesmo em semanas difíceis.</p>
         <div class="depo-autor">Nome do Aluno</div>
         <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
       <div class="depo">
         <div class="depo-q">"</div>
-        <p>Substitua com depoimento de perfil diferente — mostrando que o método funciona em diferentes contextos de vida.</p>
+        <p>Substitua com depoimento de perfil diferente — mostrando que o sistema mental funciona em diferentes contextos de vida.</p>
         <div class="depo-autor">Nome do Aluno</div>
         <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
@@ -1087,21 +1198,22 @@
 
 
 <!-- ══════════════════════════════════════
-     S8 — OFERTA
-     Princípio: Apresentar como "estender a mão",
-     não como vender. A venda tira, a ajuda acrescenta.
+     S8 — OFERTA (Consultoria Premium)
+     Não empurrar. Apresentar como "estender a mão".
+     O produto âncora é a Consultoria Premium —
+     onde mora a tese ideológica da marca.
 ══════════════════════════════════════ -->
 <section id="oferta">
   <div class="wrap">
 
-    <div class="wrap-sm" style="padding:0; margin-bottom:32px;">
+    <div class="wrap-sm" style="padding:0; margin-bottom:36px;">
       <span class="label">O que está incluído</span>
-      <h2>Um protocolo feito<br/>para a sua vida real.</h2>
+      <h2>Treino, dieta e o sistema<br/>mental que sustenta os dois.</h2>
       <p class="of-copy">
         Você já tem informação suficiente. O que falta é um sistema construído
-        sobre o diagnóstico correto do que trava você — não sobre o que trava
-        uma pessoa genérica com o mesmo objetivo.
-        Isso é o que está incluso no seu protocolo:
+        sobre o <strong>diagnóstico correto do padrão que trava você</strong> —
+        não sobre o que trava uma pessoa genérica com o mesmo objetivo.
+        Isso é o que está incluso:
       </p>
     </div>
 
@@ -1110,42 +1222,42 @@
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Mapeamento de Obstáculos</h4>
-          <p>Diagnóstico em 3 camadas do padrão que sabota sua execução. Feito antes de qualquer protocolo.</p>
+          <p>Diagnóstico em 3 camadas do padrão que sabota sua execução. Feito antes de qualquer protocolo. É a base de tudo.</p>
         </div>
       </div>
       <div class="item">
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Protocolo de Treino e Alimentação</h4>
-          <p>Construído sobre o diagnóstico — para a sua rotina, seus obstáculos, seu tempo disponível.</p>
+          <p>Construído sobre o diagnóstico — para a sua rotina, seus obstáculos, seu tempo disponível. Os dois caem juntos.</p>
         </div>
       </div>
       <div class="item">
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Acompanhamento com Ajustes</h4>
-          <p>Presença durante o processo. Quando a rotina mudar — e ela muda — o protocolo ajusta junto.</p>
+          <p>Presença durante o processo. Avaliações semanais. Quando a rotina mudar — e ela muda — o protocolo ajusta junto.</p>
         </div>
       </div>
       <div class="item">
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
-          <h4>Plano para Semanas Difíceis</h4>
-          <p>Preparado com antecedência para quando a rotina quebrar. Porque ela vai quebrar.</p>
+          <h4>Arquitetura para Semanas Difíceis</h4>
+          <p>Preparado com antecedência para quando a rotina quebrar. Porque ela vai quebrar. E o sistema continua operando.</p>
         </div>
       </div>
       <div class="item">
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Sistema Mental Instalado</h4>
-          <p>Mentalidade de atleta operando dentro da sua vida real. Sem precisar virar um.</p>
+          <p>Mentalidade de atleta operando dentro da sua vida real. Hábito com identidade. Constância que não depende de motivação.</p>
         </div>
       </div>
       <div class="item">
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Acesso Direto via WhatsApp</h4>
-          <p>Sem intermediário. Você fala direto. Durante todo o período de consultoria.</p>
+          <p>Sem intermediário. Você fala direto com o Cris. Durante todo o período de consultoria.</p>
         </div>
       </div>
     </div>
@@ -1156,35 +1268,43 @@
 
 <!-- ══════════════════════════════════════
      S9 — CTA FINAL
-     Princípio: Unique call to action. Uma ação.
-     Nenhuma distração. Sem compromisso percebido.
+     AÇÃO PRIMÁRIA: Mapeamento de Obstáculos
+     (conforme o Plano: "a oferta primária NÃO é
+     a Consultoria. É o Mapeamento de Obstáculos.")
+     AÇÃO SECUNDÁRIA: WhatsApp para quem
+     prefere conversar antes.
 ══════════════════════════════════════ -->
 <section id="cta">
   <div class="wrap-sm">
 
     <span class="label label-light">O próximo passo</span>
 
-    <h2>O próximo passo<br/>é uma <span>conversa.</span></h2>
+    <h2>O caminho começa<br/>pelo <span>diagnóstico.</span></h2>
 
     <p class="cta-copy">
-      Você clica, abre o WhatsApp, e a gente conversa sobre o que você quer alcançar
-      e como o protocolo é construído para a sua realidade específica.
-      Sem formulário longo. Sem pressão. Só clareza.
+      Você preenche o Mapeamento de Obstáculos — o diagnóstico em 3 camadas do que trava você.
+      <strong>Em até 72 horas você recebe a devolutiva personalizada</strong>
+      com o padrão identificado e o próximo passo.
+      Sem formulário genérico. Sem pressão. Só clareza.
     </p>
 
-    <a href="https://wa.me/5511951596801" class="btn btn-xl" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
-      Conversar Agora
-    </a>
-    <span class="anchor-text">Sem compromisso · Sem pressão · Só clareza</span>
+    <div class="cta-buttons">
+      <a href="https://form.jotform.com/260963662812058" class="btn btn-xl" target="_blank" rel="noopener">
+        Fazer meu Mapeamento de Obstáculos
+      </a>
+      <span class="anchor-text">Gratuito · Devolutiva personalizada · Sem compromisso</span>
 
-    <p class="secondary-opt">
-      Prefere preencher o Mapeamento antes?
-      <a href="https://form.jotform.com/260963662812058" target="_blank" rel="noopener">Acesse aqui.</a>
-    </p>
+      <span class="cta-divisor">ou</span>
+
+      <a href="https://wa.me/5511951596801" class="btn-ghost" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
+        Prefiro conversar antes — WhatsApp
+      </a>
+    </div>
 
     <p class="encerramento">
       Mentalidade e resultado de atleta sem precisar ser um.
+      <span>— Não existe mudança de físico sem mudança de mentalidade. Oss!</span>
     </p>
 
   </div>
