@@ -950,20 +950,74 @@
     footer p { font-size: 11px; color: #2e2e2e; }
 
 
-    /* RESPONSIVE */
-    @media (max-width: 640px) {
-      #hero { padding: 40px 0 60px; }
-      .sonho-bloco { padding: 32px 24px; }
-      .pilares { grid-template-columns: 1fr; }
-      .inimigos-grid { grid-template-columns: 1fr; }
-      .depos-grid { grid-template-columns: 1fr; }
-      .itens { grid-template-columns: 1fr; }
-      .btn-xl { width: 100%; font-size: 14px; padding: 18px 24px; }
-      .modal-card { padding: 36px 24px 32px; }
+    /* ══════════════════════════════════
+       RESPONSIVE — MOBILE FIRST
+    ══════════════════════════════════ */
+    @media (max-width: 768px) {
+      /* Hero: só a foto central no mobile */
+      .hero-bg-panel:not(.hero-center) { display: none; }
+      .hero-bg-panel.hero-center {
+        flex: 1;
+        filter: brightness(0.5) saturate(0.75);
+        background-position: center top;
+      }
+      /* Overlay mais denso no mobile para legibilidade */
+      .hero-overlay {
+        background:
+          linear-gradient(to bottom,
+            rgba(8,15,30,.35) 0%,
+            rgba(8,15,30,.65) 100%
+          );
+      }
     }
+
+    @media (max-width: 640px) {
+      #hero { padding: 96px 0 64px; }
+
+      /* VSL menor no mobile */
+      .vsl-frame { margin-bottom: 28px; }
+
+      /* Título mais apertado */
+      #hero h1 { font-size: clamp(34px, 10vw, 48px); }
+
+      /* Manifesto mais compacto */
+      .hero-manifesto { margin: 16px auto 28px; }
+      .hero-manifesto p { font-size: 15px; }
+
+      /* Seções */
+      #resultados { padding: 56px 0; }
+      #narrativa  { padding: 64px 0; }
+      #inimigo    { padding: 64px 0; }
+      #mecanismo  { padding: 64px 0; }
+      #depoimentos{ padding: 64px 0; }
+      #oferta     { padding: 64px 0; }
+      #autoridade { padding: 0 0 64px; }
+
+      .sonho-bloco { padding: 28px 22px; margin-bottom: 40px; }
+      .sonho-bloco p { font-size: 16px; }
+
+      .pilares      { grid-template-columns: 1fr; }
+      .inimigos-grid{ grid-template-columns: 1fr; }
+      .depos-grid   { grid-template-columns: 1fr; }
+      .itens        { grid-template-columns: 1fr; }
+
+      .btn-xl { width: 100%; font-size: 15px; padding: 18px 20px; }
+      .modal-card { padding: 36px 22px 32px; }
+
+      /* Autoridade: foto-04 menor no mobile, posiciona em Cris */
+      .aut-foto-banner { height: 380px; margin-bottom: 48px; }
+      .aut-foto-banner img {
+        object-position: 25% 15%;
+      }
+      .aut-foto-caption h2 { font-size: clamp(28px, 8vw, 42px); }
+
+      /* Carrossel: slides menores */
+      .carousel-slide { width: 180px; height: 240px; }
+    }
+
     @media (min-width: 641px) and (max-width: 860px) {
       .pilares { grid-template-columns: 1fr; }
-      .itens { grid-template-columns: 1fr; }
+      .itens   { grid-template-columns: 1fr; }
     }
   </style>
 </head>
