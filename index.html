@@ -422,11 +422,11 @@
     ══════════════════════════════════ */
     #resultados {
       background: var(--navy);
-      background-image: linear-gradient(rgba(6,12,24,0.78), rgba(6,12,24,0.78)), url('foto-01.jpg');
-      background-size: cover;
-      background-position: center 30%;
-      background-attachment: fixed;
-      padding: 72px 0 104px;
+      background-image: linear-gradient(rgba(6,12,24,0.76), rgba(6,12,24,0.76)), url('foto-01.jpg');
+      background-size: cover, 160%;
+      background-position: center, center 18%;
+      background-attachment: scroll, fixed;
+      padding: 72px 0;
       position: relative;
     }
     #resultados .label {
@@ -740,23 +740,28 @@
        S7 — OFERTA
     ══════════════════════════════════ */
     #oferta {
-      background: var(--white);
+      background: var(--navy);
+      background-image: linear-gradient(rgba(6,12,24,0.82), rgba(6,12,24,0.82)), url('foto-03.jpg');
+      background-size: cover, cover;
+      background-position: center, center 35%;
+      background-attachment: scroll, fixed;
       padding: 88px 0;
     }
+    #oferta .label { color: var(--orange-lt); }
     #oferta h2 {
       font-size: clamp(28px, 5vw, 50px);
       font-weight: 900;
       text-transform: uppercase;
-      color: var(--navy);
+      color: var(--white);
       margin-bottom: 12px;
     }
     .of-copy {
       font-size: 16px;
-      color: var(--gray);
+      color: rgba(255,255,255,.65);
       line-height: 1.75;
       margin-bottom: 36px;
     }
-    .of-copy strong { color: var(--navy); font-weight: 600; }
+    .of-copy strong { color: var(--white); font-weight: 600; }
 
     .itens {
       display: grid;
@@ -765,7 +770,7 @@
       margin-bottom: 52px;
     }
     .item {
-      background: var(--offwhite);
+      background: rgba(255,255,255,.07);
       border-radius: 6px;
       padding: 20px;
       display: flex;
@@ -792,27 +797,27 @@
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 700;
-      color: var(--navy);
+      color: var(--white);
       margin-bottom: 3px;
     }
     .item p {
       font-size: 12px;
-      color: var(--gray);
+      color: rgba(255,255,255,.55);
       line-height: 1.55;
     }
 
     .oferta-cta {
       text-align: center;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(255,255,255,.1);
       padding-top: 48px;
     }
     .oferta-cta p {
       font-size: 15px;
-      color: var(--gray);
+      color: rgba(255,255,255,.6);
       margin-bottom: 28px;
       line-height: 1.65;
     }
-    .oferta-cta strong { color: var(--navy); }
+    .oferta-cta strong { color: var(--white); }
 
 
     /* ══════════════════════════════════
@@ -963,12 +968,12 @@
     @media (max-width: 768px) {
       /* Hero mobile: esconde painéis laterais */
       .hero-bg-panel:not(.hero-center) { display: none; }
-      /* Mobile: mantém foto-02 (Olympia) como fundo principal */
+      /* Mobile: foto-05 (treino Cris+Vini) — posição central para mostrar os dois */
       .hero-bg-panel.hero-center {
         flex: 1;
-        background-image: url('foto-02.jpg') !important;
-        background-position: center top !important;
-        filter: brightness(0.48) saturate(0.7);
+        background-image: url('foto-05.jpg') !important;
+        background-position: center 45% !important;
+        filter: brightness(0.45) saturate(0.75);
       }
       .hero-overlay {
         background:
@@ -994,16 +999,17 @@
 
       /* Seções */
       #resultados {
-        padding: 56px 0 88px;
-        background-attachment: scroll;
-        background-position: center center;
+        padding: 56px 0;
+        background-size: cover, 180%;
+        background-attachment: scroll, scroll;
+        background-position: center, center 18%;
       }
-      #narrativa  { padding: 88px 0 64px; }
-      #inimigo    { padding: 88px 0 64px; }
+      #narrativa  { padding: 64px 0; }
+      #inimigo    { padding: 64px 0; }
       #mecanismo  { padding: 64px 0; }
-      #depoimentos{ padding: 88px 0 64px; }
-      #oferta     { padding: 64px 0; }
-      #autoridade { padding: 52px 0 64px; }
+      #depoimentos{ padding: 64px 0; }
+      #oferta     { padding: 64px 0; background-attachment: scroll, scroll; }
+      #autoridade { padding: 0 0 64px; }
 
       .sonho-bloco { padding: 28px 22px; margin-bottom: 40px; }
       .sonho-bloco p { font-size: 16px; }
@@ -1033,103 +1039,36 @@
     }
 
     /* ══════════════════════════════════
-       EFEITOS VISUAIS
-       1. Granulado (noise) nas seções dark
-       2. Separadores diagonais entre seções
+       GRANULADO — NOISE TEXTURE
+       Arquivo noise.png (64x64, RGBA, alpha=18)
+       tiling nas seções dark para dar profundidade.
     ══════════════════════════════════ */
-
-    /* — Granulado sutil — */
-    /* Dá profundidade e textura real às seções navy,
-       separando-as de fundos lisos genéricos.          */
     #inimigo,
-    #depoimentos {
+    #depoimentos,
+    #autoridade {
       position: relative;
-      isolation: isolate;
     }
-    #inimigo::before,
-    #depoimentos::before {
+    #inimigo::after,
+    #depoimentos::after,
+    #autoridade::after {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 200px 200px;
-      opacity: 0.055;
-      mix-blend-mode: overlay;
+      background-image: url('noise.png');
+      background-size: 64px 64px;
+      background-repeat: repeat;
+      opacity: 0.35;
+      mix-blend-mode: soft-light;
       pointer-events: none;
-      z-index: -1;
+      z-index: 0;
     }
-
-    /* — Separadores diagonais — */
-    /* resultados (dark) → narrativa (white)
-       Corte que vai da esquerda-baixo para direita-cima */
-    #resultados::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0; right: 0;
-      height: 52px;
-      background: var(--white);
-      clip-path: polygon(0 100%, 100% 0, 100% 100%);
-      pointer-events: none;
-      z-index: 4;
-    }
-
-    /* narrativa (white) → inimigo (navy)
-       Corte inverso: direita-baixo para esquerda-cima */
-    #narrativa {
+    /* Garante que todo conteúdo interno fique acima do noise */
+    #inimigo > *,
+    #depoimentos > *,
+    #autoridade > * {
       position: relative;
+      z-index: 1;
     }
-    #narrativa::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0; right: 0;
-      height: 52px;
-      background: var(--navy);
-      clip-path: polygon(0 0, 100% 100%, 0 100%);
-      pointer-events: none;
-      z-index: 4;
-    }
-
-    /* mecanismo (offwhite) → depoimentos (navy-2)
-       Corte direita-baixo para esquerda-cima */
-    #mecanismo {
-      position: relative;
-    }
-    #mecanismo::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0; right: 0;
-      height: 52px;
-      background: var(--navy-2);
-      clip-path: polygon(0 0, 100% 100%, 0 100%);
-      pointer-events: none;
-      z-index: 4;
-    }
-
-    /* oferta (white) → autoridade (navy)
-       Corte esquerda-baixo para direita-cima */
-    #oferta {
-      position: relative;
-    }
-    #oferta::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0; right: 0;
-      height: 52px;
-      background: var(--navy);
-      clip-path: polygon(0 100%, 100% 0, 100% 100%);
-      pointer-events: none;
-      z-index: 4;
-    }
-
-    /* Compensa o overlap do diagonal no topo de seções afetadas */
-    #narrativa  { padding-top: 104px; }
-    #inimigo    { padding-top: 104px; }
-    #depoimentos{ padding-top: 104px; }
-    #autoridade { padding-top: 52px; }
   </style>
 </head>
 <body>
@@ -1203,7 +1142,7 @@
   <!-- FUNDO: TRÊS PAINÉIS DE FOTO -->
   <div class="hero-bg" aria-hidden="true">
     <div class="hero-bg-panel"        style="background-image: url('foto-03.jpg'); background-position: center 30%;"></div>
-    <div class="hero-bg-panel hero-center" style="background-image: url('foto-02.jpg'); background-position: center top;"></div>
+    <div class="hero-bg-panel hero-center" style="background-image: url('foto-05.jpg'); background-position: center 45%;"></div>
     <div class="hero-bg-panel"        style="background-image: url('foto-03.jpg'); background-position: center 30%;"></div>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
