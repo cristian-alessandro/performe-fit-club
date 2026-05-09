@@ -64,7 +64,6 @@
     }
     .label-light { color: rgba(255,255,255,.4); }
 
-    /* BOTÃO CTA */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -80,11 +79,12 @@
       text-decoration: none;
       padding: 18px 36px;
       border-radius: 3px;
+      border: none;
+      cursor: pointer;
       transition: background .18s, transform .15s;
     }
     .btn:hover { background: var(--orange-h); transform: translateY(-2px); }
-    .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .btn-xl { font-size: 16px; padding: 22px 48px; }
+    .btn-xl { font-size: 16px; padding: 22px 52px; }
 
     .btn-ghost {
       display: inline-flex;
@@ -92,7 +92,7 @@
       justify-content: center;
       gap: 8px;
       background: transparent;
-      color: rgba(255,255,255,.55);
+      color: rgba(255,255,255,.5);
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 600;
@@ -101,19 +101,19 @@
       text-decoration: none;
       padding: 14px 28px;
       border-radius: 3px;
-      border: 1px solid rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.15);
+      cursor: pointer;
       transition: border-color .18s, color .18s;
     }
-    .btn-ghost:hover { border-color: rgba(255,255,255,.35); color: rgba(255,255,255,.8); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.75); }
 
     .anchor-text {
       display: block;
       font-size: 12px;
-      color: rgba(255,255,255,.3);
+      color: rgba(255,255,255,.28);
       margin-top: 10px;
       text-align: center;
     }
-    .anchor-dark { color: var(--gray-lt); }
 
     .divider-orange {
       width: 40px; height: 3px;
@@ -121,7 +121,109 @@
       border-radius: 2px;
       margin: 20px 0;
     }
-    .divider-center { margin-left: auto; margin-right: auto; }
+
+
+    /* ══════════════════════════════════
+       MODAL — FORMULÁRIO DE LEAD
+    ══════════════════════════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 8, 20, 0.93);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s, visibility .25s;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-card {
+      background: var(--navy-2);
+      border-radius: 8px;
+      border-top: 3px solid var(--orange);
+      padding: 44px 40px 40px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform .25s;
+    }
+    .modal-overlay.active .modal-card {
+      transform: translateY(0);
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,.3);
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 6px;
+      transition: color .15s;
+    }
+    .modal-close:hover { color: rgba(255,255,255,.7); }
+
+    .modal-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .modal-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .modal-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 28px;
+      line-height: 1.55;
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 4px;
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--white);
+      outline: none;
+      transition: border-color .15s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,.25); }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--orange); }
+    .form-group select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23E85D00' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
+    .form-group select option { background: #0D1A30; color: var(--white); }
+
+    .btn-form-submit {
+      width: 100%;
+      padding: 18px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
 
     /* ══════════════════════════════════
        S1 — HERO
@@ -155,8 +257,6 @@
       flex-direction: column;
       align-items: center;
       gap: 14px;
-      color: #555;
-      font-size: 12px;
     }
     .play-btn {
       width: 76px; height: 76px;
@@ -179,41 +279,118 @@
     }
 
     #hero h1 {
-      font-size: clamp(44px, 8vw, 76px);
+      font-size: clamp(36px, 7vw, 68px);
       font-weight: 900;
       text-transform: uppercase;
       color: var(--white);
-      margin-bottom: 8px;
+      margin-bottom: 0;
       line-height: 1.0;
     }
     #hero h1 .accent { color: var(--orange); }
 
     .hero-manifesto {
       max-width: 600px;
-      margin: 20px auto 36px;
+      margin: 24px auto 36px;
     }
     .hero-manifesto p {
       font-size: clamp(15px, 2vw, 17px);
-      color: rgba(255,255,255,.6);
-      line-height: 1.75;
+      color: rgba(255,255,255,.55);
+      line-height: 1.8;
       margin-bottom: 14px;
     }
-    .hero-manifesto p strong { color: rgba(255,255,255,.92); }
-    .hero-manifesto .mantra {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(16px, 2.5vw, 20px);
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--orange);
-      letter-spacing: .5px;
-      margin-top: 8px;
-    }
+    .hero-manifesto p:last-child { margin-bottom: 0; }
+    .hero-manifesto strong { color: rgba(255,255,255,.9); }
+
 
     /* ══════════════════════════════════
-       S2 — NARRATIVA (SONHO + DOR)
+       S2 — RESULTADOS (CARROSSEL)
+       Posicionado antes de "Imagine um futuro"
+    ══════════════════════════════════ */
+    #resultados {
+      background: var(--offwhite);
+      padding: 72px 0;
+      overflow: hidden;
+    }
+    #resultados h2 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .res-sub {
+      text-align: center;
+      font-size: 15px;
+      color: var(--gray);
+      margin-bottom: 44px;
+      line-height: 1.6;
+    }
+
+    .carousel-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-wrapper::before,
+    .carousel-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .carousel-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--offwhite), transparent);
+    }
+    .carousel-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--offwhite), transparent);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+      animation: carousel-scroll 28s linear infinite;
+      width: max-content;
+    }
+    .carousel-track:hover { animation-play-state: paused; }
+
+    .carousel-slide {
+      width: 220px;
+      height: 300px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #aaa;
+      border: 1px solid var(--border);
+    }
+    .carousel-slide:nth-child(6n+1) { background: #e8e8e6; }
+    .carousel-slide:nth-child(6n+2) { background: #dedede; }
+    .carousel-slide:nth-child(6n+3) { background: #e4e4e2; }
+    .carousel-slide:nth-child(6n+4) { background: #d9d9d7; }
+    .carousel-slide:nth-child(6n+5) { background: #e0e0de; }
+    .carousel-slide:nth-child(6n)   { background: #dadadb; }
+
+    @keyframes carousel-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+
+    /* ══════════════════════════════════
+       S3 — NARRATIVA (SONHO + DOR)
     ══════════════════════════════════ */
     #narrativa {
-      background: var(--offwhite);
+      background: var(--white);
       padding: 88px 0;
     }
     .sonho-bloco {
@@ -234,7 +411,7 @@
     }
     .sonho-bloco p {
       font-size: clamp(16px, 2.2vw, 18px);
-      color: rgba(255,255,255,.75);
+      color: rgba(255,255,255,.7);
       line-height: 1.8;
       margin-bottom: 14px;
     }
@@ -280,7 +457,7 @@
     }
 
     .insight-box {
-      background: var(--navy);
+      background: var(--offwhite);
       border-radius: 6px;
       padding: 28px 32px;
       border-left: 4px solid var(--orange);
@@ -288,13 +465,14 @@
     }
     .insight-box p {
       font-size: 16px;
-      color: rgba(255,255,255,.8);
+      color: var(--gray);
       line-height: 1.75;
     }
-    .insight-box strong { color: var(--white); }
+    .insight-box strong { color: var(--navy); }
+
 
     /* ══════════════════════════════════
-       S3 — O INIMIGO
+       S4 — O INIMIGO
     ══════════════════════════════════ */
     #inimigo {
       background: var(--navy);
@@ -309,7 +487,7 @@
     }
     #inimigo .intro {
       font-size: 16px;
-      color: rgba(255,255,255,.55);
+      color: rgba(255,255,255,.5);
       line-height: 1.75;
       margin-bottom: 44px;
     }
@@ -318,13 +496,12 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-      margin-bottom: 48px;
     }
     .inimigo-card {
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.07);
       border-radius: 6px;
-      padding: 22px 20px;
+      padding: 24px 22px;
     }
     .inimigo-card .tag {
       font-size: 10px;
@@ -339,113 +516,7 @@
       color: rgba(255,255,255,.6);
       line-height: 1.65;
     }
-    .inimigo-card strong { color: rgba(255,255,255,.85); }
 
-    .manifesto-tese {
-      background: rgba(232, 93, 0, 0.08);
-      border: 1px solid rgba(232,93,0,.25);
-      border-radius: 6px;
-      padding: 36px;
-      text-align: center;
-    }
-    .manifesto-tese p {
-      font-size: clamp(15px, 2.2vw, 17px);
-      color: rgba(255,255,255,.7);
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .manifesto-tese p:last-child { margin-bottom: 0; }
-    .manifesto-tese strong { color: var(--white); }
-    .manifesto-tese .tese-final {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(18px, 3vw, 26px);
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--orange);
-      letter-spacing: .5px;
-      margin-top: 8px;
-      display: block;
-    }
-
-    /* ══════════════════════════════════
-       S4 — AUTORIDADE
-       Ordem correta: Treinador → Atleta → Faixa Preta
-    ══════════════════════════════════ */
-    #autoridade {
-      background: var(--white);
-      padding: 88px 0;
-    }
-    #autoridade h2 {
-      font-size: clamp(28px, 5vw, 50px);
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--navy);
-      text-align: center;
-      margin-bottom: 12px;
-    }
-    .aut-intro {
-      text-align: center;
-      font-size: 15px;
-      color: var(--gray);
-      max-width: 560px;
-      margin: 0 auto 48px;
-      line-height: 1.65;
-    }
-    .pilares {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .pilar {
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--orange);
-      border-radius: 6px;
-      padding: 28px 22px;
-      text-align: center;
-    }
-    .pilar-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 48px;
-      font-weight: 900;
-      color: var(--orange);
-      line-height: 1;
-      opacity: .2;
-      margin-bottom: 8px;
-    }
-    .pilar h3 {
-      font-size: 20px;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .pilar .micro {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 12px;
-    }
-    .pilar p {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.65;
-    }
-
-    .soma-strip {
-      background: var(--navy);
-      border-radius: 6px;
-      padding: 24px 32px;
-      text-align: center;
-    }
-    .soma-strip p {
-      font-size: 15px;
-      color: rgba(255,255,255,.65);
-      line-height: 1.75;
-    }
-    .soma-strip strong { color: var(--white); }
 
     /* ══════════════════════════════════
        S5 — MECANISMO ÚNICO
@@ -469,46 +540,11 @@
     }
     .mec-copy strong { color: var(--navy); font-weight: 600; }
 
-    .camadas {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 36px 0;
-    }
-    .camada {
-      background: var(--white);
-      border-radius: 6px;
-      padding: 24px 20px;
-      border-bottom: 3px solid var(--orange);
-      text-align: center;
-    }
-    .camada .num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 8px;
-    }
-    .camada h4 {
-      font-size: 16px;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .camada p {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
     .epifania {
       background: var(--navy);
       border-radius: 6px;
       padding: 36px;
-      margin-top: 8px;
+      margin-top: 32px;
     }
     .epifania p {
       font-size: 16px;
@@ -518,84 +554,23 @@
     }
     .epifania p:last-child { margin-bottom: 0; }
     .epifania strong { color: var(--white); }
-    .epifania .oss {
+    .epifania .fecho {
       display: block;
       margin-top: 24px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 900;
       text-transform: uppercase;
-      color: var(--orange);
-      letter-spacing: .5px;
+      color: rgba(255,255,255,.3);
+      letter-spacing: 1px;
     }
 
-    /* ══════════════════════════════════
-       S6 — PROVA SOCIAL 1
-    ══════════════════════════════════ */
-    #prova1 {
-      background: var(--white);
-      padding: 88px 0;
-    }
-    #prova1 h2 {
-      font-size: clamp(28px, 5vw, 50px);
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--navy);
-      text-align: center;
-      margin-bottom: 12px;
-    }
-    .p1-intro {
-      text-align: center;
-      font-size: 15px;
-      color: var(--gray);
-      max-width: 560px;
-      margin: 0 auto 48px;
-      line-height: 1.65;
-    }
-    .resultados {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-    .resultado-card {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .resultado-img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: #e8e8e8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: #aaa;
-      text-align: center;
-      padding: 16px;
-    }
-    .resultado-info {
-      padding: 16px;
-      border-top: 2px solid var(--orange);
-    }
-    .resultado-info .nome {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .resultado-info .contexto {
-      font-size: 12px;
-      color: var(--gray-lt);
-      line-height: 1.55;
-    }
 
     /* ══════════════════════════════════
-       S7 — DEPOIMENTOS
+       S6 — DEPOIMENTOS
     ══════════════════════════════════ */
     #depoimentos {
-      background: var(--navy);
+      background: var(--navy-2);
       padding: 88px 0;
     }
     #depoimentos h2 {
@@ -639,11 +614,12 @@
     .depo-autor { font-size: 13px; font-weight: 700; color: var(--white); }
     .depo-ctx { font-size: 12px; color: rgba(255,255,255,.3); margin-top: 2px; }
 
+
     /* ══════════════════════════════════
-       S8 — OFERTA (Consultoria Premium)
+       S7 — OFERTA
     ══════════════════════════════════ */
     #oferta {
-      background: var(--offwhite);
+      background: var(--white);
       padding: 88px 0;
     }
     #oferta h2 {
@@ -657,7 +633,7 @@
       font-size: 16px;
       color: var(--gray);
       line-height: 1.75;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
     .of-copy strong { color: var(--navy); font-weight: 600; }
 
@@ -665,10 +641,10 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
-      margin-bottom: 48px;
+      margin-bottom: 52px;
     }
     .item {
-      background: var(--white);
+      background: var(--offwhite);
       border-radius: 6px;
       padding: 20px;
       display: flex;
@@ -704,60 +680,103 @@
       line-height: 1.55;
     }
 
-    /* ══════════════════════════════════
-       S9 — CTA FINAL
-    ══════════════════════════════════ */
-    #cta {
-      background: var(--navy);
-      padding: 104px 0;
+    .oferta-cta {
       text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 48px;
     }
-    #cta .wrap-sm {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .oferta-cta p {
+      font-size: 15px;
+      color: var(--gray);
+      margin-bottom: 28px;
+      line-height: 1.65;
     }
-    #cta h2 {
-      font-size: clamp(36px, 7vw, 64px);
+    .oferta-cta strong { color: var(--navy); }
+
+
+    /* ══════════════════════════════════
+       S8 — AUTORIDADE (ÚLTIMO BLOCO)
+       Time completo + credenciais do Cris
+    ══════════════════════════════════ */
+    #autoridade {
+      background: var(--navy);
+      padding: 88px 0 80px;
+    }
+    #autoridade h2 {
+      font-size: clamp(28px, 5vw, 50px);
       font-weight: 900;
       text-transform: uppercase;
       color: var(--white);
+      text-align: center;
       margin-bottom: 12px;
     }
-    #cta h2 span { color: var(--orange); }
-    #cta .cta-copy {
-      font-size: 16px;
-      color: rgba(255,255,255,.5);
-      max-width: 520px;
-      line-height: 1.75;
-      margin: 0 auto 40px;
+    .aut-intro {
+      text-align: center;
+      font-size: 15px;
+      color: rgba(255,255,255,.45);
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
     }
-    #cta .cta-copy strong { color: rgba(255,255,255,.85); }
+    .aut-intro strong { color: rgba(255,255,255,.8); }
 
-    .cta-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
     }
-    .cta-divisor {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.18);
+    .pilar {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-top: 3px solid var(--orange);
+      border-radius: 6px;
+      padding: 28px 22px;
+      text-align: center;
     }
-
-    .encerramento {
-      margin-top: 56px;
+    .pilar-num {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 16px;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      opacity: .18;
+      margin-bottom: 8px;
+    }
+    .pilar h3 {
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .pilar .micro {
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(255,255,255,.15);
+      color: var(--orange);
+      margin-bottom: 12px;
     }
-    .encerramento span { color: rgba(255,255,255,.25); }
+    .pilar p {
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.65;
+    }
+
+    .soma-strip {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 6px;
+      padding: 24px 32px;
+      text-align: center;
+    }
+    .soma-strip p {
+      font-size: 15px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.75;
+    }
+    .soma-strip strong { color: rgba(255,255,255,.85); }
 
     footer {
       background: #04080F;
@@ -766,22 +785,20 @@
     }
     footer p { font-size: 11px; color: #2e2e2e; }
 
+
     /* RESPONSIVE */
     @media (max-width: 640px) {
       #hero { padding: 40px 0 60px; }
       .sonho-bloco { padding: 32px 24px; }
       .pilares { grid-template-columns: 1fr; }
       .inimigos-grid { grid-template-columns: 1fr; }
-      .camadas { grid-template-columns: 1fr; }
-      .resultados { grid-template-columns: 1fr; }
       .depos-grid { grid-template-columns: 1fr; }
       .itens { grid-template-columns: 1fr; }
       .btn-xl { width: 100%; font-size: 14px; padding: 18px 24px; }
-      .manifesto-tese { padding: 28px 20px; }
+      .modal-card { padding: 36px 24px 32px; }
     }
     @media (min-width: 641px) and (max-width: 860px) {
       .pilares { grid-template-columns: 1fr; }
-      .camadas { grid-template-columns: 1fr; }
       .itens { grid-template-columns: 1fr; }
     }
   </style>
@@ -790,10 +807,50 @@
 
 
 <!-- ══════════════════════════════════════
+     MODAL — FORMULÁRIO DE LEAD
+     Aparece ao clicar em "Quero mudar meu físico"
+     Dados → WhatsApp (imediato) + e-mail via Formspree
+══════════════════════════════════════ -->
+<div id="modal-lead" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()" aria-label="Fechar">×</button>
+    <p class="modal-eyebrow">Performe Fit Club</p>
+    <h3>Vamos começar.</h3>
+    <p class="modal-sub">Preencha os campos abaixo. Vamos conversar no WhatsApp.</p>
+
+    <form id="form-lead" onsubmit="submitLead(event)" novalidate>
+      <div class="form-group">
+        <input type="text" id="f-nome" placeholder="Seu nome" required autocomplete="name"/>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="f-tel" placeholder="Telefone (WhatsApp)" required autocomplete="tel"/>
+      </div>
+      <div class="form-group">
+        <input type="email" id="f-email" placeholder="Seu e-mail" required autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <input type="number" id="f-idade" placeholder="Sua idade" min="16" max="80" required/>
+      </div>
+      <div class="form-group">
+        <select id="f-momento" required>
+          <option value="">Em que momento você está?</option>
+          <option value="Já treino há muito tempo, mas não vejo resultados.">Já treino há muito tempo, mas não vejo resultados.</option>
+          <option value="Já treino e tenho resultados, busco ir para outro nível.">Já treino e tenho resultados, busco ir para outro nível.</option>
+          <option value="Treino há pouco tempo, quero acelerar meus resultados.">Treino há pouco tempo, quero acelerar meus resultados.</option>
+          <option value="Não treino, quero iniciar com um acompanhamento realmente completo.">Não treino, quero iniciar com um acompanhamento realmente completo.</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-form-submit">Finalizar</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
      S1 — HERO
-     Hook declarativo: a frase que a pessoa
-     já acredita mas nunca ouviu da indústria.
-     Manifesto em primeira pessoa logo abaixo.
+     Título: Grande Ideal da marca.
+     Manifesto sem apresentação pessoal do Cris
+     (credenciais ficam no último bloco).
 ══════════════════════════════════════ -->
 <section id="hero">
   <div class="wrap">
@@ -808,9 +865,9 @@
       </div>
     </div>
 
-    <p class="hero-eyebrow">Performe Fit Club · Cristian Alessandro</p>
+    <p class="hero-eyebrow">Performe Fit Club</p>
 
-    <h1>Você não falhou.<br/><span class="accent">Foi o método.</span></h1>
+    <h1>Mentalidade e resultado<br/>de atleta. <span class="accent">Sem precisar ser um.</span></h1>
 
     <div class="hero-manifesto">
       <p>
@@ -824,30 +881,58 @@
         <strong>Está na mentalidade que sustenta os dois quando o dia é ruim.</strong>
         Ninguém te ensinou a operar isso.
       </p>
-      <p>
-        Eu sou treinador. Atleta de fisiculturismo. Faixa preta de jiu-jitsu.
-        Construí sistema mental dentro do esporte de alto rendimento.
-        E criei o Mapeamento de Obstáculos para instalar esse mesmo sistema
-        em quem não é atleta — mas quer o resultado de um.
-      </p>
-      <p class="mantra">Mentalidade e resultado de atleta. Sem precisar ser um.</p>
     </div>
 
-    <a href="https://form.jotform.com/260963662812058" class="btn btn-xl" target="_blank" rel="noopener">
-      Fazer meu Mapeamento de Obstáculos
-    </a>
-    <span class="anchor-text">Diagnóstico gratuito · Devolutiva personalizada em até 72h</span>
+    <button class="btn btn-xl" onclick="openModal()">
+      Quero mudar meu físico
+    </button>
+    <span class="anchor-text">Sem compromisso · Resposta em até 24h</span>
 
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════
-     S2 — NARRATIVA: SONHO + DOR
-     Abre com o sonho (Performe opera em sonho),
-     depois espelha a dor com especificidade.
-     Quem leu o Plano de Posicionamento sabe:
-     "Imagine um futuro" vem antes de "Dores do presente".
+     S2 — RESULTADOS (CARROSSEL)
+     Antes de "Imagine um futuro".
+     Só fotos, sem rótulos. Auto-scroll.
+══════════════════════════════════════ -->
+<section id="resultados">
+  <div style="text-align:center; padding:0 24px; margin-bottom:0;">
+    <span class="label">Resultados reais</span>
+    <h2>Rotinas reais.<br/>Resultados que ficaram.</h2>
+    <p class="res-sub" style="max-width:560px; margin:8px auto 44px;">
+      Alunos com filhos, com trabalho puxado, com viagens e pressão.
+      O protocolo funcionou quando a vida complicou — não só quando estava tudo sob controle.
+    </p>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <!-- Inserir imagens reais substituindo os divs abaixo -->
+      <!-- Exemplo: <img src="foto1.jpg" class="carousel-slide" alt="Resultado aluno 1"/> -->
+      <div class="carousel-slide">Foto 1</div>
+      <div class="carousel-slide">Foto 2</div>
+      <div class="carousel-slide">Foto 3</div>
+      <div class="carousel-slide">Foto 4</div>
+      <div class="carousel-slide">Foto 5</div>
+      <div class="carousel-slide">Foto 6</div>
+      <!-- Duplicado para loop infinito -->
+      <div class="carousel-slide">Foto 1</div>
+      <div class="carousel-slide">Foto 2</div>
+      <div class="carousel-slide">Foto 3</div>
+      <div class="carousel-slide">Foto 4</div>
+      <div class="carousel-slide">Foto 5</div>
+      <div class="carousel-slide">Foto 6</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S3 — NARRATIVA: SONHO + DOR
+     Abre com o sonho compartilhado.
+     Depois espelha o ciclo atual com especificidade.
 ══════════════════════════════════════ -->
 <section id="narrativa">
   <div class="wrap-sm">
@@ -856,18 +941,12 @@
     <div class="sonho-bloco">
       <span class="sonho-label">Imagine um futuro</span>
       <p>
-        Acordar e olhar no espelho enxergando <strong>um corpo que é seu</strong>.
-        Não emprestado para a moda, para a ansiedade, para a rotina, para a família. Seu.
+        <strong>Acordar e olhar no espelho e enxergar um físico no qual você se orgulhe.</strong>
       </p>
       <p>
         Ter mentalidade de atleta dentro do trabalho, da casa, da semana cheia,
         da viagem, da semana ruim — e ainda assim entregar.
         <strong>Não porque acordou motivado. Porque construiu um sistema mental que opera mesmo nos piores dias.</strong>
-      </p>
-      <p>
-        Físico e resultado de atleta vivendo na vida real.
-        Sem precisar competir. Sem viver de esporte. Apenas <strong>dono do próprio corpo</strong>
-        com autoria sobre as próprias escolhas.
       </p>
     </div>
 
@@ -899,7 +978,7 @@
         O sistema mental nunca foi tratado. Ambas as situações — quem nunca começou de verdade
         e quem já tentou várias vezes — têm a mesma origem.
         <strong>Ninguém diagnosticou o padrão antes de te dar uma solução.</strong>
-        Isso não é falta de disciplina. É como seu cérebro funciona.
+        Isso não é falta de disciplina. É como sua mente funciona.
       </p>
     </div>
 
@@ -908,10 +987,9 @@
 
 
 <!-- ══════════════════════════════════════
-     S3 — O INIMIGO
-     Inimigo externo declarado: a indústria fitness
-     que vende força de vontade como solução.
-     Atacar o sistema, nunca a pessoa.
+     S4 — O INIMIGO
+     Inimigo externo. Atacar o sistema.
+     A culpa não é da pessoa.
 ══════════════════════════════════════ -->
 <section id="inimigo">
   <div class="wrap">
@@ -930,101 +1008,20 @@
     <div class="inimigos-grid">
       <div class="inimigo-card">
         <div class="tag">O clássico</div>
-        <p><strong>"É só fechar a boca e ter disciplina."</strong><br/>Como se o padrão fosse caráter, não arquitetura comportamental.</p>
+        <p>"É só fechar a boca e ter disciplina."</p>
       </div>
       <div class="inimigo-card">
-        <div class="tag">A planilha genérica</div>
-        <p>Treino e dieta feitos para um aluno ideal em uma rotina ideal que não existe na sua vida real.</p>
+        <div class="tag">A cultura do foco</div>
+        <p>A cultura do "é só ter foco" que ignora barreiras comportamentais individuais.</p>
       </div>
       <div class="inimigo-card">
-        <div class="tag">O motivacional</div>
-        <p>Coach que vende energia como se energia fosse método. Funciona enquanto dura a emoção. Que é pouco.</p>
+        <div class="tag">A culpa invertida</div>
+        <p>Programas que culpam o aluno pelo fracasso do método.</p>
       </div>
       <div class="inimigo-card">
         <div class="tag">O programa pronto</div>
-        <p>Resultado prometido para qualquer pessoa. Que culpa o aluno quando o método falha. Sempre o aluno.</p>
+        <p>Resultado prometido para qualquer pessoa. Que culpa o aluno quando não funciona.</p>
       </div>
-    </div>
-
-    <div class="manifesto-tese">
-      <p>
-        Ninguém te perguntou como é o seu sono.
-        Ninguém mapeou o que acontece quando você está sob pressão.
-        <strong>Ninguém fez o diagnóstico do seu padrão antes de te dar uma solução.</strong>
-      </p>
-      <p>
-        Disciplina sem diagnóstico é desperdício.
-        A planilha pode estar certa. O que falta é o sistema mental que executa a planilha.
-      </p>
-      <span class="tese-final">Esse é o problema. Não era você.</span>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     S4 — AUTORIDADE / LÍDER CORAJOSO
-     ORDEM CORRETA (conforme o Plano):
-     01 — Treinador (o serviço que entrega)
-     02 — Atleta de fisiculturismo (faz em primeira pessoa)
-     03 — Faixa Preta de Jiu-Jitsu (prova de longo prazo)
-     O treinador vem antes porque é o serviço entregue.
-     Atleta e faixa preta entram como prova de método.
-══════════════════════════════════════ -->
-<section id="autoridade">
-  <div class="wrap">
-
-    <span class="label" style="display:block; text-align:center;">Quem está do outro lado</span>
-    <h2 style="text-align:center;">Cristian Alessandro.<br/>Ele não está teorizando.</h2>
-    <p class="aut-intro">
-      Treinador primeiro — porque é o serviço que entrega.
-      Atleta e faixa preta entram como prova do método, não como vaidade.
-      A ordem diz tudo.
-    </p>
-
-    <div class="pilares">
-      <div class="pilar">
-        <div class="pilar-num">01</div>
-        <h3>Treinador</h3>
-        <div class="micro">O serviço que entrega</div>
-        <p>
-          Experiência aplicada em médicos, advogados, mães, empresários.
-          Rotinas reais com filhos, viagens e alta demanda.
-          O diagnóstico não foi construído para um mundo ideal —
-          foi construído para a sua vida.
-        </p>
-      </div>
-      <div class="pilar">
-        <div class="pilar-num">02</div>
-        <h3>Atleta</h3>
-        <div class="micro">Resultado em primeira pessoa</div>
-        <p>
-          Atleta de fisiculturismo. Não fala de resultado em terceiro —
-          é resultado no próprio corpo. O que você vê no perfil é o que o método produz.
-          Sem filtro. Sem atalho.
-        </p>
-      </div>
-      <div class="pilar">
-        <div class="pilar-num">03</div>
-        <h3>Faixa Preta</h3>
-        <div class="micro">Prova de sistema de longo prazo</div>
-        <p>
-          Mais de dez anos de jiu-jitsu sem desistir.
-          A faixa preta prova que método e repetição com inteligência vencem motivação.
-          Quem chega ao preto entende: resultado duradouro não vem de força de vontade —
-          vem de sistema mental.
-        </p>
-      </div>
-    </div>
-
-    <div class="soma-strip">
-      <p>
-        <strong>Treinador → o serviço.</strong> &nbsp;
-        <strong>Atleta → a prova no corpo.</strong> &nbsp;
-        <strong>Faixa Preta → a prova no tempo.</strong><br/>
-        Esse cara não está vendendo teoria. Ele foi. Ele é. E ele replica em outros.
-      </p>
     </div>
 
   </div>
@@ -1033,9 +1030,8 @@
 
 <!-- ══════════════════════════════════════
      S5 — MECANISMO ÚNICO
-     O Mapeamento de Obstáculos como
-     porta de entrada da metodologia.
-     Diagnóstico em 3 camadas antes de qualquer protocolo.
+     O Mapeamento de Obstáculos.
+     Diagnóstico antes de protocolo.
 ══════════════════════════════════════ -->
 <section id="mecanismo">
   <div class="wrap-sm">
@@ -1051,53 +1047,35 @@
       — feito antes de alguém te dar qualquer protocolo.
     </p>
     <p class="mec-copy">
-      O Mapeamento de Obstáculos não é um questionário. É um diagnóstico em três camadas
+      O Mapeamento de Obstáculos não é um questionário. É um diagnóstico em camadas
       que identifica <strong>o que especificamente trava você</strong> —
       não uma pessoa genérica com o mesmo objetivo.
       Quem passa pelo Mapeamento sai marcado pelo método.
     </p>
-
-    <div class="camadas">
-      <div class="camada">
-        <div class="num">Camada 01</div>
-        <h4>Hormônio</h4>
-        <p>Como cortisol, sono e estresse crônico afetam diretamente sua capacidade de executar.</p>
-      </div>
-      <div class="camada">
-        <div class="num">Camada 02</div>
-        <h4>Cérebro</h4>
-        <p>Como seu sistema dopaminérgico e córtex pré-frontal operam — ou travam — dentro da sua rotina real.</p>
-      </div>
-      <div class="camada">
-        <div class="num">Camada 03</div>
-        <h4>Comportamento</h4>
-        <p>Qual é o padrão específico que faz você começar, progredir — e parar quando a vida pressiona.</p>
-      </div>
-    </div>
 
     <div class="epifania">
       <p>
         A partir do diagnóstico, treino e dieta entram como ferramentas dentro de
         um sistema que faz sentido para a <strong>sua rotina real</strong> —
         com os obstáculos que você tem, com o tempo que você dispõe,
-        com as variáveis que a sua vida apresenta. Não é fórmula.
-        É <strong>arquitetura comportamental construída para durar.</strong>
+        com as variáveis que a sua vida apresenta.
+        Não é fórmula. É sistema mental construído para durar.
       </p>
       <p>
-        Quando o sistema mental é instalado, a constância deixa de depender de motivação.
+        Quando o sistema está instalado, a constância deixa de depender de motivação.
         O treino vira ritual, não obrigação. A alimentação vira escolha, não restrição.
         E o resultado físico aparece como consequência —
         porque a base que sustenta apareceu primeiro.
       </p>
-      <span class="oss">Não existe mudança de físico sem mudança de mentalidade. Oss!</span>
+      <span class="fecho">Não existe mudança de físico sem mudança de mentalidade.</span>
     </div>
 
     <div style="text-align:center; margin-top:40px;">
       <a href="https://form.jotform.com/260963662812058" class="btn btn-xl" target="_blank" rel="noopener">
         Fazer meu Mapeamento de Obstáculos
       </a>
-      <span class="anchor-dark" style="display:block; font-size:12px; color:var(--gray-lt); margin-top:10px; text-align:center;">
-        Diagnóstico gratuito · Devolutiva personalizada em até 72h
+      <span style="display:block; font-size:12px; color:var(--gray-lt); margin-top:10px; text-align:center;">
+        Diagnóstico personalizado · Devolutiva em até 72h
       </span>
     </div>
 
@@ -1106,60 +1084,7 @@
 
 
 <!-- ══════════════════════════════════════
-     S6 — PROVA SOCIAL 1 (transformações)
-     O pior ponto de partida = prova mais forte.
-     Contexto real: filhos, trabalho, rotina quebrada.
-══════════════════════════════════════ -->
-<section id="prova1">
-  <div class="wrap">
-
-    <span class="label" style="display:block; text-align:center;">Resultados reais</span>
-    <h2 style="text-align:center;">Rotinas reais.<br/>Resultados que ficaram.</h2>
-    <p class="p1-intro">
-      Não são pessoas com tempo livre. São alunos com filhos, com trabalho puxado,
-      com viagens, com pressão. Com o diagnóstico certo, o protocolo funcionou
-      quando a vida complicou — não só quando estava tudo sob controle.
-    </p>
-
-    <div class="resultados">
-      <div class="resultado-card">
-        <div class="resultado-img">[Foto transformação — Aluno 1]</div>
-        <div class="resultado-info">
-          <div class="nome">Nome · Idade · Profissão</div>
-          <div class="contexto">Ex: Trabalha 12h/dia, dois filhos, tentou 3 vezes antes. Resultado em X semanas.</div>
-        </div>
-      </div>
-      <div class="resultado-card">
-        <div class="resultado-img">[Foto transformação — Aluno 2]</div>
-        <div class="resultado-info">
-          <div class="nome">Nome · Idade · Profissão</div>
-          <div class="contexto">Ex: Viagens constantes, rotina imprevisível. Resultado que manteve por X meses.</div>
-        </div>
-      </div>
-      <div class="resultado-card">
-        <div class="resultado-img">[Foto transformação — Aluno 3]</div>
-        <div class="resultado-info">
-          <div class="nome">Nome · Idade · Profissão</div>
-          <div class="contexto">Ex: Alta demanda emocional e profissional. Padrão identificado mudou o que falhou antes.</div>
-        </div>
-      </div>
-      <div class="resultado-card">
-        <div class="resultado-img">[Foto transformação — Aluno 4]</div>
-        <div class="resultado-info">
-          <div class="nome">Nome · Idade · Profissão</div>
-          <div class="contexto">Ex: Já tinha investido em dois programas. Hábito sem identidade não sobrevive — desta vez sobreviveu.</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     S7 — DEPOIMENTOS
-     Contexto de vida do depoente aumenta
-     identificação. Obstáculos reais → prova real.
+     S6 — DEPOIMENTOS
 ══════════════════════════════════════ -->
 <section id="depoimentos">
   <div class="wrap">
@@ -1169,7 +1094,7 @@
     <div class="depos-grid">
       <div class="depo">
         <div class="depo-q">"</div>
-        <p>Substitua com depoimento real — com contexto de vida (filhos, trabalho, tentativas anteriores) e o que especificamente mudou no padrão.</p>
+        <p>Substitua com depoimento real — com contexto de vida e o que especificamente mudou no padrão.</p>
         <div class="depo-autor">Nome do Aluno</div>
         <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
@@ -1187,7 +1112,7 @@
       </div>
       <div class="depo">
         <div class="depo-q">"</div>
-        <p>Substitua com depoimento de perfil diferente — mostrando que o sistema mental funciona em diferentes contextos de vida.</p>
+        <p>Substitua com depoimento de perfil diferente — mostrando que o sistema funciona em contextos variados de vida.</p>
         <div class="depo-autor">Nome do Aluno</div>
         <div class="depo-ctx">Profissão · Resultado obtido</div>
       </div>
@@ -1198,10 +1123,9 @@
 
 
 <!-- ══════════════════════════════════════
-     S8 — OFERTA (Consultoria Premium)
-     Não empurrar. Apresentar como "estender a mão".
-     O produto âncora é a Consultoria Premium —
-     onde mora a tese ideológica da marca.
+     S7 — OFERTA
+     Produto âncora: Consultoria Premium.
+     Apresentar como sistema, não como venda.
 ══════════════════════════════════════ -->
 <section id="oferta">
   <div class="wrap">
@@ -1213,7 +1137,6 @@
         Você já tem informação suficiente. O que falta é um sistema construído
         sobre o <strong>diagnóstico correto do padrão que trava você</strong> —
         não sobre o que trava uma pessoa genérica com o mesmo objetivo.
-        Isso é o que está incluso:
       </p>
     </div>
 
@@ -1222,7 +1145,7 @@
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Mapeamento de Obstáculos</h4>
-          <p>Diagnóstico em 3 camadas do padrão que sabota sua execução. Feito antes de qualquer protocolo. É a base de tudo.</p>
+          <p>Diagnóstico em camadas do padrão que sabota sua execução. Feito antes de qualquer protocolo. É a base de tudo.</p>
         </div>
       </div>
       <div class="item">
@@ -1236,7 +1159,7 @@
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Acompanhamento com Ajustes</h4>
-          <p>Presença durante o processo. Avaliações semanais. Quando a rotina mudar — e ela muda — o protocolo ajusta junto.</p>
+          <p>Avaliações semanais. Quando a rotina mudar — e ela muda — o protocolo ajusta junto.</p>
         </div>
       </div>
       <div class="item">
@@ -1250,16 +1173,23 @@
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Sistema Mental Instalado</h4>
-          <p>Mentalidade de atleta operando dentro da sua vida real. Hábito com identidade. Constância que não depende de motivação.</p>
+          <p>Constância que não depende de motivação. Mentalidade de atleta operando dentro da sua vida real.</p>
         </div>
       </div>
       <div class="item">
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Acesso Direto via WhatsApp</h4>
-          <p>Sem intermediário. Você fala direto com o Cris. Durante todo o período de consultoria.</p>
+          <p>Sem intermediário. Você fala direto com o Cris durante todo o período de consultoria.</p>
         </div>
       </div>
+    </div>
+
+    <div class="oferta-cta">
+      <p>Pronto para parar de recomeçar e começar a manter?<br/><strong>O primeiro passo é uma conversa.</strong></p>
+      <button class="btn btn-xl" onclick="openModal()">
+        Quero mudar meu físico
+      </button>
     </div>
 
   </div>
@@ -1267,45 +1197,62 @@
 
 
 <!-- ══════════════════════════════════════
-     S9 — CTA FINAL
-     AÇÃO PRIMÁRIA: Mapeamento de Obstáculos
-     (conforme o Plano: "a oferta primária NÃO é
-     a Consultoria. É o Mapeamento de Obstáculos.")
-     AÇÃO SECUNDÁRIA: WhatsApp para quem
-     prefere conversar antes.
+     S8 — AUTORIDADE (ÚLTIMO BLOCO)
+     Cris à frente de um time completo.
+     Credenciais: Treinador → Atleta → Faixa Preta.
+     Time: personal trainer + nutricionista + Cris.
 ══════════════════════════════════════ -->
-<section id="cta">
-  <div class="wrap-sm">
+<section id="autoridade">
+  <div class="wrap">
 
-    <span class="label label-light">O próximo passo</span>
-
-    <h2>O caminho começa<br/>pelo <span>diagnóstico.</span></h2>
-
-    <p class="cta-copy">
-      Você preenche o Mapeamento de Obstáculos — o diagnóstico em 3 camadas do que trava você.
-      <strong>Em até 72 horas você recebe a devolutiva personalizada</strong>
-      com o padrão identificado e o próximo passo.
-      Sem formulário genérico. Sem pressão. Só clareza.
+    <span class="label label-light" style="display:block; text-align:center;">A equipe por trás do método</span>
+    <h2>Cristian Alessandro<br/>à frente de um time completo.</h2>
+    <p class="aut-intro">
+      A Performe Fit Club tem <strong>personal trainer e nutricionista</strong> dentro do time.
+      Cris coordena, criou o método e conduz o diagnóstico.
+      O time garante que treino e alimentação estejam integrados com o sistema mental —
+      do início ao resultado.
     </p>
 
-    <div class="cta-buttons">
-      <a href="https://form.jotform.com/260963662812058" class="btn btn-xl" target="_blank" rel="noopener">
-        Fazer meu Mapeamento de Obstáculos
-      </a>
-      <span class="anchor-text">Gratuito · Devolutiva personalizada · Sem compromisso</span>
-
-      <span class="cta-divisor">ou</span>
-
-      <a href="https://wa.me/5511951596801" class="btn-ghost" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.932-1.416A9.956 9.956 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
-        Prefiro conversar antes — WhatsApp
-      </a>
+    <div class="pilares">
+      <div class="pilar">
+        <div class="pilar-num">01</div>
+        <h3>Treinador</h3>
+        <div class="micro">O serviço que entrega</div>
+        <p>
+          Criador do Mapeamento de Obstáculos e fundador do método Performe.
+          Experiência aplicada em médicos, advogados, mães, empresários.
+          O diagnóstico que orienta tudo começa aqui.
+        </p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">02</div>
+        <h3>Atleta</h3>
+        <div class="micro">Resultado em primeira pessoa</div>
+        <p>
+          Atleta de fisiculturismo. Não fala de resultado em terceiro —
+          é resultado no próprio corpo. O que você vê no perfil é o que o método produz.
+          Sem filtro, sem atalho.
+        </p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">03</div>
+        <h3>Faixa Preta</h3>
+        <div class="micro">Prova de sistema de longo prazo</div>
+        <p>
+          Mais de dez anos de jiu-jitsu. A faixa preta prova que método
+          e repetição com inteligência vencem motivação.
+          Resultado duradouro não vem de força de vontade — vem de sistema mental.
+        </p>
+      </div>
     </div>
 
-    <p class="encerramento">
-      Mentalidade e resultado de atleta sem precisar ser um.
-      <span>— Não existe mudança de físico sem mudança de mentalidade. Oss!</span>
-    </p>
+    <div class="soma-strip">
+      <p>
+        Personal trainer, nutricionista e Cris como treinador e fundador do método.
+        <strong>Um time que trabalha junto — com um sistema que diagnostica antes de prescrever.</strong>
+      </p>
+    </div>
 
   </div>
 </section>
@@ -1314,6 +1261,83 @@
 <footer>
   <p>© 2026 Performe Fit Club · Cristian Alessandro · Todos os direitos reservados</p>
 </footer>
+
+
+<script>
+  /* ── MODAL ──────────────────────────────────────────── */
+  const modal = document.getElementById('modal-lead');
+
+  function openModal() {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Fecha ao clicar fora do card
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+
+  // Fecha com ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ── SUBMIT DO FORMULÁRIO ────────────────────────────── */
+  function submitLead(e) {
+    e.preventDefault();
+
+    const nome   = document.getElementById('f-nome').value.trim();
+    const tel    = document.getElementById('f-tel').value.trim();
+    const email  = document.getElementById('f-email').value.trim();
+    const idade  = document.getElementById('f-idade').value.trim();
+    const momento = document.getElementById('f-momento').value;
+
+    // Validação básica
+    if (!nome || !tel || !email || !idade || !momento) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    /* ── ENVIO POR E-MAIL (Formspree)
+       Configure em formspree.io → crie um form → substitua a URL abaixo pelo seu endpoint.
+       Exemplo: 'https://formspree.io/f/abcdefgh'
+       Deixe vazio ('') para desativar.
+    ────────────────────────────────── */
+    const FORMSPREE_ENDPOINT = '';
+
+    if (FORMSPREE_ENDPOINT) {
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nome: nome,
+          telefone: tel,
+          email: email,
+          idade: idade + ' anos',
+          momento: momento,
+          _subject: 'Novo lead — Performe Fit Club'
+        })
+      }).catch(function() {}); // silencioso se não configurado
+    }
+
+    /* ── REDIRECT PARA WHATSAPP com dados preenchidos ── */
+    const msg =
+      'Olá! Preenchi o formulário do site da Performe Fit Club.\n\n' +
+      '*Nome:* ' + nome + '\n' +
+      '*Telefone:* ' + tel + '\n' +
+      '*E-mail:* ' + email + '\n' +
+      '*Idade:* ' + idade + ' anos\n' +
+      '*Momento atual:* ' + momento;
+
+    closeModal();
+    window.open('https://wa.me/5511951596801?text=' + encodeURIComponent(msg), '_blank');
+  }
+</script>
 
 </body>
 </html>
