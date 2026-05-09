@@ -324,7 +324,7 @@
     }
     .hero-bg-panel.hero-center {
       flex: 1.5;
-      filter: brightness(0.55) saturate(0.75);
+      filter: brightness(0.72) saturate(0.85);
     }
     /* Overlay: escurece laterais e base */
     .hero-overlay {
@@ -424,7 +424,7 @@
       background: var(--navy);
       background-image: linear-gradient(rgba(6,12,24,0.76), rgba(6,12,24,0.76)), url('foto-01.jpg');
       background-size: cover, 160%;
-      background-position: center, center 18%;
+      background-position: center, center 4%;
       background-attachment: scroll, fixed;
       padding: 72px 0;
       position: relative;
@@ -960,12 +960,12 @@
     @media (max-width: 768px) {
       /* Hero mobile: esconde painéis laterais */
       .hero-bg-panel:not(.hero-center) { display: none; }
-      /* Mobile: foto-05 (treino Cris+Vini) — posição central para mostrar os dois */
+      /* Mobile: foto-05 (treino Cris+Vini) — mais viva */
       .hero-bg-panel.hero-center {
         flex: 1;
         background-image: url('foto-05.jpg') !important;
         background-position: center 45% !important;
-        filter: brightness(0.45) saturate(0.75);
+        filter: brightness(0.68) saturate(0.88);
       }
       .hero-overlay {
         background:
@@ -992,9 +992,9 @@
       /* Seções */
       #resultados {
         padding: 56px 0;
-        background-size: cover, 180%;
+        background-size: cover, 200%;
         background-attachment: scroll, scroll;
-        background-position: center, center 18%;
+        background-position: center, center 3%;
       }
       #narrativa  { padding: 64px 0; }
       #inimigo    { padding: 64px 0; }
@@ -1021,8 +1021,8 @@
       }
       .aut-foto-caption h2 { font-size: clamp(28px, 8vw, 42px); }
 
-      /* Carrossel: slides menores no mobile */
-      .carousel-slide { width: 200px; height: 268px; }
+      /* Carrossel: quadrado no mobile — evita corte nas fotos lado a lado */
+      .carousel-slide { width: 260px; height: 260px; }
     }
 
     @media (min-width: 641px) and (max-width: 860px) {
