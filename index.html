@@ -421,22 +421,30 @@
        Posicionado antes de "Imagine um futuro"
     ══════════════════════════════════ */
     #resultados {
-      background: var(--offwhite);
+      background: var(--navy);
+      background-image: linear-gradient(rgba(6,12,24,0.78), rgba(6,12,24,0.78)), url('foto-03.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-attachment: fixed;
       padding: 72px 0;
       overflow: hidden;
+      position: relative;
+    }
+    #resultados .label {
+      color: var(--orange-lt);
     }
     #resultados h2 {
       font-size: clamp(28px, 5vw, 48px);
       font-weight: 900;
       text-transform: uppercase;
-      color: var(--navy);
+      color: var(--white);
       text-align: center;
       margin-bottom: 8px;
     }
     .res-sub {
       text-align: center;
       font-size: 15px;
-      color: var(--gray);
+      color: rgba(255,255,255,0.72);
       margin-bottom: 44px;
       line-height: 1.6;
     }
@@ -458,11 +466,11 @@
     }
     .carousel-wrapper::before {
       left: 0;
-      background: linear-gradient(to right, var(--offwhite), transparent);
+      background: linear-gradient(to right, rgba(6,12,24,0.9), transparent);
     }
     .carousel-wrapper::after {
       right: 0;
-      background: linear-gradient(to left, var(--offwhite), transparent);
+      background: linear-gradient(to left, rgba(6,12,24,0.9), transparent);
     }
 
     .carousel-track {
@@ -954,18 +962,19 @@
        RESPONSIVE — MOBILE FIRST
     ══════════════════════════════════ */
     @media (max-width: 768px) {
-      /* Hero: só a foto central no mobile */
+      /* Hero mobile: esconde painéis laterais */
       .hero-bg-panel:not(.hero-center) { display: none; }
+      /* Substitui pelo foto-01 (jiu-jitsu) — enquadra Cris no topo */
       .hero-bg-panel.hero-center {
         flex: 1;
-        filter: brightness(0.5) saturate(0.75);
-        background-position: center top;
+        background-image: url('foto-01.jpg') !important;
+        background-position: center 25% !important;
+        filter: brightness(0.48) saturate(0.7);
       }
-      /* Overlay mais denso no mobile para legibilidade */
       .hero-overlay {
         background:
           linear-gradient(to bottom,
-            rgba(8,15,30,.35) 0%,
+            rgba(8,15,30,.3) 0%,
             rgba(8,15,30,.65) 100%
           );
       }
@@ -985,7 +994,11 @@
       .hero-manifesto p { font-size: 15px; }
 
       /* Seções */
-      #resultados { padding: 56px 0; }
+      #resultados {
+        padding: 56px 0;
+        background-attachment: scroll; /* iOS não suporta fixed em elementos com overflow */
+        background-position: center center;
+      }
       #narrativa  { padding: 64px 0; }
       #inimigo    { padding: 64px 0; }
       #mecanismo  { padding: 64px 0; }
