@@ -450,60 +450,55 @@
 
     .carousel-wrapper {
       width: 100%;
-      overflow: hidden;
+      overflow-x: scroll;
+      overflow-y: hidden;
       position: relative;
+      /* esconde scrollbar */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      cursor: grab;
     }
+    .carousel-wrapper::-webkit-scrollbar { display: none; }
     .carousel-wrapper::before,
     .carousel-wrapper::after {
       content: '';
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 80px;
+      width: 72px;
       z-index: 2;
       pointer-events: none;
     }
     .carousel-wrapper::before {
       left: 0;
-      background: linear-gradient(to right, rgba(6,12,24,0.9), transparent);
+      background: linear-gradient(to right, rgba(6,12,24,0.92), transparent);
     }
     .carousel-wrapper::after {
       right: 0;
-      background: linear-gradient(to left, rgba(6,12,24,0.9), transparent);
+      background: linear-gradient(to left, rgba(6,12,24,0.92), transparent);
     }
 
     .carousel-track {
       display: flex;
       gap: 16px;
-      animation: carousel-scroll 28s linear infinite;
       width: max-content;
+      padding: 0 8px;
     }
-    .carousel-track:hover { animation-play-state: paused; }
 
     .carousel-slide {
-      width: 220px;
-      height: 300px;
+      width: 240px;
+      height: 320px;
       border-radius: 8px;
       flex-shrink: 0;
       overflow: hidden;
-      background: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #aaa;
-      border: 1px solid var(--border);
+      background: #1a2030;
     }
-    .carousel-slide:nth-child(6n+1) { background: #e8e8e6; }
-    .carousel-slide:nth-child(6n+2) { background: #dedede; }
-    .carousel-slide:nth-child(6n+3) { background: #e4e4e2; }
-    .carousel-slide:nth-child(6n+4) { background: #d9d9d7; }
-    .carousel-slide:nth-child(6n+5) { background: #e0e0de; }
-    .carousel-slide:nth-child(6n)   { background: #dadadb; }
-
-    @keyframes carousel-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
     }
 
 
@@ -705,35 +700,19 @@
     .depos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
     .depo {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 6px;
-      padding: 28px 24px;
-      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      line-height: 0; /* remove gap abaixo da imagem */
     }
-    .depo-q {
-      font-size: 56px;
-      line-height: 1;
-      color: var(--orange);
-      opacity: .2;
-      position: absolute;
-      top: 12px;
-      left: 18px;
-      font-family: Georgia, serif;
+    .depo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
     }
-    .depo p {
-      font-size: 14px;
-      color: rgba(255,255,255,.6);
-      line-height: 1.75;
-      margin-top: 28px;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-    .depo-autor { font-size: 13px; font-weight: 700; color: var(--white); }
-    .depo-ctx { font-size: 12px; color: rgba(255,255,255,.3); margin-top: 2px; }
 
 
     /* ══════════════════════════════════
@@ -944,15 +923,28 @@
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.07);
       border-radius: 6px;
-      padding: 24px 32px;
+      padding: 32px 36px;
       text-align: center;
     }
     .soma-strip p {
-      font-size: 15px;
-      color: rgba(255,255,255,.5);
-      line-height: 1.75;
+      font-size: clamp(17px, 2.2vw, 20px);
+      color: rgba(255,255,255,.72);
+      line-height: 1.65;
+      font-style: italic;
     }
     .soma-strip strong { color: rgba(255,255,255,.85); }
+    .oss-destaque {
+      display: inline-block;
+      margin-left: 6px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      font-style: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      vertical-align: baseline;
+    }
 
     footer {
       background: #04080F;
@@ -1029,8 +1021,8 @@
       }
       .aut-foto-caption h2 { font-size: clamp(28px, 8vw, 42px); }
 
-      /* Carrossel: slides menores */
-      .carousel-slide { width: 180px; height: 240px; }
+      /* Carrossel: slides menores no mobile */
+      .carousel-slide { width: 200px; height: 268px; }
     }
 
     @media (min-width: 641px) and (max-width: 860px) {
@@ -1166,7 +1158,7 @@
     <div class="hero-manifesto">
       <p>
         A indústria fitness vende três coisas: treino, dieta e a ilusão de que falta força de vontade.
-        Esse pacote funciona para quem já tem mentalidade de atleta.
+        Esse pacote funciona para quem já tem a mentalidade forjada.
         Para todo o resto, é uma esteira de tentativa, fracasso e culpa.
       </p>
       <p>
@@ -1192,32 +1184,35 @@
      Só fotos, sem rótulos. Auto-scroll.
 ══════════════════════════════════════ -->
 <section id="resultados">
-  <div style="text-align:center; padding:0 24px; margin-bottom:0;">
+  <div style="text-align:center; padding:0 24px; margin-bottom:44px;">
     <span class="label">Resultados reais</span>
-    <h2>Rotinas reais.<br/>Resultados que ficaram.</h2>
-    <p class="res-sub" style="max-width:560px; margin:8px auto 44px;">
-      Alunos com filhos, com trabalho puxado, com viagens e pressão.
-      O protocolo funcionou quando a vida complicou — não só quando estava tudo sob controle.
-    </p>
+    <h2>Resultados que comprovam o método.</h2>
   </div>
 
-  <div class="carousel-wrapper">
-    <div class="carousel-track">
-      <!-- Inserir imagens reais substituindo os divs abaixo -->
-      <!-- Exemplo: <img src="foto1.jpg" class="carousel-slide" alt="Resultado aluno 1"/> -->
-      <div class="carousel-slide">Foto 1</div>
-      <div class="carousel-slide">Foto 2</div>
-      <div class="carousel-slide">Foto 3</div>
-      <div class="carousel-slide">Foto 4</div>
-      <div class="carousel-slide">Foto 5</div>
-      <div class="carousel-slide">Foto 6</div>
+  <div class="carousel-wrapper" id="carrossel">
+    <div class="carousel-track" id="carrossel-track">
+      <!-- 10 fotos reais — ordem intercalada mulher/homem -->
+      <div class="carousel-slide"><img src="resultado-01.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-02.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-03.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-04.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-05.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-06.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-07.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-08.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-09.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-10.jpg" alt=""/></div>
       <!-- Duplicado para loop infinito -->
-      <div class="carousel-slide">Foto 1</div>
-      <div class="carousel-slide">Foto 2</div>
-      <div class="carousel-slide">Foto 3</div>
-      <div class="carousel-slide">Foto 4</div>
-      <div class="carousel-slide">Foto 5</div>
-      <div class="carousel-slide">Foto 6</div>
+      <div class="carousel-slide"><img src="resultado-01.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-02.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-03.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-04.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-05.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-06.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-07.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-08.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-09.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="resultado-10.jpg" alt=""/></div>
     </div>
   </div>
 </section>
@@ -1257,7 +1252,7 @@
     </p>
     <p class="dor-copy">
       Academia. Nutricionista. Personal. App de treino. Método pronto.
-      Pelo menos uma dessas tentativas funcionou por um tempo — até a vida apertar.
+      Pelo menos uma dessas tentativas funcionou por um tempo — até você desanimar.
     </p>
 
     <ul class="dor-list">
@@ -1386,30 +1381,11 @@
     <h2>O que os alunos dizem.</h2>
 
     <div class="depos-grid">
-      <div class="depo">
-        <div class="depo-q">"</div>
-        <p>Substitua com depoimento real — com contexto de vida e o que especificamente mudou no padrão.</p>
-        <div class="depo-autor">Nome do Aluno</div>
-        <div class="depo-ctx">Profissão · Resultado obtido</div>
-      </div>
-      <div class="depo">
-        <div class="depo-q">"</div>
-        <p>Substitua com depoimento que menciona o que falhou antes e por que desta vez o diagnóstico foi diferente.</p>
-        <div class="depo-autor">Nome do Aluno</div>
-        <div class="depo-ctx">Profissão · Resultado obtido</div>
-      </div>
-      <div class="depo">
-        <div class="depo-q">"</div>
-        <p>Substitua com depoimento que mostra como o protocolo continuou funcionando mesmo em semanas difíceis.</p>
-        <div class="depo-autor">Nome do Aluno</div>
-        <div class="depo-ctx">Profissão · Resultado obtido</div>
-      </div>
-      <div class="depo">
-        <div class="depo-q">"</div>
-        <p>Substitua com depoimento de perfil diferente — mostrando que o sistema funciona em contextos variados de vida.</p>
-        <div class="depo-autor">Nome do Aluno</div>
-        <div class="depo-ctx">Profissão · Resultado obtido</div>
-      </div>
+      <div class="depo"><img src="depo-01.jpg" alt=""/></div>
+      <div class="depo"><img src="depo-02.jpg" alt=""/></div>
+      <div class="depo"><img src="depo-03.jpg" alt=""/></div>
+      <div class="depo"><img src="depo-04.jpg" alt=""/></div>
+      <div class="depo" style="grid-column: 1 / -1;"><img src="depo-05.jpg" alt="" style="max-width:640px; margin:0 auto; display:block;"/></div>
     </div>
 
   </div>
@@ -1446,7 +1422,7 @@
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Protocolo de Treino e Alimentação</h4>
-          <p>Construído sobre o diagnóstico — para a sua rotina, seus obstáculos, seu tempo disponível. Os dois caem juntos.</p>
+          <p>Construído sobre o diagnóstico — para a sua rotina, seu objetivo, seus obstáculos, seu tempo disponível e seus gostos alimentares.</p>
         </div>
       </div>
       <div class="item">
@@ -1474,15 +1450,15 @@
         <div class="item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <h4>Acesso Direto via WhatsApp</h4>
-          <p>Sem intermediário. Você fala direto com o Cris durante todo o período de consultoria.</p>
+          <p>Suporte diário e constante. Pegamos na sua mão e te levamos até seu resultado.</p>
         </div>
       </div>
     </div>
 
     <div class="oferta-cta">
-      <p>Pronto para parar de recomeçar e começar a manter?<br/><strong>O primeiro passo é uma conversa.</strong></p>
+      <p>Pronto(a) para começar ou parar de recomeçar e ter resultados igual dos nossos alunos?<br/><strong>O primeiro passo é uma conversa.</strong></p>
       <button class="btn btn-xl" onclick="openModal()">
-        Quero mudar meu físico
+        Quero mudar meu físico e minha mentalidade
       </button>
     </div>
 
@@ -1524,7 +1500,7 @@
         <div class="micro">O serviço que entrega</div>
         <p>
           Criador do Mapeamento de Obstáculos e fundador do método Performe.
-          Experiência aplicada em médicos, advogados, mães, empresários.
+          Experiência aplicada em médicos, advogados, mães, empresários, estudantes.
           O diagnóstico que orienta tudo começa aqui.
         </p>
       </div>
@@ -1543,7 +1519,7 @@
         <h3>Faixa Preta</h3>
         <div class="micro">Prova de sistema de longo prazo</div>
         <p>
-          Mais de dez anos de jiu-jitsu. A faixa preta prova que método
+          Mais de quinze anos de jiu-jitsu. A faixa preta prova que método
           e repetição com inteligência vencem motivação.
           Resultado duradouro não vem de força de vontade — vem de sistema mental.
         </p>
@@ -1552,8 +1528,8 @@
 
     <div class="soma-strip">
       <p>
-        Personal trainer, nutricionista e Cris como treinador e fundador do método.
-        <strong>Um time que trabalha junto — com um sistema que diagnostica antes de prescrever.</strong>
+        Não existe mudança de físico sem mudança de mentalidade.
+        <span class="oss-destaque">Oss!</span>
       </p>
     </div>
 
@@ -1640,6 +1616,61 @@
     closeModal();
     window.open('https://wa.me/5511951596801?text=' + encodeURIComponent(msg), '_blank');
   }
+
+  /* ── CARROSSEL AUTO-SCROLL COM TOUCH ──────────────────── */
+  (function() {
+    var wrapper = document.getElementById('carrossel');
+    var track   = document.getElementById('carrossel-track');
+    if (!wrapper || !track) return;
+
+    var speed     = 0.85;   // px por frame — ajusta a velocidade
+    var scrollPos = 0;
+    var isTouching = false;
+    var isPaused   = false;
+    var holdTimer  = null;
+    var halfWidth  = 0;
+
+    function getHalf() {
+      return track.scrollWidth / 2;
+    }
+
+    function tick() {
+      halfWidth = getHalf();
+      if (!isPaused && !isTouching && halfWidth > 0) {
+        scrollPos += speed;
+        if (scrollPos >= halfWidth) scrollPos = 0;
+        wrapper.scrollLeft = scrollPos;
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Touch: pausa só se dedo ficar parado > 180ms
+    wrapper.addEventListener('touchstart', function() {
+      isTouching = true;
+      holdTimer = setTimeout(function() { isPaused = true; }, 180);
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', function() {
+      // Dedo moveu → cancela o hold-pause, continua fluído
+      clearTimeout(holdTimer);
+      isPaused = false;
+      // Sincroniza scrollPos com a posição nativa
+      scrollPos = wrapper.scrollLeft;
+      if (scrollPos >= getHalf()) {
+        scrollPos = 0;
+        wrapper.scrollLeft = 0;
+      }
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', function() {
+      clearTimeout(holdTimer);
+      isTouching = false;
+      isPaused   = false;
+      scrollPos  = wrapper.scrollLeft % (getHalf() || 1);
+    }, { passive: true });
+
+    requestAnimationFrame(tick);
+  })();
 </script>
 
 </body>
