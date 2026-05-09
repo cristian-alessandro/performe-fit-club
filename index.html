@@ -422,12 +422,11 @@
     ══════════════════════════════════ */
     #resultados {
       background: var(--navy);
-      background-image: linear-gradient(rgba(6,12,24,0.78), rgba(6,12,24,0.78)), url('foto-03.jpg');
+      background-image: linear-gradient(rgba(6,12,24,0.78), rgba(6,12,24,0.78)), url('foto-01.jpg');
       background-size: cover;
-      background-position: center 40%;
+      background-position: center 30%;
       background-attachment: fixed;
-      padding: 72px 0;
-      overflow: hidden;
+      padding: 72px 0 104px;
       position: relative;
     }
     #resultados .label {
@@ -964,11 +963,11 @@
     @media (max-width: 768px) {
       /* Hero mobile: esconde painéis laterais */
       .hero-bg-panel:not(.hero-center) { display: none; }
-      /* Substitui pelo foto-01 (jiu-jitsu) — enquadra Cris no topo */
+      /* Mobile: mantém foto-02 (Olympia) como fundo principal */
       .hero-bg-panel.hero-center {
         flex: 1;
-        background-image: url('foto-01.jpg') !important;
-        background-position: center 25% !important;
+        background-image: url('foto-02.jpg') !important;
+        background-position: center top !important;
         filter: brightness(0.48) saturate(0.7);
       }
       .hero-overlay {
@@ -995,16 +994,16 @@
 
       /* Seções */
       #resultados {
-        padding: 56px 0;
-        background-attachment: scroll; /* iOS não suporta fixed em elementos com overflow */
+        padding: 56px 0 88px;
+        background-attachment: scroll;
         background-position: center center;
       }
-      #narrativa  { padding: 64px 0; }
-      #inimigo    { padding: 64px 0; }
+      #narrativa  { padding: 88px 0 64px; }
+      #inimigo    { padding: 88px 0 64px; }
       #mecanismo  { padding: 64px 0; }
-      #depoimentos{ padding: 64px 0; }
+      #depoimentos{ padding: 88px 0 64px; }
       #oferta     { padding: 64px 0; }
-      #autoridade { padding: 0 0 64px; }
+      #autoridade { padding: 52px 0 64px; }
 
       .sonho-bloco { padding: 28px 22px; margin-bottom: 40px; }
       .sonho-bloco p { font-size: 16px; }
@@ -1032,6 +1031,105 @@
       .pilares { grid-template-columns: 1fr; }
       .itens   { grid-template-columns: 1fr; }
     }
+
+    /* ══════════════════════════════════
+       EFEITOS VISUAIS
+       1. Granulado (noise) nas seções dark
+       2. Separadores diagonais entre seções
+    ══════════════════════════════════ */
+
+    /* — Granulado sutil — */
+    /* Dá profundidade e textura real às seções navy,
+       separando-as de fundos lisos genéricos.          */
+    #inimigo,
+    #depoimentos {
+      position: relative;
+      isolation: isolate;
+    }
+    #inimigo::before,
+    #depoimentos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      opacity: 0.055;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* — Separadores diagonais — */
+    /* resultados (dark) → narrativa (white)
+       Corte que vai da esquerda-baixo para direita-cima */
+    #resultados::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 52px;
+      background: var(--white);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* narrativa (white) → inimigo (navy)
+       Corte inverso: direita-baixo para esquerda-cima */
+    #narrativa {
+      position: relative;
+    }
+    #narrativa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 52px;
+      background: var(--navy);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* mecanismo (offwhite) → depoimentos (navy-2)
+       Corte direita-baixo para esquerda-cima */
+    #mecanismo {
+      position: relative;
+    }
+    #mecanismo::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 52px;
+      background: var(--navy-2);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* oferta (white) → autoridade (navy)
+       Corte esquerda-baixo para direita-cima */
+    #oferta {
+      position: relative;
+    }
+    #oferta::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 52px;
+      background: var(--navy);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* Compensa o overlap do diagonal no topo de seções afetadas */
+    #narrativa  { padding-top: 104px; }
+    #inimigo    { padding-top: 104px; }
+    #depoimentos{ padding-top: 104px; }
+    #autoridade { padding-top: 52px; }
   </style>
 </head>
 <body>
@@ -1104,9 +1202,9 @@
 
   <!-- FUNDO: TRÊS PAINÉIS DE FOTO -->
   <div class="hero-bg" aria-hidden="true">
-    <div class="hero-bg-panel"        style="background-image: url('foto-01.jpg'); background-position: center center;"></div>
+    <div class="hero-bg-panel"        style="background-image: url('foto-03.jpg'); background-position: center 30%;"></div>
     <div class="hero-bg-panel hero-center" style="background-image: url('foto-02.jpg'); background-position: center top;"></div>
-    <div class="hero-bg-panel"        style="background-image: url('foto-03.jpg'); background-position: center top;"></div>
+    <div class="hero-bg-panel"        style="background-image: url('foto-03.jpg'); background-position: center 30%;"></div>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
