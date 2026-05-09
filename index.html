@@ -81,6 +81,8 @@
       flex-shrink: 0;
     }
     .nav-brand span { color: var(--orange); }
+    .nav-brand .brand-full { display: inline; }
+    .nav-brand .brand-short { display: none; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -116,10 +118,14 @@
     }
     .nav-cta-btn:hover { background: var(--orange-h); }
     @media (max-width: 720px) {
-      .nav-links { display: none; }
-    }
-    @media (max-width: 480px) {
       .nav-cta-btn { display: none; }
+    }
+    @media (max-width: 640px) {
+      .navbar-inner { gap: 12px; padding: 0 14px; }
+      .nav-brand .brand-full { display: none; }
+      .nav-brand .brand-short { display: inline; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 9.5px; letter-spacing: 1px; }
     }
 
     h1, h2, h3, h4 { font-family: 'Barlow Condensed', sans-serif; line-height: 1.05; }
@@ -1096,11 +1102,14 @@
 ══════════════════════════════════════ -->
 <nav id="navbar">
   <div class="navbar-inner">
-    <a href="#hero" class="nav-brand">Performe <span>Fit Club</span></a>
+    <a href="#hero" class="nav-brand">
+      <span class="brand-full">Performe <span>Fit Club</span></span>
+      <span class="brand-short">Performe</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#resultados">Resultados</a></li>
       <li><a href="#mecanismo">Método</a></li>
-      <li><a href="#oferta">O Que Está Incluído</a></li>
+      <li><a href="#oferta">Entregáveis</a></li>
       <li><a href="#depoimentos">Depoimentos</a></li>
     </ul>
     <button class="nav-cta-btn" onclick="openModal()">Quero mudar meu físico</button>
