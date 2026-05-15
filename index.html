@@ -837,6 +837,91 @@
       line-height: 1.55;
     }
 
+    /* ── ANCORAGEM DE PREÇO ── */
+    .price-stack {
+      margin: 48px 0 0;
+      padding: 36px 40px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+    }
+    .price-stack-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 20px;
+    }
+    .price-stack-table { display: flex; flex-direction: column; gap: 0; }
+    .price-stack-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .price-stack-item {
+      font-size: 15px;
+      color: rgba(255,255,255,.75);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .excl-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: rgba(232,93,0,.12);
+      border: 1px solid rgba(232,93,0,.3);
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .price-stack-val {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,.5);
+      white-space: nowrap;
+    }
+    .strike { text-decoration: line-through; }
+    .price-stack-divider { height: 1px; background: rgba(255,255,255,.12); margin: 4px 0; }
+    .total-row .price-stack-item { font-weight: 600; color: rgba(255,255,255,.5); }
+    .muted { color: rgba(255,255,255,.3); }
+    .final-row {
+      padding: 18px 0 4px;
+      border-bottom: none;
+    }
+    .final-label {
+      font-size: 17px !important;
+      font-weight: 700;
+      color: var(--white) !important;
+    }
+    .final-price {
+      font-size: 24px;
+      font-weight: 900;
+      color: #E85D00;
+      text-decoration: none !important;
+    }
+    .per-month { font-size: 14px; font-weight: 500; }
+    @media (max-width: 600px) {
+      .price-stack { padding: 24px 18px; }
+      .price-stack-item { font-size: 13px; }
+      .price-stack-val { font-size: 13px; }
+      .final-label { font-size: 15px !important; }
+      .final-price { font-size: 20px; }
+    }
+
+    /* ── ESCASSEZ ── */
+    .escassez-line {
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .3px;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
     .oferta-cta {
       text-align: center;
       border-top: 1px solid rgba(255,255,255,.1);
@@ -1199,7 +1284,7 @@
         <div class="play-btn">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </div>
-        <span style="font-size:11px; letter-spacing:.5px; color:#444;">INSERIR VSL · 90–120 seg.</span>
+        <span style="font-size:13px; letter-spacing:.5px; color:rgba(255,255,255,.35);">Vídeo em breve</span>
       </div>
     </div>
 
@@ -1507,7 +1592,40 @@
       </div>
     </div>
 
+    <!-- ANCORAGEM DE PREÇO -->
+    <div class="price-stack">
+      <p class="price-stack-label">O que você recebe — e quanto custaria separado:</p>
+      <div class="price-stack-table">
+        <div class="price-stack-row">
+          <span class="price-stack-item">Treino Personalizado</span>
+          <span class="price-stack-val strike">R$&nbsp;600</span>
+        </div>
+        <div class="price-stack-row">
+          <span class="price-stack-item">Dieta Personalizada com ajustes</span>
+          <span class="price-stack-val strike">R$&nbsp;600</span>
+        </div>
+        <div class="price-stack-row">
+          <span class="price-stack-item">Mapeamento de Obstáculos <span class="excl-tag">exclusivo</span></span>
+          <span class="price-stack-val strike">R$&nbsp;500</span>
+        </div>
+        <div class="price-stack-row">
+          <span class="price-stack-item">Acompanhamento Personalizado</span>
+          <span class="price-stack-val strike">R$&nbsp;400</span>
+        </div>
+        <div class="price-stack-divider"></div>
+        <div class="price-stack-row total-row">
+          <span class="price-stack-item">Total separado</span>
+          <span class="price-stack-val strike muted">R$&nbsp;2.100</span>
+        </div>
+        <div class="price-stack-row final-row">
+          <span class="price-stack-item final-label">Na Performe — tudo junto</span>
+          <span class="price-stack-val final-price">menos de R$&nbsp;150<span class="per-month">/mês</span></span>
+        </div>
+      </div>
+    </div>
+
     <div class="oferta-cta">
+      <p class="escassez-line">⚡ Vagas limitadas para a primeira turma da nova abordagem — inscrições abertas por tempo limitado.</p>
       <p>Pronto(a) para começar ou parar de recomeçar e ter resultados igual dos nossos alunos?<br/><strong>O primeiro passo é uma conversa.</strong></p>
       <button class="btn btn-xl" onclick="openModal()">
         Quero mudar meu físico e minha mentalidade
@@ -1655,6 +1773,9 @@
         })
       }).catch(function() {}); // silencioso se não configurado
     }
+
+    /* ── EVENTO LEAD (Meta Pixel) ── */
+    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
 
     /* ── REDIRECT PARA WHATSAPP ── */
     const msg = 'Gostaria de mais informações sobre o acompanhamento da Performe.';
