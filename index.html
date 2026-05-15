@@ -1757,22 +1757,20 @@
        Exemplo: 'https://formspree.io/f/abcdefgh'
        Deixe vazio ('') para desativar.
     ────────────────────────────────── */
-    const FORMSPREE_ENDPOINT = '';
-
-    if (FORMSPREE_ENDPOINT) {
-      fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          nome: nome,
-          telefone: tel,
-          email: email,
-          idade: idade + ' anos',
-          momento: momento,
-          _subject: 'Novo lead — Performe Fit Club'
-        })
-      }).catch(function() {}); // silencioso se não configurado
-    }
+    /* ── ENVIO POR E-MAIL (Web3Forms) ── */
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '9e02594d-0715-4df8-aef1-60f6bc9209e2',
+        subject: 'Novo lead — Performe Fit Club',
+        nome: nome,
+        telefone: tel,
+        email: email,
+        idade: idade + ' anos',
+        momento: momento
+      })
+    }).catch(function() {}); // silencioso em caso de erro de rede
 
     /* ── EVENTO LEAD (Meta Pixel) ── */
     if (typeof fbq === 'function') { fbq('track', 'Lead'); }
