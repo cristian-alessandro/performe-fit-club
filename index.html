@@ -837,80 +837,56 @@
       line-height: 1.55;
     }
 
-    /* ── ANCORAGEM DE PREÇO ── */
-    .price-stack {
-      margin: 48px 0 0;
-      padding: 36px 40px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 8px;
+    /* ── POSICIONAMENTO PREMIUM ── */
+    .premium-section {
+      margin: 56px 0 0;
+      padding: 48px 0 8px;
+      border-top: 1px solid rgba(255,255,255,.08);
     }
-    .price-stack-label {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.4);
-      margin-bottom: 20px;
-    }
-    .price-stack-table { display: flex; flex-direction: column; gap: 0; }
-    .price-stack-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 13px 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .price-stack-item {
-      font-size: 15px;
-      color: rgba(255,255,255,.75);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .excl-tag {
-      font-size: 9px;
+    .premium-eyebrow {
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--orange);
-      background: rgba(232,93,0,.12);
-      border: 1px solid rgba(232,93,0,.3);
-      padding: 2px 7px;
-      border-radius: 3px;
+      margin-bottom: 14px;
     }
-    .price-stack-val {
-      font-size: 15px;
-      font-weight: 600;
-      color: rgba(255,255,255,.5);
-      white-space: nowrap;
-    }
-    .strike { text-decoration: line-through; }
-    .price-stack-divider { height: 1px; background: rgba(255,255,255,.12); margin: 4px 0; }
-    .total-row .price-stack-item { font-weight: 600; color: rgba(255,255,255,.5); }
-    .muted { color: rgba(255,255,255,.3); }
-    .final-row {
-      padding: 18px 0 4px;
-      border-bottom: none;
-    }
-    .final-label {
-      font-size: 17px !important;
-      font-weight: 700;
-      color: var(--white) !important;
-    }
-    .final-price {
-      font-size: 24px;
+    .premium-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(26px, 4vw, 38px);
       font-weight: 900;
-      color: #E85D00;
-      text-decoration: none !important;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 40px;
+      line-height: 1.1;
     }
-    .per-month { font-size: 14px; font-weight: 500; }
+    .premium-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .premium-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-left: 3px solid var(--orange);
+      border-radius: 6px;
+      padding: 28px 26px;
+    }
+    .premium-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: .2px;
+    }
+    .premium-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+    }
     @media (max-width: 600px) {
-      .price-stack { padding: 24px 18px; }
-      .price-stack-item { font-size: 13px; }
-      .price-stack-val { font-size: 13px; }
-      .final-label { font-size: 15px !important; }
-      .final-price { font-size: 20px; }
+      .premium-grid { grid-template-columns: 1fr; }
+      .premium-section { padding: 36px 0 0; }
     }
 
     /* ── ESCASSEZ ── */
@@ -1592,40 +1568,32 @@
       </div>
     </div>
 
-    <!-- ANCORAGEM DE PREÇO -->
-    <div class="price-stack">
-      <p class="price-stack-label">O que você recebe — e quanto custaria separado:</p>
-      <div class="price-stack-table">
-        <div class="price-stack-row">
-          <span class="price-stack-item">Treino Personalizado</span>
-          <span class="price-stack-val strike">R$&nbsp;600</span>
+    <!-- POSICIONAMENTO PREMIUM -->
+    <div class="premium-section">
+      <p class="premium-eyebrow">Por que é diferente</p>
+      <h3 class="premium-title">Por que a Performe não é<br/>mais um acompanhamento.</h3>
+      <div class="premium-grid">
+        <div class="premium-card">
+          <h4>Diagnóstico antes de protocolo</h4>
+          <p>Enquanto outros te entregam uma planilha no primeiro dia, nós passamos pelo Mapeamento de Obstáculos antes de montar qualquer coisa. Seu treino e sua dieta são construídos sobre o diagnóstico do que especificamente trava você — não sobre um template.</p>
         </div>
-        <div class="price-stack-row">
-          <span class="price-stack-item">Dieta Personalizada com ajustes</span>
-          <span class="price-stack-val strike">R$&nbsp;600</span>
+        <div class="premium-card">
+          <h4>Sistema mental integrado</h4>
+          <p>Treino e dieta você encontra em qualquer lugar. O que você não encontra é um sistema que trata a mentalidade que sabota a execução. Aqui, o comportamental não é um extra — é a fundação.</p>
         </div>
-        <div class="price-stack-row">
-          <span class="price-stack-item">Mapeamento de Obstáculos <span class="excl-tag">exclusivo</span></span>
-          <span class="price-stack-val strike">R$&nbsp;500</span>
+        <div class="premium-card">
+          <h4>Personalizado de verdade</h4>
+          <p>O protocolo é construído pra funcionar dentro da sua realidade — seja sua rotina, seus obstáculos, seus padrões comportamentais ou seus limites de tempo. Não existe modelo pronto aqui. Existe o que funciona pra você.</p>
         </div>
-        <div class="price-stack-row">
-          <span class="price-stack-item">Acompanhamento Personalizado</span>
-          <span class="price-stack-val strike">R$&nbsp;400</span>
-        </div>
-        <div class="price-stack-divider"></div>
-        <div class="price-stack-row total-row">
-          <span class="price-stack-item">Total separado</span>
-          <span class="price-stack-val strike muted">R$&nbsp;2.100</span>
-        </div>
-        <div class="price-stack-row final-row">
-          <span class="price-stack-item final-label">Na Performe — tudo junto</span>
-          <span class="price-stack-val final-price">menos de R$&nbsp;150<span class="per-month">/mês</span></span>
+        <div class="premium-card">
+          <h4>Acompanhamento, não entrega de PDF</h4>
+          <p>Acesso direto via WhatsApp. Ajustes quando a rotina mudar. Suporte quando a semana quebrar. Você não recebe um arquivo e fica sozinho — você entra num sistema com alguém do outro lado.</p>
         </div>
       </div>
     </div>
 
     <div class="oferta-cta">
-      <p class="escassez-line">⚡ Vagas limitadas para a primeira turma da nova abordagem — inscrições abertas por tempo limitado.</p>
+      <p class="escassez-line">Vagas limitadas para a primeira turma da nova abordagem — inscrições abertas por tempo limitado.</p>
       <p>Pronto(a) para começar ou parar de recomeçar e ter resultados igual dos nossos alunos?<br/><strong>O primeiro passo é uma conversa.</strong></p>
       <button class="btn btn-xl" onclick="openModal()">
         Quero mudar meu físico e minha mentalidade
