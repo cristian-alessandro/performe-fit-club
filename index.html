@@ -395,12 +395,32 @@
       position: relative;
       border: 1px solid #1e2f45;
       margin-bottom: 44px;
+      cursor: pointer;
     }
     .vsl-frame iframe {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       border: 0;
+    }
+    .vsl-thumb {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .vsl-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.5) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+    .vsl-frame:hover .vsl-overlay {
+      background: linear-gradient(to bottom, rgba(0,0,0,.25) 0%, rgba(0,0,0,.6) 100%);
     }
     .play-btn {
       width: 76px; height: 76px;
@@ -409,8 +429,9 @@
       display: flex; align-items: center; justify-content: center;
       cursor: pointer;
       transition: transform .2s;
+      box-shadow: 0 4px 24px rgba(0,0,0,.4);
     }
-    .play-btn:hover { transform: scale(1.07); }
+    .vsl-frame:hover .play-btn { transform: scale(1.1); }
     .play-btn svg { width: 30px; height: 30px; fill: white; margin-left: 5px; }
 
     .hero-eyebrow {
@@ -1253,13 +1274,21 @@
   <div class="wrap">
 
     <!-- VSL -->
-    <div class="vsl-frame">
-      <iframe
-        src="https://www.youtube.com/embed/ey4mDBj_aJg?rel=0&modestbranding=1"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
+    <div class="vsl-frame" id="vsl-frame" onclick="playVSL()">
+      <img class="vsl-thumb" src="https://img.youtube.com/vi/ey4mDBj_aJg/maxresdefault.jpg" alt="Assista ao vídeo" loading="lazy">
+      <div class="vsl-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
     </div>
+    <script>
+      function playVSL() {
+        var f = document.getElementById('vsl-frame');
+        f.innerHTML = '<iframe src="https://www.youtube.com/embed/ey4mDBj_aJg?autoplay=1&rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>';
+        f.style.cursor = 'default';
+      }
+    </script>
 
     <p class="hero-eyebrow">Performe Fit Club</p>
 
