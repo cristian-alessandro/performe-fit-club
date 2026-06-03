@@ -171,6 +171,7 @@
       transition: background .18s, transform .15s;
     }
     .btn:hover { background: var(--orange-h); transform: translateY(-2px); }
+    a.btn, a.btn:visited, a.btn:link { color: #fff; background: var(--orange); }
     .btn-xl {
       font-size: 16px;
       padding: 22px 52px;
@@ -516,17 +517,17 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 72px;
+      width: 48px;
       z-index: 2;
       pointer-events: none;
     }
     .carousel-wrapper::before {
       left: 0;
-      background: linear-gradient(to right, rgba(6,12,24,0.92), transparent);
+      background: linear-gradient(to right, rgba(6,12,24,0.6), transparent);
     }
     .carousel-wrapper::after {
       right: 0;
-      background: linear-gradient(to left, rgba(6,12,24,0.92), transparent);
+      background: linear-gradient(to left, rgba(6,12,24,0.6), transparent);
     }
 
     .carousel-track {
@@ -538,8 +539,8 @@
 
     .carousel-slide {
       position: relative;
-      width: 240px;
-      height: 320px;
+      width: 280px;
+      height: 380px;
       border-radius: 8px;
       flex-shrink: 0;
       overflow: hidden;
@@ -1330,12 +1331,17 @@
 
   <div class="carousel-wrapper" id="carrossel">
     <div class="carousel-track" id="carrossel-track">
-      <!-- 10 fotos reais — ordem intercalada mulher/homem -->
+      <!-- 15 fotos reais -->
       <div class="carousel-slide"><img src="resultado-01.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-01.jpg" alt=""/></div>
       <div class="carousel-slide has-seam"><img src="resultado-02.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-02.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-03.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-03.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-04.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-04.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-05.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-05.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-06.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-07.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-08.jpg" alt=""/></div>
@@ -1343,10 +1349,15 @@
       <div class="carousel-slide"><img src="resultado-10.jpg" alt=""/></div>
       <!-- Duplicado para loop infinito -->
       <div class="carousel-slide"><img src="resultado-01.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-01.jpg" alt=""/></div>
       <div class="carousel-slide has-seam"><img src="resultado-02.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-02.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-03.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-03.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-04.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-04.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-05.jpg" alt=""/></div>
+      <div class="carousel-slide"><img src="lp-resultado-05.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-06.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-07.jpg" alt=""/></div>
       <div class="carousel-slide"><img src="resultado-08.jpg" alt=""/></div>
