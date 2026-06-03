@@ -106,11 +106,11 @@
     #resultados h2{font-size:clamp(28px,5vw,48px);font-weight:900;text-transform:uppercase;color:var(--white);text-align:center;margin-bottom:8px}
     .carousel-wrapper{width:100%;overflow-x:scroll;overflow-y:hidden;position:relative;-ms-overflow-style:none;scrollbar-width:none;cursor:grab}
     .carousel-wrapper::-webkit-scrollbar{display:none}
-    .carousel-wrapper::before,.carousel-wrapper::after{content:'';position:absolute;top:0;bottom:0;width:72px;z-index:2;pointer-events:none}
-    .carousel-wrapper::before{left:0;background:linear-gradient(to right,rgba(13,26,48,.92),transparent)}
-    .carousel-wrapper::after{right:0;background:linear-gradient(to left,rgba(13,26,48,.92),transparent)}
+    .carousel-wrapper::before,.carousel-wrapper::after{content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none}
+    .carousel-wrapper::before{left:0;background:linear-gradient(to right,rgba(13,26,48,.6),transparent)}
+    .carousel-wrapper::after{right:0;background:linear-gradient(to left,rgba(13,26,48,.6),transparent)}
     .carousel-track{display:flex;gap:16px;width:max-content;padding:0 8px}
-    .carousel-slide{position:relative;width:240px;height:320px;border-radius:8px;flex-shrink:0;overflow:hidden;background:#1a2030}
+    .carousel-slide{position:relative;width:280px;height:380px;border-radius:8px;flex-shrink:0;overflow:hidden;background:#1a2030}
     .carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
 
     /* ═══════════════════════════════
@@ -168,7 +168,7 @@
 
       #resultados{padding:48px 0}
       #resultados h2{font-size:clamp(24px,6vw,36px)}
-      .carousel-slide{width:220px;height:280px}
+      .carousel-slide{width:240px;height:300px}
 
       #depoimentos{padding:56px 0}
       #depoimentos h2{font-size:clamp(26px,7vw,38px);margin-bottom:32px}
@@ -191,7 +191,7 @@
       #hero h1{font-size:clamp(22px,7vw,30px)}
       #hero{padding:40px 0 36px}
       .hero-sub{font-size:13px}
-      .carousel-slide{width:200px;height:260px}
+      .carousel-slide{width:210px;height:270px}
     }
   </style>
 </head>
@@ -256,7 +256,7 @@
     </div>
 
     <div style="text-align:center;margin-top:36px">
-      <button class="btn btn-xl" style="background:var(--navy);animation:none" onclick="openModal()">Quero entender o que me trava</button>
+      <button class="btn btn-xl" onclick="openModal()">Quero entender o que me trava</button>
       <span class="anchor-text anchor-text-dark">Diagnóstico gratuito &middot; Sem compromisso</span>
     </div>
   </div>
