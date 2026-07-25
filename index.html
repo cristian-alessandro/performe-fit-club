@@ -142,23 +142,48 @@
       background:#1a2030;
     }
 
-    /* ══ FORM ══ */
-    #form{
-      background:var(--navy-2);
-      padding:48px 0 52px;
-      border-top:3px solid var(--orange);
+    /* ══ MODAL ══ */
+    .modal{
+      position:fixed;inset:0;z-index:9999;
+      background:rgba(4,8,20,.94);
+      display:flex;align-items:center;justify-content:center;
+      padding:20px;
+      opacity:0;visibility:hidden;
+      transition:opacity .22s,visibility .22s;
+      overflow-y:auto;
     }
-    #form h2{
-      font-size:clamp(24px,5vw,34px);
+    .modal.on{opacity:1;visibility:visible}
+    .modal-card{
+      background:var(--navy-2);
+      border-radius:8px;
+      border-top:3px solid var(--orange);
+      padding:38px 30px 32px;
+      max-width:440px;width:100%;
+      position:relative;
+      transform:translateY(16px);
+      transition:transform .22s;
+      margin:auto;
+    }
+    .modal.on .modal-card{transform:translateY(0)}
+    .fechar{
+      position:absolute;top:10px;right:14px;
+      background:none;border:none;
+      color:rgba(255,255,255,.35);
+      font-size:28px;line-height:1;cursor:pointer;
+      padding:4px 6px;transition:color .15s;
+    }
+    .fechar:hover{color:rgba(255,255,255,.8)}
+    .modal-card h2{
+      font-size:clamp(23px,5vw,30px);
       font-weight:900;text-transform:uppercase;
-      text-align:center;margin-bottom:8px;
+      text-align:center;margin-bottom:6px;
     }
     .form-sub{
-      text-align:center;font-size:14px;
-      color:rgba(255,255,255,.45);
-      margin-bottom:28px;line-height:1.55;
+      text-align:center;font-size:13px;
+      color:rgba(255,255,255,.42);
+      margin-bottom:24px;line-height:1.55;
     }
-    .fg{margin-bottom:12px}
+    .fg{margin-bottom:11px}
     .fg input,.fg select{
       width:100%;
       background:rgba(255,255,255,.06);
@@ -205,6 +230,14 @@
       font-size:12px;color:rgba(255,255,255,.3);
       margin-top:13px;
     }
+
+    /* ══ CTA FINAL ══ */
+    #cta-final{
+      background:var(--navy-2);
+      padding:42px 0 46px;
+      border-top:3px solid var(--orange);
+    }
+    #cta-final .wrap{max-width:400px}
 
     /* ══ QUEM ══ */
     #quem{
@@ -273,9 +306,10 @@
       <strong>Começa com um diagnóstico do que trava você</strong> — antes de qualquer protocolo.
     </p>
 
-    <a href="#form" class="btn" style="max-width:340px;margin:0 auto">
-      Quero falar com a equipe
-    </a>
+    <button class="btn" onclick="abrir()" style="max-width:360px;margin:0 auto">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
+      Falar direto no WhatsApp
+    </button>
   </div>
 </section>
 
@@ -301,7 +335,7 @@
       </li>
       <li>
         <span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-        <span><strong>WhatsApp direto com a equipe.</strong> Você não recebe um PDF e fica sozinho.</span>
+        <span><strong>WhatsApp direto.</strong> Você não recebe um PDF e fica sozinho.</span>
       </li>
     </ul>
   </div>
@@ -317,32 +351,50 @@
     <div class="fotos">
       <img src="resultado-01.jpg" alt=""/>
       <img src="lp-resultado-01.jpg" alt=""/>
-      <img src="resultado-03.jpg" alt=""/>
+      <img src="resultado-02.jpg" alt=""/>
       <img src="lp-resultado-02.jpg" alt=""/>
-      <img src="resultado-05.jpg" alt=""/>
+      <img src="resultado-03.jpg" alt=""/>
       <img src="lp-resultado-03.jpg" alt=""/>
-      <img src="resultado-07.jpg" alt=""/>
+      <img src="resultado-04.jpg" alt=""/>
       <img src="lp-resultado-04.jpg" alt=""/>
-      <img src="resultado-09.jpg" alt=""/>
+      <img src="resultado-05.jpg" alt=""/>
       <img src="lp-resultado-05.jpg" alt=""/>
+      <img src="resultado-06.jpg" alt=""/>
+      <img src="resultado-07.jpg" alt=""/>
+      <img src="resultado-08.jpg" alt=""/>
+      <img src="resultado-09.jpg" alt=""/>
       <img src="resultado-10.jpg" alt=""/>
     </div>
   </div>
 </section>
 
 
-<!-- ══════════ FORMULÁRIO ══════════ -->
-<section id="form">
+<!-- ══════════ CTA FINAL ══════════ -->
+<section id="cta-final">
   <div class="wrap">
+    <button class="btn" onclick="abrir()">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
+      Falar direto no WhatsApp
+    </button>
+    <span class="micro">Sem compromisso · Resposta imediata</span>
+  </div>
+</section>
+
+
+<!-- ══════════ MODAL ══════════ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="fechar" onclick="fechar()" aria-label="Fechar">×</button>
     <span class="eyebrow">Primeiro passo</span>
-    <h2>Preencha e fale conosco.</h2>
-    <p class="form-sub">Leva 30 segundos. Ao finalizar, você é levado direto ao WhatsApp da equipe.</p>
+    <h2>Vamos começar.</h2>
+    <p class="form-sub">Leva 30 segundos. Ao finalizar você vai direto para o WhatsApp.</p>
 
     <form id="lead" onsubmit="enviar(event)" novalidate>
       <div class="fg"><input type="text" id="f-nome" placeholder="Seu nome" required autocomplete="name"/></div>
-      <div class="fg"><input type="tel" id="f-tel" placeholder="Telefone (WhatsApp)" required autocomplete="tel"/></div>
-      <div class="fg"><input type="email" id="f-email" placeholder="Seu e-mail" required autocomplete="email"/></div>
-      <div class="fg"><input type="number" id="f-idade" placeholder="Sua idade" min="16" max="80" required/></div>
+      <div class="fg"><input type="tel" id="f-tel" placeholder="WhatsApp (com DDD)" required autocomplete="tel"/></div>
+      <div class="fg"><input type="email" id="f-email" placeholder="E-mail" required autocomplete="email"/></div>
+      <div class="fg"><input type="text" id="f-insta" placeholder="Instagram (@seuperfil)" required/></div>
+      <div class="fg"><input type="number" id="f-idade" placeholder="Idade" min="16" max="80" required/></div>
       <div class="fg">
         <select id="f-momento" required>
           <option value="">Em que momento você está?</option>
@@ -357,10 +409,9 @@
         <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
         Ir para o WhatsApp
       </button>
-      <span class="micro">Sem compromisso · Resposta imediata</span>
     </form>
   </div>
-</section>
+</div>
 
 
 <!-- ══════════ QUEM ══════════ -->
@@ -388,16 +439,30 @@
 
 
 <script>
+  var modal=document.getElementById('modal');
+
+  function abrir(){
+    modal.classList.add('on');
+    document.body.style.overflow='hidden';
+  }
+  function fechar(){
+    modal.classList.remove('on');
+    document.body.style.overflow='';
+  }
+  modal.addEventListener('click',function(e){ if(e.target===modal) fechar(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') fechar(); });
+
   function enviar(e){
     e.preventDefault();
 
     var nome=document.getElementById('f-nome').value.trim();
     var tel=document.getElementById('f-tel').value.trim();
     var email=document.getElementById('f-email').value.trim();
+    var insta=document.getElementById('f-insta').value.trim();
     var idade=document.getElementById('f-idade').value.trim();
     var momento=document.getElementById('f-momento').value;
 
-    if(!nome||!tel||!email||!idade||!momento){
+    if(!nome||!tel||!email||!insta||!idade||!momento){
       alert('Por favor, preencha todos os campos.');
       return;
     }
@@ -409,7 +474,7 @@
       body:JSON.stringify({
         access_key:'9e02594d-0715-4df8-aef1-60f6bc9209e2',
         subject:'Novo lead — Performe Fit Club',
-        nome:nome, telefone:tel, email:email,
+        nome:nome, whatsapp:tel, email:email, instagram:insta,
         idade:idade+' anos', momento:momento
       })
     }).catch(function(){});
